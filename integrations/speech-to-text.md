@@ -1,4 +1,14 @@
-# STT (Speech-to-Text) Integrations
+---
+title: speech-to-text
+description: 
+published: true
+date: 2025-05-01T19:28:09.312Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T19:12:26.284Z
+---
+
+# STT (Speech To Text) Integrations
 
 ## Overview
 
@@ -43,10 +53,7 @@ services:
     image: agentvoiceresponse/avr-stt-gemini
     environment:
       - PORT=6002
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
-      - LANGUAGE_CODE=en-US
-    volumes:
-      - ./credentials.json:/app/credentials.json
+      - GEMINI_API_KEY=
 ```
 
 **Implementation Example:**
