@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:28:09.312Z
+date: 2025-05-01T19:28:28.311Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -60,7 +60,7 @@ services:
 ```javascript
 // Processing audio with Gemini
 const gemini = new Gemini({
-  credentials: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  credentials: process.env.GEMINI_API_KEY,
   languageCode: 'en-US'
 });
 
