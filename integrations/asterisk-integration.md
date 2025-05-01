@@ -2,7 +2,7 @@
 title: asterisk-integration
 description: 
 published: true
-date: 2025-05-01T19:20:00.664Z
+date: 2025-05-01T19:22:35.851Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:42.360Z
@@ -29,6 +29,7 @@ wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20-current.ta
 tar xvf asterisk-20-current.tar.gz
 cd asterisk-20.*/contrib/ast_tools
 make
+make install
 ```
 
 ### 2. Configure Asterisk
@@ -38,8 +39,9 @@ Add the following to your `extensions.conf`:
 ```ini
 [from-internal]
 exten => _6XXX,1,Answer()
-exten => _6XXX,1,Ringing()
-exten => _6XXX,n,AudioSocket(127.0.0.1,5001)
+exten => _6XXX,n,Ringing()
+exten => _6XXX,n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:AVR_HOST_PORT)
 exten => _6XXX,n,Hangup()
 ```
 
@@ -99,7 +101,7 @@ Add the following to `extensions_custom.conf`:
 exten => s,1,Answer()
 exten => s,n,Ringing()
 exten => s,n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
-exten => s,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:5001)
+exten => s,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:AVR_HOST_PORT)
 exten => s,n,Hangup()
 ```
 
@@ -137,7 +139,7 @@ samplerate=8000
 exten => _6XXX,1,Answer()
 exten => _6XXX,1,Ringing()
 exten => _6XXX,1,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
-exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:5001)
+exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:AVR_HOST_PORT)
 exten => _6XXX,n,Hangup()
 ```
 
@@ -181,20 +183,16 @@ full => notice,warning,error,debug,verbose
    - Always call `Answer()` before `AudioSocket()`
    - This ensures proper audio channel setup
 
-2. **Timeout Handling**
-   - Set appropriate timeouts
-   - Handle timeout scenarios gracefully
-
-3. **Error Recovery**
+2. **Error Recovery**
    - Implement retry mechanisms
    - Provide fallback options
 
-4. **Audio Quality**
+3. **Audio Quality**
    - Use appropriate codecs
    - Monitor audio quality
    - Handle network issues
 
-5. **Security**
+4. **Security**
    - Restrict access to AudioSocket
    - Use secure connections
    - Monitor for abuse
@@ -206,37 +204,10 @@ full => notice,warning,error,debug,verbose
 ```ini
 [from-internal]
 exten => _6XXX,1,Answer()
-exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
+exten => _6XXX,n,Ringing()
+exten => _6XXX,n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:AVR_HOST_PORT)
 exten => _6XXX,n,Hangup()
-```
-
-### 2. Advanced AVR Integration
-
-```ini
-[from-internal]
-exten => _6XXX,1,Answer()
-exten => _6XXX,n,Set(TIMEOUT(absolute)=60)
-exten => _6XXX,n,Set(MAXRETRIES=3)
-exten => _6XXX,n,Set(RETRYCOUNT=0)
-
-exten => _6XXX,n(retry),AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => _6XXX,n,Set(RETRYCOUNT=$[${RETRYCOUNT} + 1])
-exten => _6XXX,n,GotoIf($[${RETRYCOUNT} < ${MAXRETRIES}]?retry)
-exten => _6XXX,n,Playback(pls-try-again)
-exten => _6XXX,n,Hangup()
-```
-
-### 3. FreePBX Custom Destination
-
-```ini
-[from-internal-custom]
-exten => s,1,Answer()
-exten => s,n,Set(TIMEOUT(absolute)=60)
-exten => s,n,AudioSocket(127.0.0.1,6000)
-exten => s,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => s,n,Playback(pls-try-again)
-exten => s,n,Hangup()
 ```
 
 ## Troubleshooting
