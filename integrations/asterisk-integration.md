@@ -2,7 +2,7 @@
 title: asterisk-integration
 description: 
 published: true
-date: 2025-05-01T19:22:35.851Z
+date: 2025-05-01T19:22:54.126Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:42.360Z
