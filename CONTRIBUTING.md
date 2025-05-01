@@ -1,13 +1,3 @@
----
-title: CONTRIBUTING
-description: 
-published: true
-date: 2025-05-01T18:43:48.790Z
-tags: 
-editor: markdown
-dateCreated: 2025-05-01T18:04:49.292Z
----
-
 # Contributing to AVR
 
 Thank you for your interest in contributing to AVR! We welcome contributions that enhance the platform's capabilities through new provider integrations.

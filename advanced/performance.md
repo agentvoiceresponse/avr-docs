@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-=======
----
-title: performance
-description: 
-published: true
-date: 2025-05-01T18:05:06.783Z
-tags: 
-editor: markdown
-dateCreated: 2025-05-01T18:05:02.103Z
----
-
->>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d
 # Performance Optimization Guide
 
 ## Overview

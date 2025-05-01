@@ -1,13 +1,3 @@
----
-title: README
-description: 
-published: true
-date: 2025-05-01T18:43:53.329Z
-tags: 
-editor: markdown
-dateCreated: 2025-05-01T18:38:03.911Z
----
-
 # AVR Documentation Repository
 
 This repository contains the source documentation for the AVR (Agent Voice Response) project. The documentation is automatically synchronized with the [AVR Wiki](https://wiki.agentvoiceresponse.com/).
@@ -16,18 +6,18 @@ This repository contains the source documentation for the AVR (Agent Voice Respo
 
 The documentation is organized into the following directories:
 
-- `Advanced/` - Advanced topics and best practices
-  - [Performance Optimization Guide](Advanced/Performance%20Optimization%20Guide.md)
-  - [Security Best Practices](Advanced/Security%20Best%20Practices.md)
-- `Examples/` - Use cases and implementation examples
-  - [Quick Start Guide](Examples/Quick%20Start%20Guide.md)
-  - [Specific Use Cases](Examples/Specific%20Use%20Cases.md)
-  - [Provider Combinations Comparison](Examples/Provider%20Combinations%20Comparison.md)
-- `Integrations/` - Integration guides for different providers
-  - [Automatic Speech Recognition](Integrations/Automatic%20Speech%20Recognition.md)
-  - [Speech To Text](Integrations/Speech%20To%20Text.md)
-  - [Large Language Model](Integrations/Large%20Language%20Model.md)
-  - [Text To Speech](Integrations/Text%20To%20Speech.md)
+- `advanced/` - Advanced topics and best practices
+  - [Performance Optimization Guide](advanced/performance.md)
+  - [Security Best Practices](advanced/security.md)
+- `examples/` - Use cases and implementation examples
+  - [Quick Start Guide](examples/quick-start.md)
+  - [Use Cases](examples/use-cases.md)
+  - [Provider Combinations Comparison](examples/provider-comparison.md)
+- `integrations/` - Integration guides for different providers
+  - [Automatic Speech Recognition](integrations/automatic-speech-recognition.md)
+  - [Speech To Text](integrations/speech-to-text.md)
+  - [Large Language Model](integrations/large-language-model.md)
+  - [Text To Speech](integrations/text-to-speech.md)
 
 ## Synchronization
 
@@ -48,7 +38,7 @@ To contribute to the documentation:
 3. Submit a pull request
 4. Once approved, changes will be automatically deployed to the wiki
 
-For more information about contributing, see our [Contributing Guidelines](Contributing.md).
+For more information about contributing, see our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Support
 

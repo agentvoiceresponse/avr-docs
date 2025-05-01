@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-=======
----
-title: quick-start
-description: 
-published: true
-date: 2025-05-01T18:05:32.092Z
-tags: 
-editor: markdown
-dateCreated: 2025-05-01T18:05:27.542Z
----
-
->>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d
 # Quick Start Guide
 
 ## Overview
