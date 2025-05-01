@@ -7,8 +7,17 @@ This repository contains the source documentation for the AVR (Agent Voice Respo
 The documentation is organized into the following directories:
 
 - `Advanced/` - Advanced topics and best practices
+  - [Performance Optimization Guide](Advanced/Performance%20Optimization%20Guide.md)
+  - [Security Best Practices](Advanced/Security%20Best%20Practices.md)
 - `Examples/` - Use cases and implementation examples
+  - [Quick Start Guide](Examples/Quick%20Start%20Guide.md)
+  - [Specific Use Cases](Examples/Specific%20Use%20Cases.md)
+  - [Provider Combinations Comparison](Examples/Provider%20Combinations%20Comparison.md)
 - `Integrations/` - Integration guides for different providers
+  - [Automatic Speech Recognition](Integrations/Automatic%20Speech%20Recognition.md)
+  - [Speech To Text](Integrations/Speech%20To%20Text.md)
+  - [Large Language Model](Integrations/Large%20Language%20Model.md)
+  - [Text To Speech](Integrations/Text%20To%20Speech.md)
 
 ## Synchronization
 
