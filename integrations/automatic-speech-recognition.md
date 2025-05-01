@@ -1,3 +1,13 @@
+---
+title: automatic-speech-recognition
+description: 
+published: true
+date: 2025-05-01T19:25:43.976Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T19:12:09.066Z
+---
+
 # ASR (Automatic Speech Recognition) Integrations
 
 ## Overview
@@ -18,7 +28,7 @@ AVR supports direct ASR integrations with providers that offer real-time speech 
 **Configuration:**
 ```bash
 # Environment Variables
-ASR_URL=http://localhost:6001/speech-to-text-stream
+ASR_URL=http://avr-asr-deepgram:6001/speech-to-text-stream
 DEEPGRAM_API_KEY=your_api_key
 ```
 
@@ -62,7 +72,7 @@ stream.on('data', (data) => {
 **Configuration:**
 ```bash
 # Environment Variables
-ASR_URL=http://localhost:6001/speech-to-text-stream
+ASR_URL=http://avr-asr-google-cloud-speech:6001/speech-to-text-stream
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 ```
 
@@ -172,6 +182,4 @@ For issues specific to ASR integrations:
 
 ## Related Documentation
 
-- [STT Integrations](Speech To Text.md) - For providers that don't support direct ASR integration
-- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For optimizing ASR performance
-- [Security Best Practices](../Advanced/Security Best Practices.md) - For securing ASR integrations 
+- [Speech To Text Integrations](./integrations/speech-to-text.md) - For providers that don't support direct ASR integration
