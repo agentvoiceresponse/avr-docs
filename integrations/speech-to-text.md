@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:29:13.021Z
+date: 2025-05-01T19:29:36.126Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -114,19 +114,7 @@ async function processAudio(audioBuffer) {
 
 ### 1. Setup avr-asr-to-stt
 
-1. **Install Silero VAD Model**
-   ```bash
-   wget https://github.com/snakers4/silero-vad/raw/master/files/silero_vad.onnx
-   ```
-
-2. **Configure Environment**
-   ```bash
-   # .env
-   MODEL_PATH=/path/to/silero_vad.onnx
-   STT_URL=http://avr-stt-{provider}:6002/text-to-speech
-   ```
-
-3. **Start the Container**
+1. **Start the Container**
    ```bash
    docker-compose -f docker-compose-asr-to-stt.yml up -d
    ```
