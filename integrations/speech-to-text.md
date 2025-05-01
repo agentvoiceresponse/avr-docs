@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:28:46.460Z
+date: 2025-05-01T19:28:58.964Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -88,8 +88,6 @@ services:
       - PORT=6001
       - MODEL_PATH=/app/silero_vad.onnx
       - STT_URL=http://avr-stt-elevenlabs:6002/text-to-speech
-    volumes:
-      - ./silero_vad.onnx:/app/silero_vad.onnx
 
   avr-stt-elevenlabs:
     image: agentvoiceresponse/avr-stt-elevenlabs
