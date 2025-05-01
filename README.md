@@ -1,3 +1,13 @@
+---
+title: README
+description: 
+published: true
+date: 2025-05-01T18:43:53.329Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T18:38:03.911Z
+---
+
 # AVR Documentation Repository
 
 This repository contains the source documentation for the AVR (Agent Voice Response) project. The documentation is automatically synchronized with the [AVR Wiki](https://wiki.agentvoiceresponse.com/).

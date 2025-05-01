@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+---
+title: use-cases
+description: 
+published: true
+date: 2025-05-01T18:05:38.406Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T18:05:33.844Z
+---
+
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d
 # Specific Use Cases
 
 ## 1. Call Center Automation
@@ -230,6 +243,7 @@ services:
 3. **Voice Quality**
    - Test different voices
    - Adjust audio settings
+<<<<<<< HEAD
    - Check network latency
 
 ## Support
@@ -245,3 +259,6 @@ For use case implementation issues:
 - [Provider Combinations](Provider Combinations Comparison.md) - For provider recommendations
 - [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For performance requirements
 - [Security Best Practices](../Advanced/Security Best Practices.md) - For security requirements 
+=======
+   - Check network latency 
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d

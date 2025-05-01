@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+---
+title: quick-start
+description: 
+published: true
+date: 2025-05-01T18:05:32.092Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T18:05:27.542Z
+---
+
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d
 # Quick Start Guide
 
 ## Overview
@@ -193,6 +206,7 @@ services:
 
 ## Support
 
+<<<<<<< HEAD
 For quick start issues:
 - Check the [documentation](https://wiki.agentvoiceresponse.com/)
 - Review service logs
@@ -204,3 +218,9 @@ For quick start issues:
 - [Provider Combinations](Provider Combinations Comparison.md) - For provider options
 - [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For performance tuning
 - [Security Best Practices](../Advanced/Security Best Practices.md) - For security setup 
+=======
+For additional help:
+- Check the [documentation](https://github.com/agentvoiceresponse/docs)
+- Join the [community](https://github.com/agentvoiceresponse/discussions)
+- Contact [support](mailto:info@agentvoiceresponse.com) 
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d

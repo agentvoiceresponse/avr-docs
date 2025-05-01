@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+---
+title: performance
+description: 
+published: true
+date: 2025-05-01T18:05:06.783Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T18:05:02.103Z
+---
+
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d
 # Performance Optimization Guide
 
 ## Overview
@@ -232,6 +245,7 @@ This guide covers advanced techniques for optimizing the performance of your AVR
 3. **Resource Exhaustion**
    - Monitor memory usage
    - Check disk space
+<<<<<<< HEAD
    - Review CPU utilization
 
 ## Support
@@ -246,3 +260,6 @@ For performance-related issues:
 - [Security Best Practices](Security Best Practices.md) - For security considerations
 - [Provider Combinations](../Examples/Provider Combinations Comparison.md) - For performance comparisons
 - [Specific Use Cases](../Examples/Specific Use Cases.md) - For performance requirements by use case 
+=======
+   - Review CPU utilization 
+>>>>>>> d38d9d88b718ecddf7d4a27f095a0764d7fe1b1d

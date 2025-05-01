@@ -1,3 +1,13 @@
+---
+title: home
+description: 
+published: true
+date: 2025-05-01T18:43:57.975Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T18:04:55.946Z
+---
+
 # AVR Documentation
 
 Welcome to the AVR (Agent Voice Response) documentation. This guide will help you understand, set up, and optimize your AVR deployment.
