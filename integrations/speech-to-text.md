@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:29:36.126Z
+date: 2025-05-01T19:30:06.813Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -189,6 +189,4 @@ For issues with STT integrations:
 
 ## Related Documentation
 
-- [ASR Integrations](Automatic Speech Recognition.md) - For direct ASR integrations
-- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For optimizing STT performance
-- [Security Best Practices](../Advanced/Security Best Practices.md) - For securing STT integrations 
+- [Automatic Speech Recognition Integrations](Automatic Speech Recognition.md) - For direct ASR integrations
