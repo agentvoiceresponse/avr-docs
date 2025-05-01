@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:28:28.311Z
+date: 2025-05-01T19:28:46.460Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -53,7 +53,7 @@ services:
     image: agentvoiceresponse/avr-stt-gemini
     environment:
       - PORT=6002
-      - GEMINI_API_KEY=
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
 ```
 
 **Implementation Example:**
