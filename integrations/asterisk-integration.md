@@ -1,17 +1,27 @@
+---
+title: asterisk-integration
+description: 
+published: true
+date: 2025-05-01T19:20:00.664Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T19:09:42.360Z
+---
+
 # Asterisk Integration Guide
 
 This guide explains how to integrate AVR with Asterisk, including basic setup, FreePBX integration, and best practices for audio handling.
 
 ## Prerequisites
 
-- Asterisk 16+ or FreePBX 16+
+- Asterisk 20+
 - AVR Core and provider integrations
 - Basic understanding of Asterisk dialplan
 - Network access between Asterisk and AVR services
 
 ## Basic Asterisk Setup
 
-### 1. Install AudioSocket Module
+### 1. Install Asterisk with AudioSocket Module
 
 ```bash
 cd /usr/src
@@ -27,17 +37,9 @@ Add the following to your `extensions.conf`:
 
 ```ini
 [from-internal]
-; Basic AVR integration
 exten => _6XXX,1,Answer()
-exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,Hangup()
-
-; Advanced AVR integration with error handling
-exten => _6XXX,1,Answer()
-exten => _6XXX,n,Set(TIMEOUT(absolute)=60)
-exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => _6XXX,n,Playback(pls-try-again)
+exten => _6XXX,1,Ringing()
+exten => _6XXX,n,AudioSocket(127.0.0.1,5001)
 exten => _6XXX,n,Hangup()
 ```
 
@@ -51,36 +53,31 @@ type=transport
 protocol=udp
 bind=0.0.0.0:5060
 
-[6001]
+[1000]
 type=endpoint
 context=from-internal
 disallow=all
 allow=ulaw
 allow=alaw
-auth=6001
-aors=6001
+auth=1000
+aors=1000
 
-[6001]
+[1000]
 type=auth
 auth_type=userpass
 password=your_password
-username=6001
+username=1000
 
-[6001]
+[1000]
 type=aors
 max_contacts=1
 ```
 
 ## FreePBX Integration
 
-### 1. Install AudioSocket Module
+### 1. Install FreePBX with AudioSocket Module
 
 ```bash
-cd /usr/src
-wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20-current.tar.gz
-tar xvf asterisk-20-current.tar.gz
-cd asterisk-20.*/contrib/ast_tools
-make
 ```
 
 ### 2. Create Custom Destination
@@ -100,10 +97,9 @@ Add the following to `extensions_custom.conf`:
 ```ini
 [from-internal-custom]
 exten => s,1,Answer()
-exten => s,n,Set(TIMEOUT(absolute)=60)
-exten => s,n,AudioSocket(127.0.0.1,6000)
-exten => s,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => s,n,Playback(pls-try-again)
+exten => s,n,Ringing()
+exten => s,n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+exten => s,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:5001)
 exten => s,n,Hangup()
 ```
 
@@ -139,39 +135,9 @@ samplerate=8000
 ```ini
 [from-internal]
 exten => _6XXX,1,Answer()
-exten => _6XXX,n,Set(AUDIOHOOK_INHERIT(MixMonitor)=yes)
-exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,Hangup()
-```
-
-## Error Handling
-
-### 1. Basic Error Handling
-
-```ini
-[from-internal]
-exten => _6XXX,1,Answer()
-exten => _6XXX,n,Set(TIMEOUT(absolute)=60)
-exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => _6XXX,n,Playback(pls-try-again)
-exten => _6XXX,n,Hangup()
-```
-
-### 2. Advanced Error Handling
-
-```ini
-[from-internal]
-exten => _6XXX,1,Answer()
-exten => _6XXX,n,Set(TIMEOUT(absolute)=60)
-exten => _6XXX,n,Set(MAXRETRIES=3)
-exten => _6XXX,n,Set(RETRYCOUNT=0)
-
-exten => _6XXX,n(retry),AudioSocket(127.0.0.1,6000)
-exten => _6XXX,n,GotoIf($["${AUDIOSOCKET_STATUS}" = "SUCCESS"]?hangup)
-exten => _6XXX,n,Set(RETRYCOUNT=$[${RETRYCOUNT} + 1])
-exten => _6XXX,n,GotoIf($[${RETRYCOUNT} < ${MAXRETRIES}]?retry)
-exten => _6XXX,n,Playback(pls-try-again)
+exten => _6XXX,1,Ringing()
+exten => _6XXX,1,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:5001)
 exten => _6XXX,n,Hangup()
 ```
 
