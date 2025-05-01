@@ -2,7 +2,7 @@
 title: automatic-speech-recognition
 description: 
 published: true
-date: 2025-05-01T19:25:43.976Z
+date: 2025-05-01T19:26:38.413Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:09.066Z
@@ -182,4 +182,4 @@ For issues specific to ASR integrations:
 
 ## Related Documentation
 
-- [Speech To Text Integrations](./integrations/speech-to-text.md) - For providers that don't support direct ASR integration
+- [Speech To Text Integrations](./speech-to-text.md) - For providers that don't support direct ASR integration
