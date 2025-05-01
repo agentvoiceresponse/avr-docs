@@ -2,7 +2,7 @@
 title: speech-to-text
 description: 
 published: true
-date: 2025-05-01T19:30:06.813Z
+date: 2025-05-01T19:30:28.471Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:26.284Z
@@ -189,4 +189,4 @@ For issues with STT integrations:
 
 ## Related Documentation
 
-- [Automatic Speech Recognition Integrations](Automatic Speech Recognition.md) - For direct ASR integrations
+- [Automatic Speech Recognition Integrations](./automatic-speech-recognition.md) - For direct ASR integrations
