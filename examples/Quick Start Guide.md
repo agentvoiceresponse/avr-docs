@@ -193,7 +193,14 @@ services:
 
 ## Support
 
-For additional help:
-- Check the [documentation](https://github.com/agentvoiceresponse/docs)
-- Join the [community](https://github.com/agentvoiceresponse/discussions)
-- Contact [support](mailto:info@agentvoiceresponse.com) 
+For quick start issues:
+- Check the [documentation](https://wiki.agentvoiceresponse.com/)
+- Review service logs
+- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
+
+## Related Documentation
+
+- [Specific Use Cases](Specific Use Cases.md) - For more detailed use cases
+- [Provider Combinations](Provider Combinations Comparison.md) - For provider options
+- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For performance tuning
+- [Security Best Practices](../Advanced/Security Best Practices.md) - For security setup 

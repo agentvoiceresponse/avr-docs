@@ -132,9 +132,9 @@ If your contribution is substantial and meets all requirements:
 For help with your integration:
 
 - Join our [Discord community](https://discord.gg/DFTU69Hg74)
-- Check the [documentation](https://github.com/agentvoiceresponse/avr-docs)
+- Check the [documentation](https://wiki.agentvoiceresponse.com/)
 - Review existing integrations
-- Contact the core team
+- Contact the core team at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
 
 ### 9. Code of Conduct
 
@@ -142,4 +142,4 @@ Please follow our [Code of Conduct](CODE_OF_CONDUCT.md) when contributing to the
 
 ### 10. License
 
-By contributing to AVR, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE) file. 
+By contributing to AVR, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE.md) file. 

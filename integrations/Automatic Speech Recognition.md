@@ -2,69 +2,62 @@
 
 ## Overview
 
-AVR supports multiple ASR providers for converting speech to text. Each provider has its own strengths in terms of accuracy, language support, and features.
+AVR supports direct ASR integrations with providers that offer real-time speech recognition capabilities. These integrations provide low-latency, high-accuracy speech-to-text conversion.
 
 ## Available Providers
 
-### 1. Silero VAD (`avr-asr-to-stt`)
+### 1. Deepgram (`avr-asr-deepgram`)
 
 **Features:**
-- Voice Activity Detection (VAD)
+- High accuracy speech recognition
 - Real-time streaming
-- Low latency
-- Open-source
-
-**Configuration:**
-```bash
-# Environment Variables
-ASR_URL=http://localhost:6001/speech-to-text-stream
-SILERO_MODEL_PATH=/path/to/silero_vad.onnx
-```
-
-**Docker Compose:**
-```yaml
-services:
-  avr-asr-silero:
-    image: agentvoiceresponse/avr-asr-to-stt
-    environment:
-      - PORT=6001
-      - MODEL_PATH=/app/silero_vad.onnx
-    volumes:
-      - ./silero_vad.onnx:/app/silero_vad.onnx
-```
-
-### 2. ElevenLabs (`avr-stt-elevenlabs`)
-
-**Features:**
-- High accuracy
 - Multiple language support
-- Real-time streaming
-- Commercial API
+- Custom vocabulary support
+- Speaker diarization
 
 **Configuration:**
 ```bash
 # Environment Variables
 ASR_URL=http://localhost:6001/speech-to-text-stream
-ELEVENLABS_API_KEY=your_api_key
+DEEPGRAM_API_KEY=your_api_key
 ```
 
 **Docker Compose:**
 ```yaml
 services:
-  avr-asr-elevenlabs:
-    image: agentvoiceresponse/avr-stt-elevenlabs
+  avr-asr-deepgram:
+    image: agentvoiceresponse/avr-asr-deepgram
     environment:
       - PORT=6001
-      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - DEEPGRAM_API_KEY=${DEEPGRAM_API_KEY}
+      - LANGUAGE=en-US
+      - MODEL=nova-2
 ```
 
-### 3. Gemini (`avr-stt-gemini`)
+**Example Usage:**
+```javascript
+// Streaming audio to Deepgram
+const stream = await deepgram.transcription.stream({
+  punctuate: true,
+  model: 'nova-2',
+  language: 'en-US',
+  encoding: 'linear16',
+  sample_rate: 16000
+});
+
+stream.on('data', (data) => {
+  console.log(data.channel.alternatives[0].transcript);
+});
+```
+
+### 2. Google Cloud Speech (`avr-asr-google-cloud-speech`)
 
 **Features:**
 - Google's speech recognition
 - High accuracy
 - Multiple language support
 - Cloud-based service
+- Custom models support
 
 **Configuration:**
 ```bash
@@ -76,13 +69,32 @@ GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 **Docker Compose:**
 ```yaml
 services:
-  avr-asr-gemini:
-    image: agentvoiceresponse/avr-stt-gemini
+  avr-asr-google:
+    image: agentvoiceresponse/avr-asr-google-cloud-speech
     environment:
       - PORT=6001
       - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - LANGUAGE_CODE=en-US
+      - MODEL=default
     volumes:
       - ./credentials.json:/app/credentials.json
+```
+
+**Example Usage:**
+```javascript
+// Streaming audio to Google Cloud Speech
+const stream = speechClient.streamingRecognize({
+  config: {
+    encoding: 'LINEAR16',
+    sampleRateHertz: 16000,
+    languageCode: 'en-US',
+    model: 'default'
+  }
+});
+
+stream.on('data', (data) => {
+  console.log(data.results[0].alternatives[0].transcript);
+});
 ```
 
 ## Integration Guide
@@ -90,9 +102,8 @@ services:
 ### 1. Choose a Provider
 
 Select an ASR provider based on your requirements:
-- For open-source solution: Silero VAD
-- For commercial use with high accuracy: ElevenLabs
-- For Google ecosystem integration: Gemini
+- Deepgram for high accuracy and custom vocabulary
+- Google Cloud Speech for Google ecosystem integration
 
 ### 2. Configure Environment
 
@@ -157,4 +168,10 @@ curl -X POST http://localhost:6001/speech-to-text-stream \
 For issues specific to ASR integrations:
 - Check provider documentation
 - Review service logs
-- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com) 
+- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
+
+## Related Documentation
+
+- [STT Integrations](Speech To Text.md) - For providers that don't support direct ASR integration
+- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For optimizing ASR performance
+- [Security Best Practices](../Advanced/Security Best Practices.md) - For securing ASR integrations 

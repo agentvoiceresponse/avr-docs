@@ -232,4 +232,17 @@ This guide covers advanced techniques for optimizing the performance of your AVR
 3. **Resource Exhaustion**
    - Monitor memory usage
    - Check disk space
-   - Review CPU utilization 
+   - Review CPU utilization
+
+## Support
+
+For performance-related issues:
+- Check the [documentation](https://wiki.agentvoiceresponse.com/)
+- Review service logs
+- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
+
+## Related Documentation
+
+- [Security Best Practices](Security Best Practices.md) - For security considerations
+- [Provider Combinations](../Examples/Provider Combinations Comparison.md) - For performance comparisons
+- [Specific Use Cases](../Examples/Specific Use Cases.md) - For performance requirements by use case 

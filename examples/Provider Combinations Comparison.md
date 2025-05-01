@@ -226,4 +226,18 @@ services:
 3. **Optimization**
    - Fine-tune settings
    - Adjust resources
-   - Optimize costs 
+   - Optimize costs
+
+## Support
+
+For provider selection issues:
+- Check the [documentation](https://wiki.agentvoiceresponse.com/)
+- Review provider documentation
+- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
+
+## Related Documentation
+
+- [Quick Start Guide](Quick Start Guide.md) - For basic setup
+- [Specific Use Cases](Specific Use Cases.md) - For use case requirements
+- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For performance comparisons
+- [Security Best Practices](../Advanced/Security Best Practices.md) - For security comparisons 

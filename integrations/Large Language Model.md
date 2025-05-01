@@ -211,7 +211,13 @@ curl -X POST http://localhost:6005/prompt-stream \
 
 ## Support
 
-For issues specific to LLM integrations:
+For issues with LLM integrations:
 - Check provider documentation
 - Review service logs
-- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com) 
+- Contact support at [info@agentvoiceresponse.com](mailto:info@agentvoiceresponse.com)
+
+## Related Documentation
+
+- [Performance Optimization](../Advanced/Performance Optimization Guide.md) - For optimizing LLM performance
+- [Security Best Practices](../Advanced/Security Best Practices.md) - For securing LLM integrations
+- [Provider Combinations](../Examples/Provider Combinations Comparison.md) - For comparing different LLM providers 
