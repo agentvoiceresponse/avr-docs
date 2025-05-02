@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:21:01.002Z
+date: 2025-05-02T16:21:13.362Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -260,7 +260,7 @@ To integrate with Asterisk, you'll need:
 
 ## Example Integrations
 
-### 1. Basic ASR Integration
+### 1. Deepgram ASR Integration
 ```javascript
 /**
  * index.js
