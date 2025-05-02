@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:21:30.100Z
+date: 2025-05-02T16:21:40.299Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -364,7 +364,7 @@ app.listen(port, () => {
 });
 ```
 
-### 2. Basic TTS Integration
+### 2. Deepgram TTS Integration
 ```javascript
 /**
  * index.js
