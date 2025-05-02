@@ -2,7 +2,7 @@
 title: text-to-speech
 description: 
 published: true
-date: 2025-05-02T16:22:36.930Z
+date: 2025-05-02T16:22:54.896Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:32.479Z
@@ -99,7 +99,7 @@ services:
       - ./credentials.json:/app/credentials.json
 ```
 
-### 4. Kokoro (`avr-tts-kokoro`)
+### 4. (OpenSource) Kokoro (`avr-tts-kokoro`)
 
 **Features:**
 - Japanese language focus
