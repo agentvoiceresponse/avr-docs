@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:17:10.076Z
+date: 2025-05-02T16:17:27.567Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -167,7 +167,7 @@ app.post('/prompt-stream', async (req, res) => {
   // Stream response
   res.write(JSON.stringify({ 
     type: 'text', 
-    content: `I'm sorry, I cannot retrieve the requested information.` 
+    content: `Hello, how can I help you?` 
   }));
 });
 ```
