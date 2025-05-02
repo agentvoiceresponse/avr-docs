@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:19:06.245Z
+date: 2025-05-02T16:20:12.601Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -225,7 +225,9 @@ To integrate with Asterisk, you'll need:
    ```ini
    [from-internal]
    exten => _6XXX,1,Answer()
-   exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
+   exten => _6XXX,n,Ringing()
+	 exten => _6XXX,n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+	 exten => _6XXX,n,AudioSocket(${UUID},AVR_HOST_IP_OR_DOMAIN:AVR_HOST_PORT)
    exten => _6XXX,n,Hangup()
    ```
 
@@ -233,32 +235,6 @@ To integrate with Asterisk, you'll need:
    - Always use `Answer()` before `AudioSocket()`
    - Configure correct IP and port
    - Handle audio format conversion
-
-### FreePBX Integration
-
-To integrate with FreePBX:
-
-1. **Install AudioSocket Module**
-   ```bash
-   cd /usr/src
-   wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20-current.tar.gz
-   tar xvf asterisk-20-current.tar.gz
-   cd asterisk-20.*/contrib/ast_tools
-   make
-   ```
-
-2. **Configure FreePBX**
-   ```ini
-   [from-internal-custom]
-   exten => _6XXX,1,Answer()
-   exten => _6XXX,n,AudioSocket(127.0.0.1,6000)
-   exten => _6XXX,n,Hangup()
-   ```
-
-3. **Create Custom Destination**
-   - Go to FreePBX Admin
-   - Create new Custom Destination
-   - Point to your AVR integration
 
 ## Best Practices
 
