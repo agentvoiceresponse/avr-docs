@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:17:27.567Z
+date: 2025-05-02T16:19:06.245Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -146,6 +146,7 @@ app.post('/speech-to-text-stream', async (req, res) => {
   // Handle audio stream
   // Convert to text
   // Return transcription
+  res.write('Hi, my name is John Doe');
 });
 ```
 
@@ -155,7 +156,7 @@ app.post('/transcribe', async (req, res) => {
   // Handle audio stream
   // Convert to text
   // Return transcription
-  return res.json({ transcription: transcription.text || '' });
+  return res.json({ transcription: 'Hello John Doe, How can I help you?' });
 });
 ```
 
@@ -167,7 +168,7 @@ app.post('/prompt-stream', async (req, res) => {
   // Stream response
   res.write(JSON.stringify({ 
     type: 'text', 
-    content: `Hello, how can I help you?` 
+    content: 'Hello John Doe, How can I help you?' 
   }));
 });
 ```
@@ -178,7 +179,7 @@ app.post('/text-to-speech-stream', async (req, res) => {
   // Handle text input
   // Convert to speech
   // Stream audio
-  res.write(chunk);
+  res.write(audioChunk);
 });
 ```
 
