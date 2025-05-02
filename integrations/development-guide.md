@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:10:45.598Z
+date: 2025-05-02T16:12:39.184Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -63,15 +63,13 @@ Each integration should follow this basic structure:
 
 ```
 avr-provider-[name]/
-├── src/
-│   ├── index.js
-│   ├── config.js
-│   └── utils.js
+├── index.js
 ├── Dockerfile
 ├── docker-compose.yml
 ├── package.json
 ├── .env.example
-└── README.md
+├── README.md
+└── LICENSE.md
 ```
 
 ### Required Files
@@ -82,8 +80,14 @@ avr-provider-[name]/
    const app = express();
    
    // Required endpoints
+
+   // ASR or STT
    app.post('/speech-to-text-stream', handleSpeechToText);
+   
+   // LLM
    app.post('/prompt-stream', handlePrompt);
+
+   // TTS
    app.post('/text-to-speech-stream', handleTextToSpeech);
    
    // Start server
