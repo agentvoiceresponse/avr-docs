@@ -2,13 +2,13 @@
 title: text-to-speech
 description: 
 published: true
-date: 2025-05-02T16:22:54.896Z
+date: 2025-05-02T16:23:08.559Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:12:32.479Z
 ---
 
-# TTS (Text-to-Speech) Integrations
+# TTS (Text To Speech) Integrations
 
 ## Overview
 
