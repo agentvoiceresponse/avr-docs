@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:20:12.601Z
+date: 2025-05-02T16:21:01.002Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -262,20 +262,106 @@ To integrate with Asterisk, you'll need:
 
 ### 1. Basic ASR Integration
 ```javascript
+/**
+ * index.js
+ * This file is the main entry point for the application using Deepgram Speech-to-Text.
+ * @author  Giuseppe Careri
+ * @see https://www.gcareri.com
+ */
 const express = require('express');
+const { Writable } = require('stream');
+const { createClient, LiveTranscriptionEvents } = require('@deepgram/sdk');
+require('dotenv').config();
+
 const app = express();
+const deepgram = createClient(process.env.DEEPGRAM_API_KEY);
 
-app.post('/speech-to-text-stream', async (req, res) => {
+console.log("Deepgram Speech Configuration Loaded");
+
+/**
+ * Handles an audio stream from the client and uses Deepgram API
+ * to recognize the speech and stream the transcript back to the client.
+ *
+ * @param {Object} req - The Express request object
+ * @param {Object} res - The Express response object
+ */
+const handleAudioStream = async (req, res) => {
   try {
-    const audioStream = req.body;
-    const transcription = await providerAPI.transcribe(audioStream);
-    res.json({ text: transcription });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+    const connection = await deepgram.listen.live({
+      model: process.env.SPEECH_RECOGNITION_MODEL || 'nova',
+      language: process.env.SPEECH_RECOGNITION_LANGUAGE || 'en',
+      interim_results: true,
+      // smart_format: true,
+      // channels: 2,
+      encoding: 'linear16',
+      sample_rate: 8000
+    });
 
-app.listen(process.env.PORT || 6000);
+    connection.addListener(LiveTranscriptionEvents.Open, () => {
+      console.log('Deepgram Connection Opened')
+
+      connection.addListener(LiveTranscriptionEvents.Close, () => {
+        console.log('Deepgram Connection Closed');
+        res.end();
+      });
+
+      connection.addListener(LiveTranscriptionEvents.Transcript, (data) => {
+        const transcript = data.channel.alternatives[0].transcript;
+        if (transcript) {
+          console.log(`${transcript}...`);
+        }
+
+        if (data.speech_final) {
+          // Remove "e" for italian bug
+          if (transcript && transcript !== 'e') {
+            console.log(`Transcript: ${transcript}`);
+            res.write(transcript);
+          } else {
+            console.log('No transcript available');
+          }
+        }
+      });
+
+      connection.on(LiveTranscriptionEvents.Metadata, (data) => {
+        console.log(data);
+      });
+
+      connection.on(LiveTranscriptionEvents.Warning, async (warning) => {
+        console.log(warning);
+      });
+
+      connection.on(LiveTranscriptionEvents.Error, (error) => {
+        console.error('Deepgram API Error:', error);
+        res.status(500).json({ message: 'Deepgram API error' });
+      });
+    });
+
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+
+    req.on('data', (chunk) => {
+      connection.send(chunk)
+    });
+
+    req.on('end', () => connection.requestClose());
+    req.on('error', (err) => {
+      console.error('Error receiving audio stream:', err);
+      req.destroy();
+      res.status(500).json({ message: 'Error receiving audio stream' });
+    });
+  } catch (err) {
+    console.error('Error handling audio stream:', err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+app.post('/speech-to-text-stream', handleAudioStream);
+
+const port = process.env.PORT || 6010;
+app.listen(port, () => {
+  console.log(`Deepgram Audio endpoint listening on port ${port}`);
+});
 ```
 
 ### 2. Basic TTS Integration
