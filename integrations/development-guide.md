@@ -1,3 +1,13 @@
+---
+title: development-guide
+description: 
+published: true
+date: 2025-05-02T16:10:45.598Z
+tags: 
+editor: markdown
+dateCreated: 2025-05-01T19:09:48.761Z
+---
+
 # AVR Integration Development Guide
 
 This guide will help you understand how to develop new integrations for AVR (Agent Voice Response). Whether you want to add support for a new provider or create a custom integration, this guide will walk you through the process.
@@ -10,19 +20,26 @@ AVR supports three main types of integrations:
    - Converts speech to text
    - Handles real-time audio streaming
    - Supports multiple languages
+   - Example: [Deepgram ASR](examples/deepgram-stt.md)
+   
+2. **Speech To Text (STT)**
+   - Converts speech to text
+   - Handles real-time audio streaming
+   - Supports multiple languages
    - Example: [ElevenLabs STT](examples/elevenlabs-stt.md)
-
-2. **Large Language Model (LLM)**
+   
+3. **Large Language Model (LLM)**
    - Processes text input
    - Generates intelligent responses
    - Manages conversation context
    - Example: [OpenAI LLM](examples/openai-llm.md)
 
-3. **Text-to-Speech (TTS)**
+4. **Text-to-Speech (TTS)**
    - Converts text to speech
    - Supports multiple voices
    - Handles different languages
    - Example: [Google Cloud TTS](examples/google-cloud-tts.md)
+
 
 ## Development Requirements
 
