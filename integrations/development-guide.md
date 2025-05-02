@@ -2,7 +2,7 @@
 title: development-guide
 description: 
 published: true
-date: 2025-05-02T16:12:39.184Z
+date: 2025-05-02T16:15:55.276Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T19:09:48.761Z
@@ -81,8 +81,11 @@ avr-provider-[name]/
    
    // Required endpoints
 
-   // ASR or STT
+   // ASR
    app.post('/speech-to-text-stream', handleSpeechToText);
+
+   // STT (Remember that you need avr-asr-to-stt)
+   app.post('/transcribe', handleTranscriptionRequest);
    
    // LLM
    app.post('/prompt-stream', handlePrompt);
@@ -101,7 +104,7 @@ avr-provider-[name]/
    COPY package*.json ./
    RUN npm install
    COPY . .
-   CMD ["node", "src/index.js"]
+   CMD ["node", "index.js"]
    ```
 
 3. **docker-compose.yml**
@@ -140,6 +143,15 @@ Each integration must implement these standard endpoints:
 #### ASR Integration
 ```javascript
 app.post('/speech-to-text-stream', async (req, res) => {
+  // Handle audio stream
+  // Convert to text
+  // Return transcription
+});
+```
+
+#### STT Integration
+```javascript
+app.post('/transcribe', async (req, res) => {
   // Handle audio stream
   // Convert to text
   // Return transcription
