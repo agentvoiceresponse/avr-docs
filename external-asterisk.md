@@ -1,8 +1,8 @@
 ---
 title: External Asterisk
-description: 
+description: Using AVR with External Asterisk PBX
 published: true
-date: 2025-08-08T16:45:50.610Z
+date: 2025-08-08T16:54:56.405Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:44:58.314Z
