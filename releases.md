@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-08T16:54:31.391Z
+date: 2025-08-08T16:56:31.254Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -110,9 +110,8 @@ Thank you for being part of this 🚀
 Let’s keep building!
 
 > 11 June 2025
-> {.is-info}
-> {.is-success}
 {.is-info}
+
 
 
 🚀 Changelog Update – June 11, 2025
