@@ -2,15 +2,13 @@
 title: How AVR Works
 description: 
 published: true
-date: 2025-08-08T15:33:02.401Z
+date: 2025-08-08T15:34:25.418Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
 ---
 
 # How AVR Works
-
-## Introduction
 
 The AVR Infrastructure project provides a complete, modular deployment environment for the Agent Voice Response system. It allows you to launch the AVR Core, ASR, LLM, and TTS services, all integrated with an Asterisk PBX using the AudioSocket protocol.
 
