@@ -1,16 +1,16 @@
 ---
-title: Get Started
+title: How AVR Works
 description: 
 published: true
-date: 2025-08-08T15:08:52.196Z
+date: 2025-08-08T15:33:02.401Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
 ---
 
-# Get Started with Agent Voice Response (AVR)
+# How AVR Works
 
-## Overview
+## Introduction
 
 The AVR Infrastructure project provides a complete, modular deployment environment for the Agent Voice Response system. It allows you to launch the AVR Core, ASR, LLM, and TTS services, all integrated with an Asterisk PBX using the AudioSocket protocol.
 
@@ -33,9 +33,7 @@ Optionally, you can use a Speech-to-Speech (STS) provider like OpenAI Realtime o
 
 ![sts.png](/sts.png)
 
-## Deployment Modes
-
-### Option 1: Headless Deployment (No GUI)
+## Your First Agent in Under 5 Minutes
 
 Use one of the preconfigured docker-compose-*.yml files to deploy AVR with your preferred providers.
 
