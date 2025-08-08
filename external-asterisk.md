@@ -2,13 +2,13 @@
 title: External Asterisk
 description: 
 published: true
-date: 2025-08-08T16:44:58.314Z
+date: 2025-08-08T16:45:50.610Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:44:58.314Z
 ---
 
-# Using AVR with External Asterisk
+# Using AVR with External Asterisk PBX
 
 Configure Asterisk extensions to connect with avr-core using:
 
