@@ -2,13 +2,17 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-08T16:52:47.453Z
+date: 2025-08-08T16:54:18.524Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
 
-## 8 August 2025
+> 8 August 2025
+> {.is-info}
+{.is-info}
+
+
 🚀 New AVR-Core Release: v1.5.5 is out!
 
 We’ve just released a new version of avr-core (v1.5.5) with a small but powerful update:
@@ -27,7 +31,9 @@ const handleAudioStream = async (req, res) => {
 Have fun and happy hacking! 🎧🧠✨
 Thanks @everyone  and see you soon! 👋
 
-## 6 August 2025
+> 6 August 2025
+{.is-info}
+
 
 🚀 New Release: STS Ultravox.ai & STS OpenAI Realtime 🛠️
 Hi @everyone !
@@ -37,7 +43,9 @@ I’ve also published an update to STS OpenAI Realtime, which now includes a VAD
 
 Have a great day and happy building!
 
-## 2 August 2025
+> 2 August 2025
+{.is-info}
+
 
 🔥 Big Update Today! 🔥
 
@@ -87,7 +95,6 @@ Check out the README for setup and examples. It’s already being used in produc
 ---
 
 
-
 🎧 Better audio in avr-sts-openai
 
 I’ve also updated avr-sts-openai with the new resampler.
@@ -102,22 +109,21 @@ I’ll keep tweaking it in the next few days!
 Thank you for being part of this 🚀
 Let’s keep building!
 
-## 11 June 2025
+> 11 June 2025
+> {.is-info}
+> {.is-success}
+{.is-info}
+
 
 🚀 Changelog Update – June 11, 2025
 Hi @everyone! Here’s a quick summary of what’s new today across the AVR ecosystem:
 
-
 ---
-
 
 🧠 avr-vad v1.0-7
     •    Fix: Improved VAD (Voice Activity Detection) compatibility with 8000Hz 16bit PCM audio. Detection is now more accurate and stable.
 
-
 ---
-
-
  avr-core v1.5.0
     1.    VAD Integration
 We’ve integrated the avr-vad library into avr-core. This allows instant interruption of the Agent AI when speech is detected.
@@ -158,9 +164,7 @@ exten => 5001,n,Hangup()
 
 → This ensures tags like "【document.t" + "xt】" are correctly removed once fully received.
 
-
 ---
-
 
 avr-infra v1.2.0
     •    Update: Substituted the legacy AudioSocket application with the new Dial(AudioSocket) syntax.
