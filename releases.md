@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-08T16:54:18.524Z
+date: 2025-08-08T16:54:31.391Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -13,7 +13,7 @@ dateCreated: 2025-08-08T16:52:47.453Z
 {.is-info}
 
 
-🚀 New AVR-Core Release: v1.5.5 is out!
+🚀 New AVR-Core Release: v1.5.6 is out!
 
 We’ve just released a new version of avr-core (v1.5.5) with a small but powerful update:
 🔹 Every HTTP request now includes a X-UUID header!
