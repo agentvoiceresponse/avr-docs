@@ -2,7 +2,7 @@
 title: Get Started
 description: 
 published: true
-date: 2025-08-06T17:17:34.318Z
+date: 2025-08-08T13:53:41.528Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -27,11 +27,11 @@ Before starting, ensure the following tools and credentials are ready:
 
 AVR follows a modular design:
 
-`Asterisk (PBX) --> AVR Core --> ASR --> LLM --> TTS --> back to user`
+![asr-llm-tts.png](/asr-llm-tts.png)
 
 Optionally, you can use a Speech-to-Speech (STS) provider like OpenAI Realtime or Ultravox to replace the ASR–LLM–TTS chain:
 
-`Asterisk (PBX) --> AVR Core --> STS --> back to user`
+![sts.png](/sts.png)
 
 ## Deployment Modes
 
