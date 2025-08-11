@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-11T10:20:30.335Z
+date: 2025-08-11T10:23:58.897Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -27,7 +27,7 @@ dateCreated: 2025-08-11T10:20:30.335Z
 
 ---
 
-## 1. Deepgram ASR Setup
+## [ASR] Deepgram Setup
 
 ### Repository
 - GitHub: [avr-asr-deepgram](https://github.com/agentvoiceresponse/avr-asr-deepgram)
@@ -64,28 +64,27 @@ avr-asr-deepgram:
     - avr
 ```
 
-⸻
+## [TTS] Deepgram Setup
 
-2. Deepgram TTS Setup
+### Repository
+- GitHub: [avr-tts-deepgram](https://github.com/agentvoiceresponse/avr-tts-deepgram)
 
-Repository
-	•	GitHub: avr-tts-deepgram
+### Environment Variables
 
-Environment Variables
-
-Variable	Description	Example Value
-PORT	Port where the TTS module listens	6011
-DEEPGRAM_API_KEY	Your Deepgram API key	abc123xyz...
-DEEPGRAM_TTS_MODEL	Deepgram TTS model in format [model]-[voice]-[language]-[version]	aura-arabella-en-xxhifi
+| Variable            | Description                                                        | Example Value              |
+|---------------------|--------------------------------------------------------------------|----------------------------|
+| PORT                | Port where the TTS module listens                                  | 6011                       |
+| DEEPGRAM_API_KEY    | Your Deepgram API key                                               | abc123xyz...               |
+| DEEPGRAM_TTS_MODEL  | Deepgram TTS model in format `[model]-[voice]-[language]-[version]` | aura-arabella-en-xxhifi    |
 
 Example .env section:
-
+```
 DEEPGRAM_API_KEY=your_deepgram_api_key_here
 DEEPGRAM_TTS_MODEL=aura-arabella-en-xxhifi
 PORT=6011
-
+```
 Docker Compose Configuration:
-
+```
 avr-tts-deepgram:
   image: agentvoiceresponse/avr-tts-deepgram
   platform: linux/x86_64
@@ -97,12 +96,10 @@ avr-tts-deepgram:
     - DEEPGRAM_TTS_MODEL=aura-arabella-en-xxhifi
   networks:
     - avr
+```
 
+### How AVR Uses Deepgram
 
-⸻
+**ASR Module**: AVR Core streams audio to Deepgram ASR, receives transcribed text, and passes it to the LLM.
 
-How AVR Uses Deepgram
-	1.	ASR Module: AVR Core streams audio to Deepgram ASR, receives transcribed text, and passes it to the LLM.
-	2.	TTS Module: AVR Core sends the LLM’s text response to Deepgram TTS, which returns audio to Asterisk or the calling application.
-
-Do you want me to **append a list of available Deepgram ASR and TTS models** directly into this Markdown so users can copy-paste correct values? That would make the config section much more complete.
+**TTS Module**: AVR Core sends the LLM’s text response to Deepgram TTS, which returns audio to Asterisk or the calling application.
