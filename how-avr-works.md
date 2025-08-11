@@ -2,7 +2,7 @@
 title: How AVR Works
 description: 
 published: true
-date: 2025-08-08T15:34:25.418Z
+date: 2025-08-11T09:25:23.398Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -39,8 +39,8 @@ Use one of the preconfigured docker-compose-*.yml files to deploy AVR with your 
 
 1. Clone the repository:
 
-`git clone https://github.com/agentvoiceresponse/avr-infra
-cd avr-infra`
+`git clone https://github.com/agentvoiceresponse/avr-infra`
+`cd avr-infra`
 
 2. Copy .env.example to .env:
 
