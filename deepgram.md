@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-11T10:23:58.897Z
+date: 2025-08-11T10:26:27.789Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -25,9 +25,17 @@ dateCreated: 2025-08-11T10:20:30.335Z
 - Multiple voices and styles across supported languages.
 - Configurable models, voices, and versions.
 
----
+## How to Obtain a Deepgram API Key
 
-## [ASR] Deepgram Setup
+1. Sign up at Deepgram Console (free tier available with trial credits).
+2. Select your default project or create a new one.
+3. Navigate to Settings → API Keys.
+4. Click Create a New API Key.
+5. Provide a friendly name, choose appropriate permissions, and optionally set an expiration date.
+6. Click Create Key and copy the key immediately — it will not be shown again.
+7. Store the API key securely; do not commit it to public repositories.
+
+## Deepgram ASR Setup
 
 ### Repository
 - GitHub: [avr-asr-deepgram](https://github.com/agentvoiceresponse/avr-asr-deepgram)
