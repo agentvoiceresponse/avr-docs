@@ -2,7 +2,7 @@
 title: How AVR Works
 description: 
 published: true
-date: 2025-08-11T09:26:03.232Z
+date: 2025-08-11T09:42:21.769Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
