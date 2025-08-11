@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-11T10:27:29.845Z
+date: 2025-08-11T10:55:31.485Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -49,7 +49,7 @@ dateCreated: 2025-08-11T10:20:30.335Z
 | `SPEECH_RECOGNITION_MODEL`     | Deepgram model name (including version, if applicable)    | `nova-2-phonecall`       |
 
 **Example `.env` section:**
-```
+```env
 DEEPGRAM_API_KEY=your_deepgram_api_key_here
 SPEECH_RECOGNITION_LANGUAGE=en-US
 SPEECH_RECOGNITION_MODEL=nova-2-phonecall
