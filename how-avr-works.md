@@ -2,7 +2,7 @@
 title: How AVR Works
 description: 
 published: true
-date: 2025-08-11T09:25:23.398Z
+date: 2025-08-11T09:26:03.232Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -54,9 +54,9 @@ For example, to run Deepgram + OpenAI:
 
 4.	Edit .env with your API keys. Example:
 
-DEEPGRAM_API_KEY=your_key
-OPENAI_API_KEY=your_key
-OPENAI_MODEL=gpt-3.5-turbo
+`DEEPGRAM_API_KEY=your_key`
+`OPENAI_API_KEY=your_key`
+`OPENAI_MODEL=gpt-3.5-turbo`
 
 #### Advanced: STS-Only Providers
 
