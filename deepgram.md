@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-11T10:55:31.485Z
+date: 2025-08-11T10:56:03.698Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -57,7 +57,7 @@ PORT=6010
 ```
 Docker Compose Configuration:
 
-```
+```yaml
 avr-asr-deepgram:
   image: agentvoiceresponse/avr-asr-deepgram
   platform: linux/x86_64
@@ -86,13 +86,13 @@ avr-asr-deepgram:
 | DEEPGRAM_TTS_MODEL  | Deepgram TTS model in format `[model]-[voice]-[language]-[version]` | aura-arabella-en-xxhifi    |
 
 Example .env section:
-```
+```env
 DEEPGRAM_API_KEY=your_deepgram_api_key_here
 DEEPGRAM_TTS_MODEL=aura-arabella-en-xxhifi
 PORT=6011
 ```
 Docker Compose Configuration:
-```
+```yaml
 avr-tts-deepgram:
   image: agentvoiceresponse/avr-tts-deepgram
   platform: linux/x86_64
