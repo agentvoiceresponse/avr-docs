@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-11T10:50:35.423Z
+date: 2025-08-11T13:12:05.224Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -39,24 +39,32 @@ Use one of the preconfigured docker-compose-*.yml files to deploy AVR with your 
 
 1. Clone the repository:
 
-`git clone https://github.com/agentvoiceresponse/avr-infra`
-`cd avr-infra`
+```console
+git clone https://github.com/agentvoiceresponse/avr-infra
+cd avr-infra
+```
 
 2. Copy .env.example to .env:
 
-`cp .env.example .env`
+```console
+cp .env.example .env
+```
 
 3.	Select a compose file:
 
 For example, to run Deepgram + OpenAI:
 
-`docker-compose -f docker-compose-openai.yml up -d`
+```console
+docker-compose -f docker-compose-openai.yml up -d
+```
 
 4.	Edit .env with your API keys. Example:
 
-`DEEPGRAM_API_KEY=your_key`
-`OPENAI_API_KEY=your_key`
-`OPENAI_MODEL=gpt-3.5-turbo`
+```env
+DEEPGRAM_API_KEY=your_key
+OPENAI_API_KEY=your_key
+OPENAI_MODEL=gpt-3.5-turbo
+```
 
 #### Advanced: STS-Only Providers
 
@@ -64,8 +72,10 @@ Some providers (like OpenAI Realtime or Ultravox) offer Speech-to-Speech (STS) p
 
 In this case, only set:
 
-`STS_URL=http://avr-sts-provider:port`
+```env
+STS_URL=http://avr-sts-provider:port
+```
 
-See docker-compose-openai-realtime.yml and docker-compose-ultravox.yml for examples.
+See `docker-compose-openai-realtime.yml` and `docker-compose-ultravox.yml` for examples.
 
 
