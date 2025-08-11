@@ -2,7 +2,7 @@
 title: External Asterisk
 description: Using AVR with External Asterisk PBX
 published: true
-date: 2025-08-11T13:21:23.069Z
+date: 2025-08-11T13:21:33.490Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:44:58.314Z
@@ -77,7 +77,7 @@ asterisk -rx "dialplan reload"
 ## Testing
 
 1. Dial 5001 (or the extension you configured) from any endpoint connected to your Asterisk PBX.
-2. The call should route to AVR Core and start interacting via your configured ASR/LLM/TTS modules.
+2. The call should route to AVR Core and start interacting via your configured ASR/LLM/TTS or STS modules.
 3. Check Asterisk logs for troubleshooting:
 
 ```bash
