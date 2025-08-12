@@ -2,11 +2,36 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-08T16:56:31.254Z
+date: 2025-08-12T10:20:32.242Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 12 August 2025
+> {.is-info}
+{.is-info}
+
+:rocket: Big thanks to @mirkuz93  for contributing the Deepgram Speech-to-Speech integration for AVR — avr-sts-deepgram! :tada:
+Code is here: https://github.com/agentvoiceresponse/avr-sts-deepgram
+Docker Compose example: Example 8 – Deepgram Speech-to-Speech https://github.com/agentvoiceresponse/avr-infra?tab=readme-ov-file#example-8-deepgram-speech-to-speech
+
+:bulb: Super easy to use:
+:one: Generate your Deepgram API key (or reuse the one from your ASR/TTS integration).
+:two: Configure your .env file:
+```
+PORT=6033
+DEEPGRAM_API_KEY=
+AGENT_PROMPT=
+```
+:gear: Extra config for ASR, LLM & TTS models:
+```
+DEEPGRAM_SAMPLE_RATE=   # default: 8000
+DEEPGRAM_ASR_MODEL=     # default: nova-3
+DEEPGRAM_TTS_MODEL=     # default: aura-2-thalia-en
+DEEPGRAM_GREETING=
+OPENAI_MODEL=           # default: gpt-4o-mini
+```
 
 > 8 August 2025
 > {.is-info}
