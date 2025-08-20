@@ -2,40 +2,11 @@
 title: Using AVR with FreePBX
 description: 
 published: true
-date: 2025-08-20T22:54:59.965Z
+date: 2025-08-20T23:05:58.033Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-20T22:49:34.055Z
 ---
-
-# Using AVR with FreePBX (AudioSocket)
-
-**Tested on:** FreePBX 17  
-**Also likely compatible with:** FreePBX 15 / 16  
-
-The goal of this guide is to connect **FreePBX/Asterisk** to **AVR (Agent Voice Response)** over **AudioSocket**.
-
----
-
-## Prerequisites
-
-- A working **FreePBX installation** (ISO, install script, or manual).
-  - FreePBX ISO/install script usually enables `res_audiosocket` by default.
-  - For manual installs, ensure `res_audiosocket.so` is loaded.
-- **Docker** and **Docker Compose** (v2 plugin or `docker-compose`).
-- **Git** installed.
-
----
-
-## Verify AudioSocket Module (optional)
-
-You can check if the module is loaded by running:
-
-```bash
-asterisk -rx "module show like audiosocket"
-```
-
-Perfetto 👍 Ti ho preparato una guida completa in Markdown seguendo lo stesso stile delle pagine precedenti della documentazione AVR.
 
 # Using AVR with FreePBX (AudioSocket)
 
@@ -157,4 +128,4 @@ to view Asterisk console output in real time.
 ---
 
 
-✅ With this configuration, FreePBX routes calls to AVR Core over AudioSocket, enabling full integration with your ASR/LLM/TTS pipeline.
+With this configuration, FreePBX routes calls to AVR Core over AudioSocket, enabling full integration with your ASR/LLM/TTS pipeline.
