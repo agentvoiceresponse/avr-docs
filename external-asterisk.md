@@ -2,16 +2,18 @@
 title: External Asterisk
 description: Using AVR with External Asterisk PBX
 published: true
-date: 2025-08-20T23:11:14.252Z
+date: 2025-08-20T23:12:23.149Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:44:58.314Z
 ---
 
 # Using AVR with External Asterisk PBX
+
 <div align="center">
   <img src="/images/asterisk.png" alt="Asterisk" width="300"/>
 </div>
+
 This guide explains how to configure **Asterisk PBX** so that calls are sent to **AVR Core** via the AudioSocket channel driver.
 
 ## Prerequisites
