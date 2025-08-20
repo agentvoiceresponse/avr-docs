@@ -2,7 +2,7 @@
 title: Support the Project
 description: 
 published: true
-date: 2025-08-20T23:24:49.798Z
+date: 2025-08-20T23:26:17.002Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-20T23:24:49.798Z
@@ -33,8 +33,10 @@ Your contribution helps ensure AVR remains **free, open-source, and actively dev
 ## How you can support
 
 If you find AVR useful and want to see it grow, please consider supporting the project:  
-
-☕ [Support us on Ko-fi](https://ko-fi.com/agentvoiceresponse)  
+<br>
+<div align="center">
+<a href="https://ko-fi.com/agentvoiceresponse" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support us on Ko-fi"></a>
+</div>
 
 Your donation helps sustain development and encourages further improvements. Even a small contribution makes a big difference!
 
