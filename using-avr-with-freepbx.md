@@ -2,8 +2,8 @@
 title: Using AVR with FreePBX
 description: 
 published: true
-date: 2025-08-20T23:11:29.975Z
-tags: 
+date: 2025-08-20T23:20:46.469Z
+tags: asterisk, pbx, freepbx
 editor: markdown
 dateCreated: 2025-08-20T22:49:34.055Z
 ---
