@@ -2,7 +2,7 @@
 title: Using AVR with FreePBX
 description: 
 published: true
-date: 2025-08-20T23:09:24.258Z
+date: 2025-08-20T23:09:57.107Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-20T22:49:34.055Z
@@ -10,7 +10,9 @@ dateCreated: 2025-08-20T22:49:34.055Z
 
 # Using AVR with FreePBX (AudioSocket)
 
-<img src="/images/freepbx.png" alt="FreePBX" width="200" style="text-align:center"/>
+<div align="center">
+  <img src="/images/freepbx.png" alt="FreePBX" width="200"/>
+</div>
 
 **Tested on:** FreePBX 17  
 **Also likely compatible with:** FreePBX 15 / 16  
