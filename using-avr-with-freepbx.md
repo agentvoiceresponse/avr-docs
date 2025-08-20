@@ -2,7 +2,7 @@
 title: Using AVR with FreePBX
 description: 
 published: true
-date: 2025-08-20T22:49:34.055Z
+date: 2025-08-20T22:54:59.965Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-20T22:49:34.055Z
@@ -73,95 +73,88 @@ sudo apt-get update && apt-get install -y docker.io docker-compose-plugin
 sudo systemctl enable --now docker
 ```
 
-⸻
+## Get the AVR Infrastructure
 
-2. Get the AVR Infrastructure
-
+```console
 git clone https://github.com/agentvoiceresponse/avr-infra.git
 cd avr-infra
+```
 
+## Configure AVR
+1.	Edit the .env file and set the required values (API keys, ports, etc.).
+2.	Open the relevant docker-compose-*.yml file.
+3.	Comment out the entire avr-asterisk service block (since you are using FreePBX’s Asterisk).
 
-⸻
-
-3. Configure AVR
-	1.	Edit the .env file and set the required values (API keys, ports, etc.).
-	2.	Open the relevant docker-compose-*.yml file.
-	3.	Comment out the entire avr-asterisk service block (since you are using FreePBX’s Asterisk).
-
-⸻
-
-4. Launch AVR
+## Launch AVR
 
 For example, with Ultravox:
 
+```console
 docker-compose -f docker-compose-ultravox.yml up -d
+```
 
+## Confirm AVR is Listening on Port 5001
 
-⸻
-
-5. Confirm AVR is Listening on Port 5001
-
+```console
 ss -lntp | grep :5001
+```
 
-
-⸻
-
-6. FreePBX Configuration (GUI)
+## FreePBX Configuration (GUI)
 
 Go to the FreePBX administration interface and configure as follows:
 
-6.1 Custom Dialplan
-	•	Navigate to:
-Admin → Config Edit → Asterisk Custom Configuration Files → extensions_custom.conf
-	•	Append:
+### Custom Dialplan
+- Navigate to:
+```
+Admin → Config Edit → Asterisk Custom Configuration Files → 
+extensions_custom.conf
 
+```
+
+- Append:
+
+```env
 [ultravox-sts]
 exten => 7000,1,NoOp(AVR <-> Ultravox STS)
  same => n,Answer()
  same => n,Set(AS_UUID=${SHELL(/usr/bin/uuidgen | /usr/bin/tr -d '\r\n')})
  same => n,AudioSocket(${AS_UUID},127.0.0.1:5001)
  same => n,Hangup()
+```
 
+### Custom Destination
+- Go to: Admin → Custom Destinations
+- Add:
+	- Target: ultravox-sts,7000,1
+	- Description: Ultravox
 
-⸻
-
-6.2 Custom Destination
-	•	Go to: Admin → Custom Destinations
-	•	Add:
-	•	Target: ultravox-sts,7000,1
-	•	Description: Ultravox
-
-⸻
-
-6.3 Inbound Route
-	•	Go to: Connectivity → Inbound Routes
-	•	Set Destination to:
+### Inbound Route
+- Go to: Connectivity → Inbound Routes
+- Set Destination to:
+```
 Custom Destinations → Ultravox
-	•	Click Apply Config.
+```
+- Click **Apply** Config
 
-⸻
+## Testing the Setup
+1.	Call the DID that is routed to the Ultravox Custom Destination.
+2.	Verify that audio flows correctly to/from AVR via AudioSocket.
 
-7. Testing the Setup
-	1.	Call the DID that is routed to the Ultravox Custom Destination.
-	2.	Verify that audio flows correctly to/from AVR via AudioSocket.
-
-⸻
-
-Troubleshooting
-	•	Ensure the AudioSocket port in the FreePBX dialplan matches the port exposed by the AVR container (default: 5001).
-	•	Check container logs with:
-
+## Troubleshooting
+- Ensure the AudioSocket port in the FreePBX dialplan matches the port exposed by the AVR container (default: 5001).
+- Check container logs with:
+```console
 docker logs avr-core
+```
 
-
-	•	Use:
-
+- Use:
+```console
 asterisk -rvvv
-
+```
 to view Asterisk console output in real time.
 
-⸻
+
+---
+
 
 ✅ With this configuration, FreePBX routes calls to AVR Core over AudioSocket, enabling full integration with your ASR/LLM/TTS pipeline.
-
-Vuoi che aggiungo anche uno **schema grafico in Mermaid** (tipo: `FreePBX → AVR Core → ASR/TTS/LLM`) per mantenere lo stile coerente con le altre sezioni?
