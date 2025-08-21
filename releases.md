@@ -2,11 +2,35 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-12T10:20:32.242Z
+date: 2025-08-21T16:13:48.055Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 21 August 2025
+> {.is-info}
+{.is-info}
+
+📢 Update on AVR-STS-ULTRAVOX integration
+
+The avr-sts-ultravox integration now supports not only creating calls with a configurable Agent ID (from the UI) but also creating a generic call via prompt 🎉.
+
+In the README you’ll find details on how to configure both modes:
+    •    Agent mode (default, nothing has changed here)
+    •    Generic mode (enabled by setting *ULTRAVOX_CALL_TYPE=generic*)
+
+When using generic mode, you’ll need to configure the following variables:
+```
+ULTRAVOX_SYSTEM_PROMPT: System prompt for the AI (default: "You are a helpful AI assistant.")
+ULTRAVOX_TEMPERATURE: AI temperature setting (default: 0)
+ULTRAVOX_MODEL: AI model to use (default: "fixie-ai/ultravox")
+ULTRAVOX_VOICE: Voice to use (default: "alloy")
+ULTRAVOX_RECORDING_ENABLED: Enable call recording (default: false)
+ULTRAVOX_JOIN_TIMEOUT: Join timeout (default: "30s")
+ULTRAVOX_MAX_DURATION: Maximum call duration (default: "3600s")
+```
+🙏 Thanks everyone for the support and contributions — more updates coming soon!
 
 > 12 August 2025
 > {.is-info}
