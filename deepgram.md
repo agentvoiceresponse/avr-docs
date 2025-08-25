@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-11T10:56:38.369Z
+date: 2025-08-25T17:47:54.141Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -106,8 +106,59 @@ avr-tts-deepgram:
     - avr
 ```
 
+## Deepgram STS Setup
+
+### Repository
+- GitHub: [avr-sts-deepgram](https://github.com/agentvoiceresponse/avr-sts-deepgram)
+
+### Environment Variables
+
+| Variable               | Description                                               | Default / Example Value         |
+|------------------------|-----------------------------------------------------------|---------------------------------|
+| `PORT`                 | Port where the STS module listens                         | `6033`                          |
+| `DEEPGRAM_API_KEY`     | Your Deepgram API key                                     | `abc123xyz...`                  |
+| `AGENT_PROMPT`         | System prompt that defines the AI agent’s behavior        | `"You are a helpful assistant"` |
+| `DEEPGRAM_SAMPLE_RATE` | Audio sample rate                                         | `8000`                          |
+| `DEEPGRAM_ASR_MODEL`   | Deepgram ASR model used for transcription                 | `nova-3`                        |
+| `DEEPGRAM_TTS_MODEL`   | Deepgram TTS model used for speech generation             | `aura-2-thalia-en`              |
+| `DEEPGRAM_GREETING`    | Optional greeting message sent at the start of a session  | `"Hello! How can I help you?"`  |
+| `OPENAI_MODEL`         | OpenAI model for generating responses                     | `gpt-4o-mini`                   |
+
+**Example `.env` section:**
+```env
+DEEPGRAM_API_KEY=your_deepgram_api_key_here
+AGENT_PROMPT=You are a helpful assistant
+DEEPGRAM_SAMPLE_RATE=8000
+DEEPGRAM_ASR_MODEL=nova-3
+DEEPGRAM_TTS_MODEL=aura-2-thalia-en
+DEEPGRAM_GREETING=Hello! How can I help you?
+OPENAI_MODEL=gpt-4o-mini
+PORT=6033
+```
+Docker Compose Configuration:
+```yaml
+avr-sts-deepgram:
+  image: agentvoiceresponse/avr-sts-deepgram
+  platform: linux/x86_64
+  container_name: avr-sts-deepgram
+  restart: always
+  environment:
+    - PORT=6033
+    - DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY
+    - AGENT_PROMPT=$AGENT_PROMPT
+    - DEEPGRAM_SAMPLE_RATE=8000
+    - DEEPGRAM_ASR_MODEL=nova-3
+    - DEEPGRAM_TTS_MODEL=aura-2-thalia-en
+    - DEEPGRAM_GREETING="Hello! How can I help you?"
+    - OPENAI_MODEL=gpt-4o-mini
+  networks:
+    - avr
+```
+
 ### How AVR Uses Deepgram
 
 **ASR Module**: AVR Core streams audio to Deepgram ASR, receives transcribed text, and passes it to the LLM.
 
 **TTS Module**: AVR Core sends the LLM’s text response to Deepgram TTS, which returns audio to Asterisk or the calling application.
+
+**STS Module**: The STS Module combines speech-to-text (STT/ASR) and text-to-speech (TTS) in a single flow.
