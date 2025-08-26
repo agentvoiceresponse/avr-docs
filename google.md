@@ -2,7 +2,7 @@
 title: Google ASR and TTS
 description: Google Cloud Speech-to-Text (ASR) and Text-to-Speech (TTS) Configuration
 published: true
-date: 2025-08-11T13:08:18.768Z
+date: 2025-08-26T13:04:23.287Z
 tags: asr, tts, google
 editor: markdown
 dateCreated: 2025-08-11T10:53:39.880Z
@@ -49,8 +49,10 @@ See the official documentation for:
 9. Save this file securely and note its path — you will use it in the `GOOGLE_APPLICATION_CREDENTIALS` variable.
 
 ## Google ASR Configuration
-
-Repository: [avr-asr-google-cloud-speech](https://github.com/agentvoiceresponse/avr-asr-google-cloud-speech)
+<br>
+<div align="center">
+  <img src="/images/google/asr.png" alt="Google ASR" width="300"/>
+</div>
 
 ### Environment Variables
 
