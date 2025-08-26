@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-26T09:23:27.487Z
+date: 2025-08-26T13:01:05.348Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -40,6 +40,24 @@ avr-core:
   networks:
     - avr
 ```
+
+We’ve also released the first version of avr-llm-n8n (1.0.0) 🎉 → https://github.com/agentvoiceresponse/avr-llm-n8n
+
+![n8n.png](/images/n8n/n8n.png)
+
+Integrating AVR with n8n allows you to build AI-powered voicebots with visual workflows and direct integration with AVR.
+
+I’ve also published a docker-compose example with Deepgram as ASR & TTS and n8n as LLM here:
+👉 https://github.com/agentvoiceresponse/avr-infra/blob/main/docker-compose-n8n.yml
+
+And here you can find the official documentation, including a basic example of an AI Agent configured on n8n:
+👉 https://wiki.agentvoiceresponse.com/en/using-avr-with-n8n
+
+You can of course use your own n8n, but if you don’t have a local or cloud instance, the docker-compose I shared also includes an n8n service that will be installed together with the other containers.
+
+Have fun! 🚀 I’ve already tested some cool integrations with Google Calendar, Google Sheets, CRM systems, etc. — and they work really well.
+
+Thanks in advance to anyone who wants to share their own workflow! We could even create a dedicated wiki section for community use cases.
 
 > 22 August 2025
 > {.is-info}
