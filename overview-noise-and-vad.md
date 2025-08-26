@@ -2,7 +2,7 @@
 title: Overview: Noise and VAD
 description: 
 published: true
-date: 2025-08-26T09:52:43.102Z
+date: 2025-08-26T09:53:16.064Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T09:52:43.102Z
@@ -25,7 +25,7 @@ We are intentionally **aggressive about triggering VAD**, because:
 - **Smart Models Compensate** → Neural VAD and noise cancellation reduce false positives and interruptions.  
 - **Context is Key** → Conversation state helps determine when a user has truly finished speaking.  
 
-> 💡 **Note:** AVR-CORE provides `VAD Settings` that can be customized if necessary. However, adjusting VAD requires balancing trade-offs.
+> 💡 **Note:** AVR-CORE provides `VAD variables settings` that can be customized if necessary. However, adjusting VAD requires balancing trade-offs.
 
 ---
 
