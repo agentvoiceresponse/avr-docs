@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-26T13:01:05.348Z
+date: 2025-08-26T13:03:05.097Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -43,7 +43,9 @@ avr-core:
 
 We’ve also released the first version of avr-llm-n8n (1.0.0) 🎉 → https://github.com/agentvoiceresponse/avr-llm-n8n
 
-![n8n.png](/images/n8n/n8n.png)
+<div align="center">
+  <img src="/images/n8n/n8n.png" alt="FreePBX" width="300"/>
+</div>
 
 Integrating AVR with n8n allows you to build AI-powered voicebots with visual workflows and direct integration with AVR.
 
