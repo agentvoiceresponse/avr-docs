@@ -2,13 +2,17 @@
 title: Using AVR with N8N
 description: 
 published: true
-date: 2025-08-26T11:02:33.190Z
+date: 2025-08-26T13:01:42.881Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T11:02:33.190Z
 ---
 
 # Using AVR with n8n (AI Workflow Integration)
+
+<div align="center">
+  <img src="/images/n8n/n8n.png" alt="FreePBX" width="300"/>
+</div>
 
 Integrating AVR with [n8n](https://n8n.io) allows you to build **AI-powered voicebots** with visual workflows and direct integration with AVR.  
 This integration is powered by the [avr-llm-n8n](https://github.com/agentvoiceresponse/avr-llm-n8n) connector.
