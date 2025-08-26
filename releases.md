@@ -2,11 +2,44 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-26T09:21:24.396Z
+date: 2025-08-26T09:23:27.487Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 August 2025
+> {.is-info}
+{.is-info}
+
+We’ve just released a new version of avr-core (1.6.0) with support for **ambient background noise** 🎉
+You can find the documentation on how to use it here:
+👉 [using-ambient-background-noise-in-avr](/using-ambient-background-noise-in-avr)
+
+With this feature, AVR can simulate more realistic environments, making your tests and demos feel much closer to real-world conditions.
+
+At the same time, We’ve also released avr-infra (1.3.0), which now includes an ambient_sounds directory. For now, it contains one sample file: office_background.raw (RAW format).
+In the documentation, you’ll also find an example using SoX to convert WAV to RAW, but you can also use other tools like ffmpeg, etc.
+
+Here’s an example of how to configure it in your docker-compose.yml:
+```yaml
+avr-core:
+  image: agentvoiceresponse/avr-core
+  platform: linux/x86_64
+  container_name: avr-core
+  restart: always
+  environment:
+    - PORT=5001 
+    - STS_URL=http://avr-sts-deepgram:6033/speech-to-speech-stream
+    - AMBIENT_NOISE_FILE=ambient_sounds/office_background.raw
+    - AMBIENT_NOISE_LEVEL=0.90
+  volumes:
+    - ./ambient_sounds:/usr/src/app/ambient_sounds
+  ports:
+    - 5001:5001
+  networks:
+    - avr
+```
 
 > 22 August 2025
 > {.is-info}
