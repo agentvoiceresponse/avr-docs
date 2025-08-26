@@ -2,7 +2,7 @@
 title: Recommended Softphones
 description: 
 published: true
-date: 2025-08-26T15:54:37.276Z
+date: 2025-08-26T15:55:13.538Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T15:54:37.276Z
@@ -27,7 +27,7 @@ Here are our recommendations based on operating system:
 
 #### 1. **Open Settings → Add Account**  
 <br>
-<div align="center">
+<div>
   <img src="/images/softphones/telephones/account.png" alt="info account" width="400"/>
 </div>
 
@@ -39,7 +39,7 @@ Fill in the following values:
 
 #### 2. **Go to the "Network" tab**  
 <br>
-<div align="center">
+<div>
   <img src="/images/softphones/telephones/network.png" alt="network account" width="400"/>
 </div>
 
@@ -48,7 +48,7 @@ Fill in the following values:
 
 #### 3. **Move to the "Account Information" tab**  
 <br>
-<div align="center">
+<div>
   <img src="/images/softphones/telephones/enable.png" alt="enable account" width="400"/>
 </div>
 
@@ -56,7 +56,7 @@ Fill in the following values:
 
 #### 4. **Test your setup**  
 <br>
-<div align="center">
+<div>
   <img src="/images/softphones/telephones/600.png" alt="internal 600" width="400"/>
 </div>
 
