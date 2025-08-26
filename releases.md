@@ -2,13 +2,13 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-21T16:13:48.055Z
+date: 2025-08-26T09:21:24.396Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
 
-> 21 August 2025
+> 22 August 2025
 > {.is-info}
 {.is-info}
 
@@ -32,7 +32,7 @@ ULTRAVOX_MAX_DURATION: Maximum call duration (default: "3600s")
 ```
 🙏 Thanks everyone for the support and contributions — more updates coming soon!
 
-> 12 August 2025
+> 13 August 2025
 > {.is-info}
 {.is-info}
 
@@ -80,7 +80,7 @@ const handleAudioStream = async (req, res) => {
 Have fun and happy hacking! 🎧🧠✨
 Thanks @everyone  and see you soon! 👋
 
-> 6 August 2025
+> 3 August 2025
 {.is-info}
 
 
@@ -158,15 +158,9 @@ I’ll keep tweaking it in the next few days!
 Thank you for being part of this 🚀
 Let’s keep building!
 
-> 11 June 2025
+> 13 June 2025
 {.is-info}
 
-
-
-🚀 Changelog Update – June 11, 2025
-Hi @everyone! Here’s a quick summary of what’s new today across the AVR ecosystem:
-
----
 
 🧠 avr-vad v1.0-7
     •    Fix: Improved VAD (Voice Activity Detection) compatibility with 8000Hz 16bit PCM audio. Detection is now more accurate and stable.
@@ -181,7 +175,7 @@ INTERRUPT_LISTENING=false
 
 This ensures ASR keeps listening, even during user interruptions.
 Default VAD parameters:
-```
+```env
 positiveSpeechThreshold: process.env.VAD_POSITIVE_SPEECH_THRESHOLD || 0.08,
 negativeSpeechThreshold: process.env.VAD_NEGATIVE_SPEECH_THRESHOLD || 0.03,
 minSpeechFrames: process.env.VAD_MIN_SPEECH_FRAMES || 3,
@@ -197,7 +191,7 @@ More info in the avr-vad README.
 
 You can now scale your AVR project to handle multiple channels using the native Dial() app with AudioSocket:
 
-```
+```env
 exten => 5001,1,Answer()
 exten => 5001,n,Ringing()
 exten => 5001,n,Wait(1)
