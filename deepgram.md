@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-08-26T13:05:27.243Z
+date: 2025-08-26T13:06:05.515Z
 tags: asr, tts
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z
@@ -11,7 +11,7 @@ dateCreated: 2025-08-11T10:20:30.335Z
 # Configuring Deepgram in AVR
 
 <div align="center">
-  <img src="/images/freepbx.png" alt="FreePBX" width="300"/>
+  <img src="/images/deepgram/deepgram-logo.webp" alt="Deepgram" width="300"/>
 </div>
 
 ## Overview
