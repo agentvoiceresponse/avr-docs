@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-11T13:12:05.224Z
+date: 2025-08-27T19:09:52.590Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -76,6 +76,6 @@ In this case, only set:
 STS_URL=http://avr-sts-provider:port
 ```
 
-See `docker-compose-openai-realtime.yml` and `docker-compose-ultravox.yml` for examples.
+See `docker-compose-deepgram.yml` and `docker-compose-ultravox.yml` for examples.
 
 
