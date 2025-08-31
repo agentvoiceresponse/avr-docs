@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-31T19:53:15.418Z
+date: 2025-08-31T19:54:36.257Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -67,12 +67,16 @@ Or, for local/open-source providers like Vosk:
 docker-compose -f docker-compose-vosk.yml up -d
 ```
 
-4.	Edit .env with your API keys. Example:
+4.		Edit .env with your API keys or local service URLs. Example:
 
 ```env
+# Cloud providers
 DEEPGRAM_API_KEY=your_key
 OPENAI_API_KEY=your_key
 OPENAI_MODEL=gpt-3.5-turbo
+
+# Local providers
+
 ```
 
 #### Advanced: STS-Only Providers
