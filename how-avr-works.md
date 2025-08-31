@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-31T19:53:04.708Z
+date: 2025-08-31T19:53:15.418Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -66,7 +66,6 @@ Or, for local/open-source providers like Vosk:
 ```console
 docker-compose -f docker-compose-vosk.yml up -d
 ```
-
 
 4.	Edit .env with your API keys. Example:
 
