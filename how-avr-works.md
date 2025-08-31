@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-31T19:54:36.257Z
+date: 2025-08-31T19:54:58.178Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -53,7 +53,7 @@ cd avr-infra
 cp .env.example .env
 ```
 
-3.	Select a compose file:
+3. Select a compose file:
 
 For example, to run Deepgram + OpenAI:
 
@@ -67,7 +67,7 @@ Or, for local/open-source providers like Vosk:
 docker-compose -f docker-compose-vosk.yml up -d
 ```
 
-4.		Edit .env with your API keys or local service URLs. Example:
+4. Edit .env with your API keys or local service URLs. Example:
 
 ```env
 # Cloud providers
