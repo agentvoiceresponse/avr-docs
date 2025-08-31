@@ -2,13 +2,17 @@
 title: Integrating VitalPBX with AVR
 description: 
 published: true
-date: 2025-08-31T19:25:07.338Z
+date: 2025-08-31T19:29:06.768Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-31T19:25:07.338Z
 ---
 
 # Integrating VitalPBX with AVR
+<br>
+<div align="center">
+  <img src="/images/vitalpbx/vitalpbx-logo.png" alt="Vitalpbx" width="300"/>
+</div>
 
 Integrating **VitalPBX** with Agent Voice Response (AVR) allows you to route calls directly to the AI voicebot as if it were a standard extension.  
 This setup is very similar to FreePBX but uses VitalPBX’s custom dialplan files.
@@ -31,12 +35,14 @@ By creating a small dialplan snippet, we can forward calls from VitalPBX into th
 2. Go to **PBX → Applications → Custom Applications**.  
 3. Click **Add Custom Application**.  
 4. Define your custom application with:  
-   - **Extension**: `5001` (or any free number you want to use for AVR)  
-   - **Description**: `Agent Voice Response`  
+   - **Description**: `AVRAgent`  
+   - **Number to Dial**: `5001` (or any free number you want to use for AVR)  
 
 This tells VitalPBX that when someone dials `5001`, it should look into the custom dialplan we’re going to create.
 
----
+
+![vitalpbx-conf.png](/images/vitalpbx/vitalpbx-conf.png)
+
 
 ## Step 2: Create the AVR Dialplan File
 
