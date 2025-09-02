@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-09-02T14:19:43.763Z
+date: 2025-09-02T14:19:50.513Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z
@@ -11,7 +11,7 @@ dateCreated: 2025-09-02T13:38:04.526Z
 # Using Gemini STS with AVR
 
 <div align="center">
-  <img src="/images/gemini/gemini-logo.pn" alt="Gemini Logo" width="300"/>
+  <img src="/images/gemini/gemini-logo.png" alt="Gemini Logo" width="300"/>
 </div>
 
 Gemini is Google’s family of multimodal AI models. With the Gemini STS (Speech-to-Speech) integration, AVR can natively handle conversations where speech in is directly transformed into speech out—without requiring separate ASR (speech-to-text) and TTS (text-to-speech) components.
