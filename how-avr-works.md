@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:42:27.177Z
+date: 2025-09-02T14:42:49.553Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -31,6 +31,7 @@ AVR follows a modular design:
 <div align="center">
   <img src="/images/architecture/architecture-avr.png" alt="Architecture" width="800"/>
 </div>
+<br>
 
 ### 1) Audio Ingestion (Asterisk → AVR Core)
 1. The call hits your dialplan (e.g., `exten => 5001,...`), which:
@@ -74,7 +75,11 @@ If you configure `STS_URL`, AVR Core will **bypass ASR/LLM/TTS** and use a **sin
 - **Speech In** → **STS** → **Speech Out**
 - This can reduce latency and improve conversational “flow” by avoiding multiple hops.
 
-![architecture-sts.png](/images/architecture/architecture-sts.png)
+<br>
+<div align="center">
+  <img src="/images/architecture/architecture-sts.png" alt="Architecture" width="800"/>
+</div>
+<br>
 
 ## Your First Agent in Under 5 Minutes
 
