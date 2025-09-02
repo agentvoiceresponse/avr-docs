@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:42:49.553Z
+date: 2025-09-02T14:43:33.986Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -80,6 +80,13 @@ If you configure `STS_URL`, AVR Core will **bypass ASR/LLM/TTS** and use a **sin
   <img src="/images/architecture/architecture-sts.png" alt="Architecture" width="800"/>
 </div>
 <br>
+
+## What the Caller Experiences
+
+1.	Speaks → ASR transcribes (or STS ingests speech directly).
+2.	The LLM decides how to respond (policy, tools, memory).
+3.	TTS/STS renders a natural voice response.
+4.	AVR Core streams audio back instantly; the conversation feels interactive and real-time.
 
 ## Your First Agent in Under 5 Minutes
 
