@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:36:20.636Z
+date: 2025-09-02T14:40:19.168Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
