@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:41:31.526Z
+date: 2025-09-02T14:42:18.546Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -27,7 +27,9 @@ Before starting, ensure the following tools and credentials are ready:
 
 AVR follows a modular design:
 
-![architecture-avr.png](/images/architecture/architecture-avr.png)
+<div align="center">
+  <img src="/images/architecture/architecture-avr.png" alt="Architecture" width="800"/>
+</div>
 
 ### 1) Audio Ingestion (Asterisk → AVR Core)
 1. The call hits your dialplan (e.g., `exten => 5001,...`), which:
