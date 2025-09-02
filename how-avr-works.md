@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-08-31T19:55:51.307Z
+date: 2025-09-02T14:36:20.636Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -27,11 +27,51 @@ Before starting, ensure the following tools and credentials are ready:
 
 AVR follows a modular design:
 
-![asr-llm-tts.png](/asr-llm-tts.png)
+![architecture-avr.png](/images/architecture/architecture-avr.png)
 
-Optionally, you can use a Speech-to-Speech (STS) provider like OpenAI Realtime, Ultravox, or other compatible engines to replace the ASR–LLM–TTS chain:
+### 1) Audio Ingestion (Asterisk → AVR Core)
+1. The call hits your dialplan (e.g., `exten => 5001,...`), which:
+   - **Answers** the call.
+   - **Generates a UUID** (e.g., with `uuidgen`).
+   - **Opens an AudioSocket** to AVR Core:  
+     `AudioSocket(${UUID}, IP_AVR_CORE:PORT_AVR_CORE)`
+2. Asterisk streams the caller’s **audio frames** to AVR Core in real time (typically narrowband telephony audio; exact codec depends on your PBX config).
 
-![sts.png](/sts.png)
+**What AVR Core does:**
+- Accepts the TCP AudioSocket connection.
+- Normalizes audio if needed (codec/rate).
+- **Segments audio into chunks** (streaming) and forwards them to the configured **ASR** over HTTP.
+
+### 2) Transcription (AVR Core → ASR)
+1. AVR Core **streams audio chunks** to the ASR at `ASR_URL`.
+2. The ASR produces **partial results** (interim text) and **final results** (stabilized text).
+3. AVR Core:
+   - Buffers partials for responsiveness.
+   - Emits a **final transcript segment** when the ASR marks it as finalized (e.g., end of user utterance).
+
+> The **final transcript** is the trigger to move to the LLM step.
+
+### 3) Reasoning/Response (AVR Core → LLM)
+1. AVR Core forwards the **final transcript** (plus any conversation context) to the **LLM** at `LLM_URL`.  
+   - Provider-agnostic (OpenAI, Anthropic, OpenRouter, etc.).  
+   - **Example note**: “The response from **Anthropic** is then sent to a TTS engine…”
+2. The LLM streams back the **assistant response** (text). AVR Core:
+   - Streams partial tokens (if supported) or
+   - Waits for the complete text, depending on the integration and configuration.
+
+### 4) Voice Rendering (AVR Core → TTS)
+1. AVR Core sends the LLM response text to **TTS** at `TTS_URL` (streaming).
+2. TTS returns **audio frames** (the spoken reply).
+3. AVR Core **pipes the audio back** over the existing AudioSocket to Asterisk, so the **caller hears the response** with minimal latency.
+
+## Alternative Low-Latency Path (STS)
+
+If you configure `STS_URL`, AVR Core will **bypass ASR/LLM/TTS** and use a **single Speech-to-Speech** service:
+
+- **Speech In** → **STS** → **Speech Out**
+- This can reduce latency and improve conversational “flow” by avoiding multiple hops.
+
+![architecture-sts.png](/images/architecture/architecture-sts.png)
 
 ## Your First Agent in Under 5 Minutes
 
