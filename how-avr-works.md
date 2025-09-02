@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:43:33.986Z
+date: 2025-09-02T14:46:06.273Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -146,4 +146,17 @@ STS_URL=http://avr-sts-provider:port
 
 See `docker-compose-deepgram.yml` and `docker-compose-ultravox.yml` for examples.
 
+## Configuration Summary (Core)
+- ASR pipeline: **ASR_URL, LLM_URL, TTS_URL**
+- STS pipeline (direct): STS_URL (and comment out ASR/LLM/TTS variables)
 
+- Example URLs:
+```yaml
+ASR_URL=http://avr-asr-deepgram:6010/speech-to-text-stream
+LLM_URL=http://avr-llm-anthropic:6000/prompt-stream
+TTS_URL=http://avr-tts-google:6003/text-to-speech-stream
+STS_URL=http://avr-sts-openai:6033/speech-to-speech-stream
+```
+
+> Hostnames/ports depend on your Docker Compose and service names.
+> 
