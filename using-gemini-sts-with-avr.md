@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-09-02T13:39:22.298Z
+date: 2025-09-02T13:54:27.045Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z
@@ -31,6 +31,9 @@ To connect AVR with Gemini, you need an API Key:
 4.	Copy the key and store it securely.
 
 You’ll use this key as `GEMINI_API_KEY` in your Docker environment.
+
+## Repository
+- Github: [avr-sts-gemini](https://github.com/agentvoiceresponse/avr-sts-gemini)
 
 ## Environment Variables
 
