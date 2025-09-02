@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-09-02T13:39:12.832Z
+date: 2025-09-02T13:39:22.298Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z
@@ -81,7 +81,7 @@ avr-core:
 
 ## Example in AVR Infra
 
-A ready-to-use integration example is available in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) project:
+A ready-to-use integration example is available in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) github project:
 
 `docker-compose-gemini.yml` — Example 10 configuration of AVR with Gemini STS.
 
