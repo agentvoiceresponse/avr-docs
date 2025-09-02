@@ -2,11 +2,35 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-08-26T13:03:05.097Z
+date: 2025-09-02T14:17:32.189Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 31 August 2025
+> {.is-info}
+{.is-info}
+
+We just released a new version of avr-sts-openai 1.4.0! 🚀
+
+In this release, We’ve improved the downsample and upsample handling using a library we found online: @alexanderolsen/libsamplerate-js. The audio quality seems much better now, but we’d love to hear your thoughts.
+
+---
+
+We are super excited to announce the release of avr-sts-gemini v1.0.0 https://github.com/agentvoiceresponse/avr-sts-gemini 
+From now on, you can integrate AgentVoiceResponse directly with Gemini! ✨
+
+👉 What’s new and why it’s awesome?
+    •    Native speech-to-speech integration with Gemini.
+    •    Faster and more natural conversations powered by Gemini’s models.
+    •    Even more flexibility to choose the AI provider that best fits your use case.
+
+📌 I’ve also added a brand-new example (Example 10) to the avr-infra project:
+🔗 https://github.com/agentvoiceresponse/avr-infra?tab=readme-ov-file#example-10-gemini-speech-to-speech
+
+📖 Full documentation is available here:
+🔗 https://wiki.agentvoiceresponse.com/en/using-gemini-sts-with-avr
 
 > 24 August 2025
 > {.is-info}
