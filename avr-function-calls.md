@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:43:51.370Z
+date: 2025-09-04T14:44:16.817Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -224,7 +224,7 @@ handler: async (uuid, args) => {
 
 - **`args`** (object): Destructured parameters from the input schema
   - Contains the validated parameters as defined in `input_schema`
-  - Example: `{ location: "New York", temperature: 25 }`
+  - Example: `{ location: "New York" }`
 
 ### Return Value
 
