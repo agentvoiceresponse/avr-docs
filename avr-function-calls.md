@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:46:08.268Z
+date: 2025-09-04T14:54:04.100Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
