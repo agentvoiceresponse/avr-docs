@@ -2,13 +2,13 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:35:17.641Z
+date: 2025-09-04T14:42:38.455Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
 ---
 
-# AVR Function Calls Developer Guide
+# AVR Function Calls 
 
 AVR (Agent Voice Response) supports function calling capabilities, allowing developers to create custom tools that can be invoked during real-time speech-to-speech conversations. This guide explains how to create, implement, and use custom function calls in the AVR system.
 
@@ -20,6 +20,42 @@ The function calling system in AVR consists of two main directories:
 - **`tools/`** - User custom tools (extensible functionality)
 
 Tools are automatically loaded at runtime and made available to the OpenAI API for function calling.
+
+## Default Function Calls
+
+AVR comes with two essential built-in function calls that are automatically available in every conversation:
+
+### 1. `avr_transfer` - Call Transfer Tool
+
+**Purpose**: Transfers the current call to a specific extension, commonly used to connect users with human operators.
+
+**Usage**: The AI agent can automatically transfer calls when:
+- A user requests to speak with a human operator
+- The conversation reaches a point where human intervention is needed
+- The AI determines it cannot handle a specific request
+
+**Parameters**:
+- `transfer_extension` (required): The extension number to transfer to
+- `transfer_context` (optional): The context/department for the transfer
+- `transfer_priority` (optional): Priority level for the transfer
+
+**Example AI Usage**: "I understand you'd like to speak with a human operator. Let me transfer you to our customer service team."
+
+### 2. `avr_hangup` - Call Termination Tool
+
+**Purpose**: Forces the virtual agent to end the conversation and hang up the call.
+
+**Usage**: The AI agent can automatically hang up when:
+- A task or conversation is completed
+- No further assistance is needed
+- The user's request has been fulfilled
+- Maintenance or booking has been completed
+
+**Parameters**: None required
+
+**Example AI Usage**: "Your appointment has been successfully scheduled. Thank you for calling, and have a great day!"
+
+These default tools ensure that every AVR deployment has the essential call management capabilities without requiring additional development.
 
 ## Tool Structure
 
@@ -398,5 +434,7 @@ handler: async (uuid, args) => {
 ## Conclusion
 
 Function calls in AVR provide a powerful way to extend the system's capabilities. By following this guide, you can create robust, reliable tools that enhance the user experience and provide valuable functionality during voice conversations.
+
+The built-in `avr_transfer` and `avr_hangup` tools ensure that every deployment has essential call management capabilities, while the extensible `tools/` directory allows you to add custom functionality specific to your use case.
 
 For additional support and examples, refer to the existing tools in the `avr_tools/` directory and the main AVR documentation.
