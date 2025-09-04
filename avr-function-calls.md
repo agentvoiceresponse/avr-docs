@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:43:33.835Z
+date: 2025-09-04T14:43:51.370Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -103,7 +103,7 @@ module.exports = {
 Create a new JavaScript file in the `tools/` directory:
 
 ```bash
-touch avr-sts-openai/tools/my_custom_tool.js
+touch path/to/tools/my_custom_tool.js
 ```
 
 ### Step 2: Implement the Tool
