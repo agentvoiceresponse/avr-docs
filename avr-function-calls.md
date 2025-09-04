@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:45:43.817Z
+date: 2025-09-04T14:46:08.268Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -76,19 +76,19 @@ module.exports = {
 
 #### `name` (string, required)
 - Must be unique across all tools
-- Used by OpenAI to identify which tool to call
+- Used by LLM to identify which tool to call
 - Should be descriptive and follow snake_case convention
 - Example: `"get_weather"`, `"avr_transfer"`, `"avr_hangup"`
 
 #### `description` (string, required)
 - Clear explanation of what the tool does
-- Used by OpenAI to understand when to call this tool
+- Used by LLM to understand when to call this tool
 - Should be concise but informative
 - Example: `"Retrieves weather information for a specific location"`
 
 #### `input_schema` (object, required)
 - JSON Schema that defines the expected input parameters
-- OpenAI uses this to validate and structure the input data
+- LLM uses this to validate and structure the input data
 - Must follow [JSON Schema specification](https://json-schema.org/)
 
 #### `handler` (function, required)
