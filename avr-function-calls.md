@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:45:00.551Z
+date: 2025-09-04T14:45:43.817Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -19,7 +19,7 @@ The function calling system in AVR consists of two main directories:
 - **`avr_tools/`** - Project-provided tools (core functionality)
 - **`tools/`** - User custom tools (extensible functionality)
 
-Tools are automatically loaded at runtime and made available to the OpenAI API for function calling.
+Tools are automatically loaded at runtime and made available to the LLM for function calling.
 
 ## Default Function Calls
 
