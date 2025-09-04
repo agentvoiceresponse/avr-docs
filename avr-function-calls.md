@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:44:16.817Z
+date: 2025-09-04T14:44:52.085Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -358,25 +358,6 @@ module.exports = {
 - Keep handlers lightweight and fast
 - Use async/await for external API calls
 - Avoid blocking operations
-
-## Testing Your Tools
-
-### 1. Manual Testing
-```bash
-# Test the tool loading
-node -e "const { loadTools } = require('./loadTools'); console.log(loadTools());"
-```
-
-### 2. Integration Testing
-- Start the AVR service
-- Initiate a conversation that should trigger your tool
-- Verify the tool executes correctly
-- Check the response is appropriate
-
-### 3. Error Testing
-- Test with invalid parameters
-- Test with missing required fields
-- Verify error handling works correctly
 
 ## Troubleshooting
 
