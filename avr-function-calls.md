@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:44:52.085Z
+date: 2025-09-04T14:45:00.551Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -369,7 +369,7 @@ module.exports = {
    - Restart the service after changes
 
 2. **Handler not executing**
-   - Check OpenAI logs for function call attempts
+   - Check logs for function call attempts
    - Verify the tool name matches exactly
    - Ensure the handler function is properly exported
 
