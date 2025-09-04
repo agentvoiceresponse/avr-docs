@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-04T15:05:57.533Z
+date: 2025-09-04T15:13:58.180Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -68,4 +68,4 @@ avr-core:
     - avr
 ```
 
-For a complete example, check the docker-compose-openai.yml in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) repository.
+For a complete example, check the docker-compose-openai-realtime.yml in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) repository.
