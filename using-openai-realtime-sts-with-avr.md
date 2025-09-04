@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-04T15:05:27.174Z
+date: 2025-09-04T15:05:57.533Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -13,7 +13,7 @@ dateCreated: 2025-09-04T15:05:27.174Z
 The **OpenAI Realtime STS integration** enables AVR to leverage OpenAI’s real-time speech-to-speech API.  
 This mode provides low-latency voice conversations, with the added benefit of **function calling support** for advanced integrations.  
 
-👉 For more details on function calls, see [AVR Function Calls](https://wiki.agentvoiceresponse.com/en/avr-function-calls).
+For more details on function calls, see [AVR Function Calls](https://wiki.agentvoiceresponse.com/en/avr-function-calls).
 
 ---
 
