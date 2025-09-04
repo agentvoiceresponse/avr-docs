@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:42:38.455Z
+date: 2025-09-04T14:43:33.835Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -143,15 +143,9 @@ module.exports = {
 };
 ```
 
-### Step 3: Restart the Service
+### Step 3: Restart the Services
 
-After adding a new tool, restart the AVR service for changes to take effect:
-
-```bash
-# Stop the current service
-# Then restart
-node index.js
-```
+After adding a new tool, restart the AVR services for changes to take effect.
 
 ## Input Schema Examples
 
