@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-04T14:56:11.083Z
+date: 2025-09-05T07:40:49.602Z
 tags: avr, transfer, hangup, function calls, tools, avr_tools
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -295,41 +295,56 @@ module.exports = {
 
 ```javascript
 // tools/avr_transfer.js
-const axios = require('axios');
+
+require("dotenv").config();
+
+const axios = require("axios");
 
 module.exports = {
   name: "avr_transfer",
-  description: "Transfers the current call to a specific extension or department",
-  
+  description: "Transfers a call to a specific extension.",
   input_schema: {
     type: "object",
     properties: {
-      extension: {
+      transfer_extension: {
         type: "string",
-        description: "The extension number to transfer to"
+        description: "The transfer extension to transfer the call to.",
       },
-      department: {
+      transfer_context: {
         type: "string",
-        description: "The department name (optional)"
-      }
+        description: "The context to transfer the call to.",
+      },
+      transfer_priority: {
+        type: "string",
+        description: "The priority of the transfer.",
+      },
     },
-    required: ["extension"]
+    required: ["transfer_extension"],
   },
-  
-  handler: async (uuid, { extension, department }) => {
+  handler: async (
+    uuid,
+    { transfer_extension, transfer_context, transfer_priority }
+  ) => {
+    console.log("Transfering call to:", transfer_extension);
+    console.log("UUID:", uuid);
+
     try {
-      const response = await axios.post(`${process.env.AMI_URL}/transfer`, {
+      const url = process.env.AMI_URL || "http://127.0.0.1:6006";
+      const res = await axios.post(`${url}/transfer`, {
         uuid,
-        exten: extension,
-        context: department || "default"
+        exten: transfer_extension,
+        context: transfer_context || "demo",
+        priority: transfer_priority || 1,
       });
-      
-      return `I'm transferring your call to extension ${extension}${department ? ` in the ${department} department` : ''}. Please hold while I connect you.`;
+      console.log("Transfer response:", res.data);
+      return res.data.message;
     } catch (error) {
-      return `I'm sorry, I couldn't complete the transfer. Please try again or contact support.`;
+      console.error("Error during transfer:", error.message);
+      return `Error during transfer: ${error.message}`;
     }
-  }
+  },
 };
+
 ```
 
 ## Best Practices
