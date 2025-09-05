@@ -2,11 +2,59 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-02T14:17:32.189Z
+date: 2025-09-05T17:24:24.424Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 6 September 2025
+> {.is-info}
+{.is-info}
+
+Lots of updates to share, so buckle up 🎉
+
+🔹 Spoiler revealed!
+We’ve just released the very first avr-sts-elevenlabs integration 🗣️➡️🗣️
+This means you can now leverage ElevenLabs for speech-to-speech with:
+    •    Much more natural and realistic voices
+    •    Lower latency in voice generation
+    •    A wide variety of expressive voices and styles
+
+👉 How many of you have been waiting for this? 😎
+More details here: https://wiki.agentvoiceresponse.com/en/elevenlabs-speech-to-speech-integration-avr
+
+🔹 But that’s not all!
+This week we’re also rolling out updates for avr-sts-openai and avr-sts-gemini with full tools support 🛠️
+I’ve prepared a guide on how to use tools and even implement your own custom function calls:
+https://wiki.agentvoiceresponse.com/en/avr-function-calls
+
+🔹 Core improvements 💥 💥 💥 💥 💥 💥 💥 
+We noticed some latency with HTTP streaming between avr-core and avr-sts, so we rewrote the communication layer using WebSockets. 😅 
+This brings:
+    •    Zero latency audio streaming
+    •    Support for user/agent interruptions via WebSocket events
+
+Updated docs on events here:
+https://wiki.agentvoiceresponse.com/en/avr-sts-integration-implementation
+
+⚙️ In your avr-core Docker, update:
+- STS_URL=ws://avr-sts-openai:6030
+
+instead of
+- STS_URL=http://avr-sts-openai:6030/speech-to-speech-stream
+
+
+No worries—HTTP stream is still backward compatible, but we strongly recommend switching to WebSockets ASAP.
+Official integrations (OpenAI, Ultravox, Deepgram, ElevenLabs, Gemini) are already converted. HTTP stream code will no longer be maintained.
+
+🔹 Infra update
+We’ve refreshed all URLs in avr-infra—Docker Compose examples are already updated.
+
+The result? Conversations are now way more natural and seamless. We’re really happy with how it feels. 
+Oh, almost forgot—docs have also been updated:
+    •    https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr
+    •    https://wiki.agentvoiceresponse.com/en/using-gemini-sts-with-avr
 
 > 31 August 2025
 > {.is-info}
