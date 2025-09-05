@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-09-05T16:53:25.321Z
+date: 2025-09-05T16:53:50.386Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -72,4 +72,4 @@ avr-core:
 You can find the official repository here:
 Github: [agentvoiceresponse/avr-sts-elevenlabs](https://github.com/agentvoiceresponse/avr-sts-elevenlabs)
 
-For a complete example, check the [docker-compose-elevenlabs.yml](https://github.com/agentvoiceresponse/avr-infra/blob/main/docker-compose-elevenlabs.yml) in the [https://github.com/agentvoiceresponse/avr-infra](avr-infra) project.
+For a complete example, check the [docker-compose-elevenlabs.yml](https://github.com/agentvoiceresponse/avr-infra/blob/main/docker-compose-elevenlabs.yml) in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) project.
