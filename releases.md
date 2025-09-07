@@ -2,11 +2,59 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-05T17:24:24.424Z
+date: 2025-09-07T12:48:40.590Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 6 September 2025
+> {.is-info}
+{.is-info}
+
+We’re releasing a new way to load prompt instructions (only avr-sts-openai).
+
+As AVR projects get more and more complex, we decided to implement a dynamic instruction loading mode. Here’s how it works:
+
+# Instruction Loading Methods
+
+The application supports three different methods for loading AI instructions, with a specific priority order:
+
+**1. Environment Variable (Highest Priority)**
+Set the OPENAI_INSTRUCTIONS environment variable with your custom instructions:
+
+```
+OPENAI_INSTRUCTIONS="You are a specialized customer service agent for a tech company. Always be polite and helpful."
+```
+**2. Web Service (Medium Priority)**
+If no environment variable is set, the app can fetch instructions from a web service using the OPENAI_URL_INSTRUCTIONS environment variable:
+
+```
+OPENAI_URL_INSTRUCTIONS="https://your-api.com/instructions"
+```
+
+The web service should return a JSON response with a system field containing the instructions:
+
+```json
+{
+  "system": "You are a helpful assistant that provides technical support."
+}
+```
+The application will include the session UUID in the request headers as X-AVR-UUID for personalized instructions.
+
+**3. File (Lowest Priority)**
+If neither env var nor web service is configured, the app can load instructions from a local file using OPENAI_FILE_INSTRUCTIONS:
+
+```
+OPENAI_FILE_INSTRUCTIONS="./instructions.txt"
+```
+
+The file should contain plain text instructions that will be used as the system prompt.
+
+--- 
+
+📖 Updated docs: https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr
+
 
 > 6 September 2025
 > {.is-info}
