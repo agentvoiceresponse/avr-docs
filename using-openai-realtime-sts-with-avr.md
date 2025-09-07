@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-04T15:13:58.180Z
+date: 2025-09-07T11:50:16.835Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -24,7 +24,9 @@ For more details on function calls, see [AVR Function Calls](https://wiki.agentv
 | PORT                  | Port on which the STS service runs                    | 6030                                    |
 | OPENAI_API_KEY        | Your OpenAI API key                                   | sk-xxxxxx                               |
 | OPENAI_MODEL          | OpenAI model ID to use                                | gpt-4o-realtime-preview                 |
-| OPENAI_INSTRUCTIONS   | System prompt for the assistant                       | "You are a helpful assistant."          |
+| OPENAI_INSTRUCTIONS   | # Method 1: Direct variable                       | "You are a helpful assistant."          |
+| OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | "https://your-api.com/instructions"          |
+| OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | "./instructions.txt"          |
 | OPENAI_TEMPERATURE    | Controls randomness in responses (0.0–1.0, default 0.8) | 0.8                                     |
 | OPENAI_MAX_TOKENS     | Maximum response length (default: unlimited)          | 100                                     |
 
@@ -67,5 +69,41 @@ avr-core:
   networks:
     - avr
 ```
+
+### Instruction Loading Methods
+
+The application supports three different methods for loading AI instructions, with a specific priority order:
+
+#### 1. Environment Variable (Highest Priority)
+Set the `OPENAI_INSTRUCTIONS` environment variable with your custom instructions:
+
+```bash
+OPENAI_INSTRUCTIONS="You are a specialized customer service agent for a tech company. Always be polite and helpful."
+```
+
+#### 2. Web Service (Medium Priority)
+If no environment variable is set, the application can fetch instructions from a web service using the `OPENAI_URL_INSTRUCTIONS` environment variable:
+
+```bash
+OPENAI_URL_INSTRUCTIONS="https://your-api.com/instructions"
+```
+
+The web service should return a JSON response with a `system` field containing the instructions:
+```json
+{
+  "system": "You are a helpful assistant that provides technical support."
+}
+```
+
+The application will include the session UUID in the request headers as `X-AVR-UUID` for personalized instructions.
+
+#### 3. File (Lowest Priority)
+If neither environment variable nor web service is configured, the application can load instructions from a local file using the `OPENAI_FILE_INSTRUCTIONS` environment variable:
+
+```bash
+OPENAI_FILE_INSTRUCTIONS="./instructions.txt"
+```
+
+The file should contain plain text instructions that will be used as the system prompt.
 
 For a complete example, check the docker-compose-openai-realtime.yml in the [avr-infra](https://github.com/agentvoiceresponse/avr-infra) repository.
