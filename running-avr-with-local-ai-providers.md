@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:28:00.766Z
+date: 2025-09-08T09:28:34.210Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -34,7 +34,7 @@ This section walks through an example setup using:
 	•	LLM: [Ollama](https://ollama.com/) with WebUI
 	•	TTS: [Kokoro](https://github.com/remsky/kokoro)
 
-�At the bottom of this page, you’ll also find a **complete Docker Compose example** showing how to run AVR with Vosk (ASR), Ollama (LLM), Kokoro (TTS), and Asterisk locally.
+At the bottom of this page, you’ll also find a **complete Docker Compose example** showing how to run AVR with Vosk (ASR), Ollama (LLM), Kokoro (TTS), and Asterisk locally.
 
 > ⚠️ Note: The configuration below uses CPU-only Docker images.
 > For real-time performance we strongly recommend GPU-enabled versions of Ollama and Kokoro.
