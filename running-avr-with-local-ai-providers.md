@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:51:56.196Z
+date: 2025-09-08T09:52:04.021Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -42,7 +42,7 @@ At the bottom of this page, you’ll also find a **complete Docker Compose examp
 
 ## ASR with Vosk
 
-Add the following service [avr-asr-vosk]() to your docker-compose.yml:
+Add the following service [avr-asr-vosk](https://github.com/agentvoiceresponse/avr-asr-vosk) to your docker-compose.yml:
 
 ```yaml
 avr-asr-vosk:
