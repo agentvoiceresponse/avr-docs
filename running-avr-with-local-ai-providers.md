@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:28:34.210Z
+date: 2025-09-08T09:30:50.839Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -98,7 +98,7 @@ avr-ollama-web:
 
 ## AVR ↔ Ollama Integration
 
-Use the avr-llm-openai adapter to connect Ollama to AVR:
+Use the [avr-llm-openai](https://github.com/agentvoiceresponse/avr-llm-openai) adapter to connect Ollama to AVR:
 
 ```yaml
 avr-llm-openai:
