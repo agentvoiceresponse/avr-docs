@@ -1,8 +1,8 @@
 ---
-title: Running AVR with Local AI Providers
+title: Run Conversational AI Locally with Asterisk PBX, AVR, Vosk, Ollama, and Kokoro
 description: 
 published: true
-date: 2025-09-08T09:52:04.021Z
+date: 2025-09-08T10:47:36.328Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
