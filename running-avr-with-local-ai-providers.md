@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:25:20.165Z
+date: 2025-09-08T09:28:00.766Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -237,6 +237,8 @@ This drastically reduces response times and improves the conversational flow.
 | AMI_PASSWORD         | AMI password                                              | avr                          |
 
 ### Complete Docker Compose Example
+
+- **Github**: https://github.com/agentvoiceresponse/avr-infra/blob/main/docker-compose-local.yml
 
 ```yaml
 services:
