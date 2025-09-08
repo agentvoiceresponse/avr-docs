@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:34:17.304Z
+date: 2025-09-08T09:42:44.301Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -93,8 +93,20 @@ avr-ollama-web:
 ```
 
 1. Open http://localhost:3001 and create an admin account.
+
+![login.png](/images/ollama/login.png)
+
 2. Go to Settings → Models to download a model (e.g. tinyllama).
+
+![models.png](/images/ollama/models.png)
+
 3. Generate an API key in the WebUI.
+
+![apikey.png](/images/ollama/apikey.png)
+
+4. Test your model
+
+![console.png](/images/ollama/console.png)
 
 ## AVR ↔ Ollama Integration
 
