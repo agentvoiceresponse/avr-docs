@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:42:44.301Z
+date: 2025-09-08T09:45:47.595Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -151,7 +151,9 @@ avr-kokoro:
 
 > Test it at: http://localhost:8880/web/
 
-Then, connect AVR with the TTS adapter:
+![kokoro-web.png](/images/kokoro/kokoro-web.png)
+
+Then, connect AVR with the [avr-tts-kokoro](https://github.com/agentvoiceresponse/avr-tts-kokoro) adapter:
 
 ```
 
