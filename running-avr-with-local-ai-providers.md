@@ -2,7 +2,7 @@
 title: Running AVR with Local AI Providers
 description: 
 published: true
-date: 2025-09-08T09:30:50.839Z
+date: 2025-09-08T09:34:17.304Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z
@@ -378,4 +378,4 @@ networks:
     ipam:
       config:
         - subnet: 172.20.0.0/24
-```       |
+```       
