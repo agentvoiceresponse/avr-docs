@@ -2,7 +2,7 @@
 title: Audio Codec Support
 description: 
 published: true
-date: 2025-09-13T11:36:42.389Z
+date: 2025-09-13T11:38:14.372Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T11:28:04.181Z
@@ -167,38 +167,44 @@ allow=ulaw
 ...
 ```
 
-For Linear PCM (best quality, higher bandwidth)
+**For Linear PCM (best quality, higher bandwidth)**
 
+```conf
 [endpoint-template](!)
 type=endpoint
 disallow=all
 allow=slin16
+```
 
 This ensures that even when using Dial(AudioSocket/), AVR receives audio in a supported format.
 
-⸻
-
-Debugging Codec Issues
+### Debugging Codec Issues
 
 You can check which codecs are being used with:
 
+```bash
 asterisk -rx "core show channel AudioSocket/127.0.0.1:5001-XXXX"
+```
 
 Example output:
 
+```
 State: Up
 NativeFormats: (opus)
 WriteFormat: opus
 ReadFormat: slin
 WriteTranscode: No
 ReadTranscode: No
+```
 
-👉 In this case, the endpoint negotiated Opus, but AVR requires slin16.
-Result: AVR disconnects immediately with zero billsec.
+In this case, the endpoint negotiated Opus, but AVR requires slin16.
+**Result**: AVR disconnects immediately with zero billsec.
 
 If instead you see:
 
+```console
 ReadFormat: slin
+```
 
 then AVR will work correctly.
 
