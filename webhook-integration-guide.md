@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:49:39.626Z
+date: 2025-09-13T10:50:17.878Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -147,37 +147,6 @@ X-AVR-WEBHOOK-SECRET: your-secret-key-here
   "timestamp": "2024-01-01T12:00:00.000Z",
   "payload": {}
 }
-```
-
-### Verification Implementation
-
-```javascript
-// Node.js example
-const crypto = require('crypto');
-
-function verifyWebhookSignature(payload, signature, secret) {
-  const expectedSignature = crypto
-    .createHmac('sha256', secret)
-    .update(payload)
-    .digest('hex');
-  
-  return crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(expectedSignature)
-  );
-}
-
-// Express.js middleware
-app.use('/webhooks/avr', (req, res, next) => {
-  const signature = req.headers['x-avr-webhook-secret'];
-  const payload = JSON.stringify(req.body);
-  
-  if (!verifyWebhookSignature(payload, signature, process.env.WEBHOOK_SECRET)) {
-    return res.status(401).send('Unauthorized');
-  }
-  
-  next();
-});
 ```
 
 ## Implementation Examples
