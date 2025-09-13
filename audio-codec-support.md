@@ -2,7 +2,7 @@
 title: Audio Codec Support
 description: 
 published: true
-date: 2025-09-13T11:28:04.181Z
+date: 2025-09-13T11:36:42.389Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T11:28:04.181Z
@@ -104,33 +104,108 @@ or
 Audio codec detected: SLIN
 ```
 
-## Integration Examples
+## Asterisk Configuration
 
-### Asterisk Configuration
+Correct Asterisk configuration is essential to ensure that AVR receives audio in a format it supports.  
+By default, **AVR Core expects audio in signed linear PCM (slin16, 8kHz, 16-bit mono)**.  
+If Asterisk negotiates a codec that AVR does not support (for example, Opus), AVR will drop the call or log `No audio received / unsupported format`.
 
-Ensure your Asterisk configuration uses supported codecs:
+### Dialplan Configuration
 
-```ini
-; pjsip.conf
-[transport-udp]
-type=transport
-protocol=udp
-bind=0.0.0.0:5060
+There are two primary ways to connect to AVR in your dialplan:
 
-[endpoint_template](!)
-type=endpoint
-context=default
-disallow=all
-allow=ulaw,alaw,slin16
+#### Using `AudioSocket()`
+```asterisk
+[demo]
+exten => 5001,1,Answer()
+ same => n,Ringing()
+ same => n,Wait(1)
+ same => n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+ same => n,AudioSocket(${UUID},127.0.0.1:5001)
+ same => n,Hangup()
 ```
 
-### Codec Priority
+- **Pros**: Asterisk automatically transcodes the inbound audio into slin16, ensuring AVR compatibility.
+- **Cons**: Slightly higher CPU usage due to transcoding.
 
-For optimal performance, configure codec priority in your PBX:
+#### Using Dial(AudioSocket/)
 
-1. **Primary**: Linear PCM (slin16) - Best quality, no conversion needed
-2. **Secondary**: A-law (alaw) - Good quality, efficient compression
-3. **Fallback**: μ-law (ulaw) - Universal compatibility
+```asterisk
+[demo]
+exten => 5001,1,Answer()
+ same => n,Ringing()
+ same => n,Wait(1)
+ same => n,Set(UUID=${SHELL(uuidgen | tr -d '\n')})
+ same => n,Dial(AudioSocket/127.0.0.1:5001/${UUID})
+ same => n,Hangup()
+```
+
+- **Pros**: More scalable for large deployments (no local transcoding).
+- **Cons**: AVR receives the native codec negotiated by the endpoint (e.g., Opus, A-law, μ-law). If the codec is not supported, AVR will immediately disconnect.
+
+### Choosing the Right Codec
+
+To avoid negotiation issues, configure your SIP endpoints in pjsip.conf to only allow codecs supported by AVR:
+
+**For A-law (Europe / International)**
+
+```conf
+[endpoint-template](!)
+type=endpoint
+disallow=all
+allow=alaw
+...
+````
+
+**For μ-law (North America / Japan)**
+
+```conf
+[endpoint-template](!)
+type=endpoint
+disallow=all
+allow=ulaw
+...
+```
+
+For Linear PCM (best quality, higher bandwidth)
+
+[endpoint-template](!)
+type=endpoint
+disallow=all
+allow=slin16
+
+This ensures that even when using Dial(AudioSocket/), AVR receives audio in a supported format.
+
+⸻
+
+Debugging Codec Issues
+
+You can check which codecs are being used with:
+
+asterisk -rx "core show channel AudioSocket/127.0.0.1:5001-XXXX"
+
+Example output:
+
+State: Up
+NativeFormats: (opus)
+WriteFormat: opus
+ReadFormat: slin
+WriteTranscode: No
+ReadTranscode: No
+
+👉 In this case, the endpoint negotiated Opus, but AVR requires slin16.
+Result: AVR disconnects immediately with zero billsec.
+
+If instead you see:
+
+ReadFormat: slin
+
+then AVR will work correctly.
+
+### Best Practice
+	•	For testing and small setups → Use AudioSocket(). Asterisk handles transcoding automatically.
+	•	For production deployments → Use Dial(AudioSocket/) but restrict endpoint codecs (alaw, ulaw, or slin16) to avoid negotiation problems.
+	•	Always monitor logs: AVR will log the detected codec (Audio codec detected: ALAW/ULAW/SLIN) during the first packets of a call.
 
 ## Performance Considerations
 
