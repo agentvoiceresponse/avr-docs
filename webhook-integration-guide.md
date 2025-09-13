@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:54:03.157Z
+date: 2025-09-13T11:15:44.241Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -207,13 +207,26 @@ Status:
 
 ## Use Cases
 
+Webhooks in AVR allow you to extend the platform beyond call handling, by sending events and call data to your own systems or third-party services.  
+This makes it possible to enrich analytics, update business tools in real time, and ensure continuous quality improvements.
+
+Here are some common scenarios:
+
 ### Call Analytics
-Track call metrics, duration, and patterns
+Track key metrics like call duration, frequency, and interaction patterns.  
+Useful for understanding customer behavior, optimizing agent performance, and measuring AI voicebot efficiency.
 
 ![call-analytics.png](/images/webhook/call-analytics.png)
 
 ### CRM Integration
-Update customer records with call information
+Automatically update customer profiles with call transcripts, notes, or outcomes.  
+This ensures your sales and support teams always have the latest information at hand.
+
+![crm.jpg](/images/webhook/crm.jpg)
 
 ### Quality Assurance
-Monitor AI performance and user satisfaction
+Monitor AI performance, user satisfaction, and conversation quality.  
+Webhook data can be connected to dashboards or QA tools to spot issues early and continuously improve your conversational flows.
+
+
+![qa.jpg](/images/webhook/qa.jpg)
