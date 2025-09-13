@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:28:58.099Z
+date: 2025-09-13T10:49:29.810Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -312,3 +312,40 @@ URL: http://localhost:3000/webhooks/avr
 Method: POST
 Status: ..
 ```
+
+
+### Best Practices for Webhook Endpoints
+
+1. **Fast Response**: Respond quickly (within timeout period)
+2. **Idempotent Processing**: Handle duplicate webhook deliveries
+3. **Error Handling**: Return appropriate HTTP status codes
+4. **Logging**: Log all webhook events for debugging
+5. **Security**: Verify webhook signatures when using secrets
+
+### Common Issues and Solutions
+
+#### Webhook Not Received
+- **Check URL**: Verify `WEBHOOK_URL` is correct and accessible
+- **Check Network**: Ensure network connectivity between AVR Core and webhook endpoint
+- **Check Logs**: Review AVR Core logs for webhook delivery errors
+
+#### Timeout Errors
+- **Increase Timeout**: Set higher `WEBHOOK_TIMEOUT` value
+- **Optimize Endpoint**: Improve webhook endpoint response time
+- **Check Load**: Ensure webhook endpoint can handle request volume
+
+#### Authentication Failures
+- **Verify Secret**: Check `WEBHOOK_SECRET` configuration
+- **Check Headers**: Ensure webhook endpoint reads `X-AVR-WEBHOOK-SECRET` header
+- **Test Verification**: Implement and test signature verification logic
+
+## Use Cases
+
+### Call Analytics
+Track call metrics, duration, and patterns
+
+### CRM Integration
+Update customer records with call information
+
+### Quality Assurance
+Monitor AI performance and user satisfaction
