@@ -2,7 +2,7 @@
 title: Audio Codec Support
 description: 
 published: true
-date: 2025-09-13T11:38:14.372Z
+date: 2025-09-13T11:38:43.874Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T11:28:04.181Z
@@ -188,7 +188,7 @@ asterisk -rx "core show channel AudioSocket/127.0.0.1:5001-XXXX"
 
 Example output:
 
-```
+```console
 State: Up
 NativeFormats: (opus)
 WriteFormat: opus
@@ -209,9 +209,9 @@ ReadFormat: slin
 then AVR will work correctly.
 
 ### Best Practice
-	•	For testing and small setups → Use AudioSocket(). Asterisk handles transcoding automatically.
-	•	For production deployments → Use Dial(AudioSocket/) but restrict endpoint codecs (alaw, ulaw, or slin16) to avoid negotiation problems.
-	•	Always monitor logs: AVR will log the detected codec (Audio codec detected: ALAW/ULAW/SLIN) during the first packets of a call.
+- For testing and small setups → Use AudioSocket(). Asterisk handles transcoding automatically.
+- For production deployments → Use Dial(AudioSocket/) but restrict endpoint codecs (alaw, ulaw, or slin16) to avoid negotiation problems.
+- Always monitor logs: AVR will log the detected codec (Audio codec detected: ALAW/ULAW/SLIN) during the first packets of a call.
 
 ## Performance Considerations
 
