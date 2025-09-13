@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:51:03.638Z
+date: 2025-09-13T10:51:17.185Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -99,7 +99,7 @@ All webhook requests follow a consistent JSON structure:
   "type": "transcription",
   "timestamp": "2024-01-01T12:01:45.000Z",
   "payload": {
-    "role": "user",
+    "role": "user|agent",
     "text": "Hello, I need help with my account"
   }
 }
