@@ -2,11 +2,46 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-07T12:48:40.590Z
+date: 2025-09-13T16:54:35.945Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 13 September 2025
+> {.is-info}
+{.is-info}
+
+We’re excited to announce two major updates that many of you have been asking for:
+
+## 1. Webhooks are here! 🎉
+
+AVR Core now provides comprehensive webhook support for real-time event tracking and integration with external systems.
+
+**Guide**: [webhook-integration-guide](/webhook-integration-guide)
+
+### Supported Event Types:
+- **call_started** → Call initiation
+- **call_ended** → Call termination
+- **transcription** → STT result { role, text }
+- **interruption** → User interruption
+- **error** → Error occurred { message }
+
+### Implementation Examples
+We’ve also released a GitHub repo to help you get started fast:
+🔗 https://github.com/agentvoiceresponse/avr-webhook
+
+Use cases? Endless: Call Analytics, CRM Integration, Quality Assurance, and more!
+
+## 2. Audio flow with AudioSocket() & Dial(AudioSocket/)
+
+AVR now supports alaw, ulaw, and slin16 codecs for better integration with Asterisk.
+
+👉 Details: https://wiki.agentvoiceresponse.com/en/audio-codec-support
+
+--- 
+
+🔥 Both updates open up huge possibilities for building even more powerful, flexible, and real-time AI voice agents.
 
 > 6 September 2025
 > {.is-info}
