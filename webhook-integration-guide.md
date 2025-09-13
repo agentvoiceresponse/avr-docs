@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:50:17.878Z
+date: 2025-09-13T10:50:43.243Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -151,110 +151,7 @@ X-AVR-WEBHOOK-SECRET: your-secret-key-here
 
 ## Implementation Examples
 
-### Node.js/Express Webhook Handler
-
-```javascript
-const express = require('express');
-const app = express();
-
-app.use(express.json());
-
-app.post('/webhooks/avr', (req, res) => {
-  const { uuid, type, timestamp, payload } = req.body;
-  
-  console.log(`Received webhook: ${type} for call ${uuid}`);
-  
-  switch (type) {
-    case 'call_started':
-      handleCallStarted(uuid, timestamp);
-      break;
-    case 'call_ended':
-      handleCallEnded(uuid, timestamp);
-      break;
-    case 'interruption':
-      handleInterruption(uuid, timestamp);
-      break;
-    case 'transcription':
-      handleTranscription(uuid, timestamp, payload);
-      break;
-  }
-  
-  res.status(200).send('OK');
-});
-
-function handleCallStarted(uuid, timestamp) {
-  // Initialize call tracking
-  console.log(`Call started: ${uuid} at ${timestamp}`);
-}
-
-function handleCallEnded(uuid, timestamp) {
-  // Finalize call tracking
-  console.log(`Call ended: ${uuid} at ${timestamp}`);
-}
-
-function handleInterruption(uuid, timestamp) {
-  // Track interruption
-  console.log(`Interruption detected: ${uuid} at ${timestamp}`);
-}
-
-function handleTranscription(uuid, timestamp, payload) {
-  // Log transcription
-  console.log(`Transcription [${payload.role}]: ${payload.text}`);
-}
-
-app.listen(3000, () => {
-  console.log('Webhook server running on port 3000');
-});
-```
-
-### Python/Flask Webhook Handler
-
-```python
-from flask import Flask, request, jsonify
-import json
-from datetime import datetime
-
-app = Flask(__name__)
-
-@app.route('/webhooks/avr', methods=['POST'])
-def handle_webhook():
-    data = request.get_json()
-    
-    uuid = data.get('uuid')
-    event_type = data.get('type')
-    timestamp = data.get('timestamp')
-    payload = data.get('payload', {})
-    
-    print(f"Received webhook: {event_type} for call {uuid}")
-    
-    if event_type == 'call_started':
-        handle_call_started(uuid, timestamp)
-    elif event_type == 'call_ended':
-        handle_call_ended(uuid, timestamp)
-    elif event_type == 'interruption':
-        handle_interruption(uuid, timestamp)
-    elif event_type == 'transcription':
-        handle_transcription(uuid, timestamp, payload)
-    
-    return jsonify({'status': 'success'}), 200
-
-def handle_call_started(uuid, timestamp):
-    print(f"Call started: {uuid} at {timestamp}")
-
-def handle_call_ended(uuid, timestamp):
-    print(f"Call ended: {uuid} at {timestamp}")
-
-def handle_interruption(uuid, timestamp):
-    print(f"Interruption detected: {uuid} at {timestamp}")
-
-def handle_transcription(uuid, timestamp, payload):
-    role = payload.get('role')
-    text = payload.get('text')
-    print(f"Transcription [{role}]: {text}")
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
-```
+- Github: https://github.com/agentvoiceresponse/avr-webhook
 
 ## Error Handling and Retries
 
