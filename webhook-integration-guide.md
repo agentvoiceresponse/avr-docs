@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:49:29.810Z
+date: 2025-09-13T10:49:39.626Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -310,7 +310,7 @@ Message: connect ECONNREFUSED 127.0.0.1:3000
 Code: ECONNREFUSED
 URL: http://localhost:3000/webhooks/avr
 Method: POST
-Status: ..
+Status: 
 ```
 
 
