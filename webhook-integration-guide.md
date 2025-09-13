@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:50:43.243Z
+date: 2025-09-13T10:51:03.638Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -113,9 +113,9 @@ Configure webhook settings using the following environment variables:
 
 #### Required Configuration
 - **WEBHOOK_URL**: The endpoint URL where webhook notifications will be sent
+- **WEBHOOK_SECRET**: Secret key for webhook signature verification
 
 #### Optional Configuration
-- **WEBHOOK_SECRET**: Secret key for webhook signature verification
 - **WEBHOOK_TIMEOUT**: Request timeout in milliseconds (default: 3000ms)
 - **WEBHOOK_RETRY**: Number of retry attempts for failed requests (default: 0)
 
