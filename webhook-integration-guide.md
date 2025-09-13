@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T10:51:53.858Z
+date: 2025-09-13T10:54:03.157Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -209,6 +209,8 @@ Status:
 
 ### Call Analytics
 Track call metrics, duration, and patterns
+
+![call-analytics.png](/images/webhook/call-analytics.png)
 
 ### CRM Integration
 Update customer records with call information
