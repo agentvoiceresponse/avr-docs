@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T11:16:44.164Z
+date: 2025-09-13T11:20:55.901Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -151,7 +151,11 @@ X-AVR-WEBHOOK-SECRET: your-secret-key-here
 
 ## Implementation Examples
 
-- Github: https://github.com/agentvoiceresponse/avr-webhook
+To help you get started quickly, we provide ready-to-use examples that show how to connect AVR with external systems using webhooks.  
+These examples demonstrate how to capture events, parse data, and trigger actions in your own applications.
+
+- **GitHub Repository**: [agentvoiceresponse/avr-webhook](https://github.com/agentvoiceresponse/avr-webhook)  
+  Contains sample webhook receivers and step-by-step instructions on how to integrate AVR with your stack.
 
 ## Error Handling and Retries
 
