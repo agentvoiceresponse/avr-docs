@@ -2,7 +2,7 @@
 title: Integrating VitalPBX with AVR
 description: 
 published: true
-date: 2025-08-31T19:29:14.807Z
+date: 2025-08-31T19:29:19.236Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-31T19:25:07.338Z

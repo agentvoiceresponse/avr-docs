@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-09-02T14:19:50.513Z
+date: 2025-09-02T14:19:54.892Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z

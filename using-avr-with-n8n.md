@@ -2,7 +2,7 @@
 title: Using AVR with N8N
 description: 
 published: true
-date: 2025-08-26T13:01:42.881Z
+date: 2025-08-26T13:01:47.378Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T11:02:33.190Z

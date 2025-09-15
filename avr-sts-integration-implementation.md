@@ -2,7 +2,7 @@
 title: AVR-STS Integration Implementation
 description: 
 published: true
-date: 2025-09-05T17:08:04.809Z
+date: 2025-09-05T17:08:09.837Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T17:08:04.809Z

@@ -2,7 +2,7 @@
 title: External Asterisk
 description: Using AVR with External Asterisk PBX
 published: true
-date: 2025-08-20T23:20:10.793Z
+date: 2025-08-20T23:20:15.260Z
 tags: asterisk, pbx
 editor: markdown
 dateCreated: 2025-08-08T16:44:58.314Z
