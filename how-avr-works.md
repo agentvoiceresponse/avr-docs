@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-02T14:46:06.273Z
+date: 2025-09-15T09:48:21.110Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -10,7 +10,7 @@ dateCreated: 2025-08-06T17:06:33.271Z
 
 # How AVR Works
 
-The AVR Infrastructure project provides a complete, modular deployment environment for the Agent Voice Response system. It allows you to launch the AVR Core, ASR, LLM, and TTS services, all integrated with an Asterisk PBX using the AudioSocket protocol.
+The AVR Infrastructure project provides a complete, modular deployment environment for the Agent Voice Response system. It allows you to launch the AVR Core, ASR (Automatic Speech Recognition), LLM (Large Language Model), and TTS (Text To Speech) services or STS (Speech To Speech) service, all integrated with an Asterisk PBX using the AudioSocket protocol.
 
 This setup supports a wide range of providers—including cloud services like OpenAI, Deepgram, Google, ElevenLabs, Anthropic **and local/open-source providers like Vosk, Kokoro, CoquiTTS, Ollama**—and can be customized with Docker Compose.
 
