@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-13T11:21:00.520Z
+date: 2025-09-16T15:52:13.991Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -101,6 +101,18 @@ All webhook requests follow a consistent JSON structure:
   "payload": {
     "role": "user|agent",
     "text": "Hello, I need help with my account"
+  }
+}
+```
+
+#### dtmf_digit
+```json
+{
+  "uuid": "550e8400-e29b-41d4-a716-446655440000",
+  "type": "dtmf_digit",
+  "timestamp": "2024-01-01T12:02:15.000Z",
+  "payload": {
+  	"digit": "1|2|3|..."
   }
 }
 ```
