@@ -2,11 +2,48 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-13T16:54:40.855Z
+date: 2025-09-16T16:04:10.173Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 14 September 2025
+> {.is-info}
+{.is-info}
+
+🚀 Release avr-core 1.9.0 – DTMF Support! 🎉
+
+We’re excited to announce that AVR now supports DTMF!
+With version 1.9.0, every DTMF digit pressed by the user is captured and forwarded in different ways:
+
+🔹 Webhook Event (https://wiki.agentvoiceresponse.com/en/webhook-integration-guide#dtmf_digit)
+Each digit is sent to the configured webhook_URL as an event:
+```
+{
+  "uuid": "550e8400-e29b-41d4-a716-446655440000",
+  "type": "dtmf_digit",
+  "timestamp": "2024-01-01T12:02:15.000Z",
+  "payload": {
+    "digit": "1|2|3|..."
+  }
+}
+```
+🔹 Message to the LLM
+The pressed digit is also forwarded to the LLM in this format:
+```
+{ "role": "user", "content": "1|2|3|..." }
+```
+Where content contains the actual digit (1, 2, 3, etc.).
+
+🔹 STS (Speech-to-Speech) Integration (https://wiki.agentvoiceresponse.com/en/avr-sts-integration-implementation#h-23-dtmf_digit-event-dtmf-digit)
+If you’re using STS, the digit is sent as a WebSocket event:
+```
+{ "type": "dtmf_digit", "digit": "1|2|3|..." }
+```
+ This makes it possible to combine voice input with keypad input in the same conversational flow, enabling hybrid voice + DTMF menus.
+
+Happy testing, and share your feedback! 💬
 
 > 13 September 2025
 > {.is-info}
