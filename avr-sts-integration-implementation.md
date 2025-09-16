@@ -2,7 +2,7 @@
 title: AVR-STS Integration Implementation
 description: 
 published: true
-date: 2025-09-05T17:08:09.837Z
+date: 2025-09-16T16:00:03.859Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T17:08:04.809Z
@@ -153,6 +153,27 @@ const handleAudio = (message, clientWs, sessionUuid, providerConnection) => {
 const validateAudioFormat = (audioBuffer) => {
   // Verify buffer is in PCM 16-bit format
   return audioBuffer.length > 0 && audioBuffer.length % 2 === 0;
+};
+```
+
+### 2.3 `dtmf_digit` Event - DTMF Digit
+
+**When received**: User digit a DTMF
+
+**Structure**:
+```json
+{
+  "type": "dtmf_digit",
+  "digit": "1|2|3|..."
+}
+```
+
+**Handling**:
+```javascript
+const handleDtmfDigit = async (message, clientWs, sessionUuid, providerConnection) => {
+  sessionUuid = message.uuid;
+  const config = message.provider_config || {};
+  
 };
 ```
 
