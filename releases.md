@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-16T16:04:10.173Z
+date: 2025-09-16T16:04:45.064Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -12,7 +12,7 @@ dateCreated: 2025-08-08T16:52:47.453Z
 > {.is-info}
 {.is-info}
 
-🚀 Release avr-core 1.9.0 – DTMF Support! 🎉
+🚀 Release avr-core 1.9.0 – DTMF Support (only for Asterisk v22+)! 🎉
 
 We’re excited to announce that AVR now supports DTMF!
 With version 1.9.0, every DTMF digit pressed by the user is captured and forwarded in different ways:
