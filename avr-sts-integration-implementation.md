@@ -2,7 +2,7 @@
 title: AVR-STS Integration Implementation
 description: 
 published: true
-date: 2025-09-16T16:00:03.859Z
+date: 2025-09-16T16:00:14.721Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T17:08:04.809Z
@@ -170,11 +170,7 @@ const validateAudioFormat = (audioBuffer) => {
 
 **Handling**:
 ```javascript
-const handleDtmfDigit = async (message, clientWs, sessionUuid, providerConnection) => {
-  sessionUuid = message.uuid;
-  const config = message.provider_config || {};
-  
-};
+
 ```
 
 ## Step 3: Send Events to Client
