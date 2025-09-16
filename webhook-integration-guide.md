@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-16T15:52:13.991Z
+date: 2025-09-16T16:06:44.191Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -34,9 +34,14 @@ Webhooks are HTTP POST requests sent to your specified endpoint whenever specifi
 - **Use Case**: Track user engagement, measure interruption patterns, adjust AI behavior
 
 ### transcription
-- **Trigger**: When speech is transcribed (STS mode only)
+- **Trigger**: When speech is transcribed 
 - **Payload**: Transcription object with role and text
 - **Use Case**: Log conversations, analyze speech patterns, build conversation history
+
+### dtmf_digit (only for Asterisk v22+)
+- **Trigger**: When the user presses a DTMF key  
+- **Payload**: The DTMF digit pressed  
+- **Use Case**: Handle keypad input during a call (e.g., hybrid voice + DTMF menus)  
 
 ## Webhook Payload Format
 
@@ -105,7 +110,7 @@ All webhook requests follow a consistent JSON structure:
 }
 ```
 
-#### dtmf_digit
+#### dtmf_digit (only for Asterisk 22+)
 ```json
 {
   "uuid": "550e8400-e29b-41d4-a716-446655440000",
