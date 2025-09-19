@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-07T11:50:38.783Z
+date: 2025-09-19T07:40:49.485Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -25,8 +25,8 @@ For more details on function calls, see [AVR Function Calls](https://wiki.agentv
 | OPENAI_API_KEY        | Your OpenAI API key                                   | sk-xxxxxx                               |
 | OPENAI_MODEL          | OpenAI model ID to use                                | gpt-4o-realtime-preview                 |
 | OPENAI_INSTRUCTIONS   | # Method 1: Direct variable                       | "You are a helpful assistant."          |
-| *OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | "https://your-api.com/instructions"          |
-| *OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | "./instructions.txt"          |
+| *OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | https://your-api.com/instructions          |
+| *OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | ./instructions.txt          |
 | OPENAI_TEMPERATURE    | Controls randomness in responses (0.0–1.0, default 0.8) | 0.8                                     |
 | OPENAI_MAX_TOKENS     | Maximum response length (default: unlimited)          | 100                                     |
 
@@ -85,7 +85,7 @@ OPENAI_INSTRUCTIONS="You are a specialized customer service agent for a tech com
 If no environment variable is set, the application can fetch instructions from a web service using the `OPENAI_URL_INSTRUCTIONS` environment variable:
 
 ```bash
-OPENAI_URL_INSTRUCTIONS="https://your-api.com/instructions"
+OPENAI_URL_INSTRUCTIONS=https://your-api.com/instructions
 ```
 
 The web service should return a JSON response with a `system` field containing the instructions:
@@ -101,7 +101,7 @@ The application will include the session UUID in the request headers as `X-AVR-U
 If neither environment variable nor web service is configured, the application can load instructions from a local file using the `OPENAI_FILE_INSTRUCTIONS` environment variable:
 
 ```bash
-OPENAI_FILE_INSTRUCTIONS="./instructions.txt"
+OPENAI_FILE_INSTRUCTIONS=./instructions.txt
 ```
 
 The file should contain plain text instructions that will be used as the system prompt.
