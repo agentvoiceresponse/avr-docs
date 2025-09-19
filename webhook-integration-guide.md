@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-19T07:41:59.866Z
+date: 2025-09-19T07:42:32.198Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -193,9 +193,9 @@ Failed webhook requests are logged with detailed error information:
 ```
 [WEBHOOK][CALL_STARTED] Retry failed
 Webhook Error:
-Message: connect ECONNREFUSED 127.0.0.1:3000
+Message: connect ECONNREFUSED avr-webhook:9000
 Code: ECONNREFUSED
-URL: http://localhost:3000/webhooks/avr
+URL: http://avr-webhook:9000/events
 Method: POST
 Status: 
 ```
