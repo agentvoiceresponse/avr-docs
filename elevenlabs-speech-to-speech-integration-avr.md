@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-09-05T16:54:03.399Z
+date: 2025-09-19T15:48:20.764Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -60,7 +60,7 @@ avr-core:
   restart: always
   environment:
     - PORT=5001
-    - STS_URL=http://avr-sts-elevenlabs:6035/speech-to-speech-stream
+    - STS_URL=ws://avr-sts-elevenlabs:6035
   ports:
     - 5001:5001
   networks:
