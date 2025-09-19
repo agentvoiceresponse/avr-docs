@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-19T07:42:32.198Z
+date: 2025-09-19T07:43:05.922Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -153,8 +153,8 @@ WEBHOOK_RETRY=3
 When `WEBHOOK_SECRET` is configured, AVR Core includes the secret in the `X-AVR-WEBHOOK-SECRET` header for verification:
 
 ```http
-POST /webhooks/avr HTTP/1.1
-Host: your-domain.com
+POST /events HTTP/1.1
+Host: avr-webhook
 Content-Type: application/json
 X-AVR-WEBHOOK-SECRET: your-secret-key-here
 
