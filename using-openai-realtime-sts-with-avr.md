@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-19T07:40:49.485Z
+date: 2025-09-19T15:47:33.209Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -63,7 +63,7 @@ avr-core:
   restart: always
   environment:
     - PORT=5001
-    - STS_URL=http://avr-sts-openai:6030/speech-to-speech-stream
+    - STS_URL=ws://avr-sts-openai:6030/speech-to-speech-stream
   ports:
     - 5001:5001
   networks:
