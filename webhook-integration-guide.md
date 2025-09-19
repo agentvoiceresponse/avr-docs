@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2025-09-19T07:41:32.361Z
+date: 2025-09-19T07:41:59.866Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -140,7 +140,7 @@ Configure webhook settings using the following environment variables:
 
 ```bash
 # .env file
-WEBHOOK_URL=http://avr-webhook:9000/events
+WEBHOOK_URL=http://avr-webhook:9000/events # or your custom webhook url
 WEBHOOK_SECRET=your-secret-key-here
 WEBHOOK_TIMEOUT=5000
 WEBHOOK_RETRY=3
