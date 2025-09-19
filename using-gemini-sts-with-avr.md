@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-09-02T14:19:54.892Z
+date: 2025-09-19T15:49:50.029Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z
@@ -79,7 +79,7 @@ avr-core:
   restart: always
   environment:
     - PORT=5001 
-    - STS_URL=http://avr-sts-gemini:6037/speech-to-speech-stream
+    - STS_URL=ws://avr-sts-gemini:6037
   ports:
     - 5001:5001
   networks:
