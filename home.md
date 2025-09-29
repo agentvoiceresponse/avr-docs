@@ -2,7 +2,7 @@
 title: Overview
 description: 
 published: true
-date: 2025-09-29T13:06:55.562Z
+date: 2025-09-29T13:07:44.512Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T18:04:55.946Z
@@ -12,10 +12,7 @@ dateCreated: 2025-05-01T18:04:55.946Z
 
 Agent Voice Response (commonly abbreviated AVR) is a conversational AI platform that integrates with the open-source PBX Asterisk to replace traditional IVR (Interactive Voice Response) systems using AI-driven voice interactions. It acts as a voicebot, transcribing speech, generating responses through large language models (LLMs), and synthesizing speech back to callers.
 
-<br>
-<video width="320" height="240" controls>
- <source src="https://www.youtube.com/watch?v=WMRlupB-sI8" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WMRlupB-sI8?si=WB8XNahw8pJ_jez9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Overview
 
