@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-29T12:47:37.701Z
+date: 2025-09-29T12:47:44.534Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -29,7 +29,7 @@ AVR follows a modular design:
 
 <br>
 <div align="center">
-  <img src="/images/architecture/avr-llm-tts.png" alt="Architecture" width="800"/>
+  <img src="/images/architecture/asr-llm-tts.png" alt="Architecture" width="800"/>
 </div>
 <br>
 
