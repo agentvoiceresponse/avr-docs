@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-29T12:47:44.534Z
+date: 2025-09-29T12:47:55.303Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -77,7 +77,7 @@ If you configure `STS_URL`, AVR Core will **bypass ASR/LLM/TTS** and use a **sin
 
 <br>
 <div align="center">
-  <img src="/images/architecture/architecture-sts.png" alt="Architecture" width="800"/>
+  <img src="/images/architecture/sts.png" alt="Architecture" width="800"/>
 </div>
 <br>
 
