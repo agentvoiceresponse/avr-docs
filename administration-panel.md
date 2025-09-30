@@ -2,7 +2,7 @@
 title: AVR App – Administration Panel
 description: 
 published: true
-date: 2025-09-30T14:23:03.468Z
+date: 2025-09-30T14:25:07.636Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
