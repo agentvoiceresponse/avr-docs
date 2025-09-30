@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:10:30.086Z
+date: 2025-09-30T11:10:40.617Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -212,8 +212,6 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 
 - **VAD (Voice Activity Detection)**  
   Core uses VAD to segment speech, reduce latency, and support **barge-in**. Defaults are tuned for responsiveness; adjust only if you have specific needs.
-
----
 
 ## Environment Variables (Summary)
 
