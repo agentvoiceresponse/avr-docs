@@ -2,8 +2,8 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-09-19T15:48:54.047Z
-tags: 
+date: 2025-09-30T11:30:20.397Z
+tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
 ---
