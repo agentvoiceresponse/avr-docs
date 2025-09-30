@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:14:04.603Z
+date: 2025-09-30T11:15:34.174Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -104,7 +104,7 @@ avr-core:
     # - LLM_URL=http://avr-llm-openai:6002/prompt-stream
     # - TTS_URL=http://avr-tts-kokoro:6012/text-to-speech-stream
     # ... or STS
-    # - STS_URL=http://avr-sts-openai:6030/speech-to-speech-stream
+    # - STS_URL=ws://avr-sts-openai:6030
     # Optional webhooks & ambient noise
     - WEBHOOK_URL=${WEBHOOK_URL}
     - WEBHOOK_SECRET=${WEBHOOK_SECRET}
