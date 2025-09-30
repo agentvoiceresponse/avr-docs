@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:08:52.849Z
+date: 2025-09-30T11:10:30.086Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -192,8 +192,6 @@ WEBHOOK_TIMEOUT=3000
 WEBHOOK_RETRY=0
 ```
 
----
-
 ## Audio Codec Support
 
 AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the first packets, logs the detection, decodes to **internal 8 kHz / 16-bit mono PCM**, and re-encodes for outbound streaming.  
@@ -202,8 +200,6 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 - Keep codecs consistent end-to-end (prefer **alaw/ulaw/slin16**).  
 - Avoid Opus on the AudioSocket leg unless Asterisk transcodes to slin16.  
 - Monitor logs: you’ll see `Audio codec detected: ALAW/ULAW/SLIN`.
-
----
 
 ## Ambient Noise & VAD
 
@@ -252,12 +248,3 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 - **“No audio received / unsupported format”:** Verify Asterisk channel `ReadFormat`.  
 - **Long delays:** Check ASR/LLM/TTS response times; consider smaller models or local providers.  
 - **Webhook timeouts:** Increase `WEBHOOK_TIMEOUT` or ensure your endpoint responds < 3s.
-
----
-
-## Contributing
-
-Want to extend AVR Core or add a new provider module?  
-Open a discussion or reach the maintainers at **info@agentvoiceresponse.com** and explore the public repos under the organization.
-
----
