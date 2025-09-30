@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:07:10.216Z
+date: 2025-09-30T11:08:52.849Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -227,7 +227,7 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 | `ASR_URL`             | ASR streaming endpoint                    | `http://avr-asr-*:6010/speech-to-text-stream`            |
 | `LLM_URL`             | LLM streaming endpoint                    | `http://avr-llm-*:6002/prompt-stream`                    |
 | `TTS_URL`             | TTS streaming endpoint                    | `http://avr-tts-*:6012/text-to-speech-stream`            |
-| `STS_URL`             | STS streaming endpoint (HTTP/WS)          | `http://avr-sts-*:6033/speech-to-speech-stream`          |
+| `STS_URL`             | STS streaming endpoint (WS)          | `ws://avr-sts-*:6033`          |
 | `WEBHOOK_URL`         | Webhook receiver                          | `https://yourapp/hook`                                   |
 | `WEBHOOK_SECRET`      | Signature secret (header: `X-AVR-WEBHOOK-SECRET`) | Optional                                           |
 | `WEBHOOK_TIMEOUT`     | Webhook request timeout (ms)              | `3000`                                                    |
