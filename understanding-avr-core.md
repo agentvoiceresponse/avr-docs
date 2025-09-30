@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:11:37.188Z
+date: 2025-09-30T11:14:04.603Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -75,7 +75,7 @@ TTS_URL=http://avr-tts-*:6012/text-to-speech-stream
 
 #### Core (speech-mediated)
 ```env
-STS_URL=http://avr-sts-*:6033/speech-to-speech-stream
+STS_URL=ws://avr-sts-*:6033
 # When STS_URL is set, comment out ASR_URL / LLM_URL / TTS_URL.
 ```
 
