@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:10:40.617Z
+date: 2025-09-30T11:11:37.188Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -118,8 +118,6 @@ avr-core:
     - avr
 ```
 
----
-
 ## Asterisk Integration
 
 AVR Core connects over **AudioSocket**. You can integrate via the **AudioSocket() application** or the **Dial(AudioSocket/…)** channel interface.
@@ -160,8 +158,6 @@ allow=alaw        ; or 'ulaw' or 'slin16'
 asterisk -rx "core show channel AudioSocket/IP:PORT-XXXX"
 ```
 Check `ReadFormat` is `slin` (or a supported G.711). If you see `opus`, restrict codecs as above **or** prefer `AudioSocket()`.
-
----
 
 ## Webhook Integration
 
@@ -228,8 +224,6 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 | `WEBHOOK_RETRY`       | Retries for failed webhooks               | `0`                                                       |
 | `AMBIENT_NOISE_FILE`  | Ambient PCM file (8 kHz, mono, 16-bit)    | `ambient_sounds/office_background.raw`                    |
 | `AMBIENT_NOISE_LEVEL` | Ambient volume (0.0–1.0)                  | `0.10`                                                    |
-
----
 
 ## Performance & Scaling
 
