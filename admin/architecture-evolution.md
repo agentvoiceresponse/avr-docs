@@ -2,7 +2,7 @@
 title: Architectural Evolution of Agent Voice Response (AVR)
 description: 
 published: false
-date: 2025-10-13T12:23:10.523Z
+date: 2025-10-13T12:40:07.802Z
 tags: admin, architec
 editor: markdown
 dateCreated: 2025-10-13T12:17:13.684Z
