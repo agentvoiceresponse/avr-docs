@@ -2,7 +2,7 @@
 title: Architectural Evolution of Agent Voice Response (AVR)
 description: 
 published: false
-date: 2025-10-13T12:17:13.684Z
+date: 2025-10-13T12:23:10.523Z
 tags: admin, architec
 editor: markdown
 dateCreated: 2025-10-13T12:17:13.684Z
@@ -31,9 +31,10 @@ Each **tenant** has its own **isolated instance** of AVR Application.
 This instance includes all key services required for intelligent voice agent execution:
 
 - **AVR Core** – Handles audio, orchestrates between services, and interfaces with Asterisk PBX.  
-- **ASR / SR (Speech Recognition)** – Transcribes audio using cloud or local providers.  
+- **ASR (Automatic Speech Recognition)** – Transcribes audio using cloud or local providers.  
 - **LLM (Language Model)** – Performs semantic reasoning and response generation.  
-- **TTS (Text-to-Speech)** or **STS (Speech-to-Speech)** – Converts responses back into speech or directly produces a voice response.  
+- **TTS (Text-to-Speech)** – Converts responses back into speech or directly produces a voice response.  
+- **STS (Speech-to-Speech)**
 - **Dedicated Database** – Stores configurations, logs, and metrics specific to the tenant.  
 
 Each tenant also has a **dedicated private network**, ensuring isolation and secure communication.
@@ -84,7 +85,7 @@ Key functions include:
 - **Automated Provisioning**
   After registration, a **provisioning workflow** triggers automatically to:
   1. Generate a new namespace or isolated network.  
-  2. Deploy AVR Core, ASR, LLM, TTS/STS, and database containers.  
+  2. Deploy AVR Core, ASR, LLM, TTS, STS, and database containers.  
   3. Register connection details.  
   4. Associate the tenant with a license via the License Service.
 
@@ -125,7 +126,8 @@ This design ensures secure isolation and scalability, while simplifying SSL mana
 The entire platform **can also be deployed locally**, including:
 - Multi-Tenant Platform  
 - AVR Application (one or more local tenants)  
-- Database and local orchestrator  
+- Asterisk PBX (optional)
+- Database  
 
 In this setup, the **License Service always remains cloud-hosted**, managed by the Agent Voice Response team.
 
@@ -177,7 +179,7 @@ All usage data is then reported to the License Service for centralized accountin
 
 1. **User Registration** – User signs up via the web interface.  
 2. **Tenant Creation** – A new tenant record is created and provisioning begins.  
-3. **Environment Deployment** – Containers (Core, ASR, LLM, TTS/STS, DB, Network) are automatically deployed.  
+3. **Environment Deployment** – Containers (Core, ASR, LLM, TTS/STS, DB, Network) are deployed via AVR-APP.  
    Tenant-specific configuration files are generated within the shared Asterisk instance.  
 4. **License Association** – Tenant is linked to an existing or newly requested license.  
 5. **Access Dashboard** – User can access their AVR Application environment to manage agents, API keys, and consumption.
