@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-09-30T11:15:34.174Z
+date: 2025-11-02T09:26:54.298Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -199,31 +199,51 @@ AVR Core **auto-detects** the inbound codec (μ-law, A-law, slin16) from the fir
 
 ## Ambient Noise & VAD
 
-- **Ambient Noise**  
-  ```env
-  AMBIENT_NOISE_FILE=ambient_sounds/office_background.raw
-  AMBIENT_NOISE_LEVEL=0.10
-  ```
-  Mount the folder into the Core container and point to a **raw, mono, 8 kHz, 16-bit PCM** file.
+### Ambient Noise
 
-- **VAD (Voice Activity Detection)**  
-  Core uses VAD to segment speech, reduce latency, and support **barge-in**. Defaults are tuned for responsiveness; adjust only if you have specific needs.
+AVR Core supports the use of **ambient background sounds** to make conversations feel more natural and lifelike.  
+You can mount a directory containing `.raw` audio files and reference one in your configuration.  
+Each file must be **raw PCM**, **mono**, **16-bit**, and **8 kHz** sample rate.
+
+```env
+AMBIENT_NOISE_FILE=ambient_sounds/office_background.raw
+AMBIENT_NOISE_LEVEL=0.10
+````
+
+This feature helps reduce perceived silence during pauses and can simulate environments like offices or call centers.
+All related variables are listed in the [**Environment Variables (Summary)**](#environment-variables-summary) section.
+
+### Voice Activity Detection (VAD)
+
+AVR Core includes a built-in **Voice Activity Detection (VAD)** engine powered by *Silero VAD*.
+It continuously analyzes the incoming audio stream to detect when the caller is speaking or silent,
+allowing the system to **trigger faster responses** and enable natural **barge-in** — where the caller can interrupt the AI mid-sentence.
+
+You can fine-tune the sensitivity, detection thresholds, and timing behavior of VAD using the dedicated `VAD_*` environment variables, detailed in the [**Environment Variables (Summary)**](#environment-variables-summary) section.
+
 
 ## Environment Variables (Summary)
 
-| Variable              | Purpose                                   | Example / Notes                                           |
-|-----------------------|-------------------------------------------|-----------------------------------------------------------|
-| `PORT`                | Core listen port                          | `5001`                                                    |
-| `ASR_URL`             | ASR streaming endpoint                    | `http://avr-asr-*:6010/speech-to-text-stream`            |
-| `LLM_URL`             | LLM streaming endpoint                    | `http://avr-llm-*:6002/prompt-stream`                    |
-| `TTS_URL`             | TTS streaming endpoint                    | `http://avr-tts-*:6012/text-to-speech-stream`            |
-| `STS_URL`             | STS streaming endpoint (WS)          | `ws://avr-sts-*:6033`          |
-| `WEBHOOK_URL`         | Webhook receiver                          | `https://yourapp/hook`                                   |
-| `WEBHOOK_SECRET`      | Signature secret (header: `X-AVR-WEBHOOK-SECRET`) | Optional                                           |
-| `WEBHOOK_TIMEOUT`     | Webhook request timeout (ms)              | `3000`                                                    |
-| `WEBHOOK_RETRY`       | Retries for failed webhooks               | `0`                                                       |
-| `AMBIENT_NOISE_FILE`  | Ambient PCM file (8 kHz, mono, 16-bit)    | `ambient_sounds/office_background.raw`                    |
-| `AMBIENT_NOISE_LEVEL` | Ambient volume (0.0–1.0)                  | `0.10`                                                    |
+| Variable | Purpose | Example / Notes |
+|-----------|----------|----------------|
+| `PORT` | Core listen port | `5001` |
+| `ASR_URL` | ASR streaming endpoint | `http://avr-asr-*:6010/speech-to-text-stream` |
+| `LLM_URL` | LLM streaming endpoint | `http://avr-llm-*:6002/prompt-stream` |
+| `TTS_URL` | TTS streaming endpoint | `http://avr-tts-*:6012/text-to-speech-stream` |
+| `STS_URL` | STS streaming endpoint (HTTP/WS) | `http://avr-sts-*:6033/speech-to-speech-stream` |
+| `WEBHOOK_URL` | Webhook receiver | `https://yourapp/hook` |
+| `WEBHOOK_SECRET` | Signature secret (header: `X-AVR-WEBHOOK-SECRET`) | Optional |
+| `WEBHOOK_TIMEOUT` | Webhook request timeout (ms) | `3000` |
+| `WEBHOOK_RETRY` | Retries for failed webhooks | `0` |
+| `AMBIENT_NOISE_FILE` | Ambient PCM file (8 kHz, mono, 16-bit) | `ambient_sounds/office_background.raw` |
+| `AMBIENT_NOISE_LEVEL` | Ambient volume (0.0–1.0) | `0.10` |
+| `VAD_POSITIVE_SPEECH_THRESHOLD` | Probability threshold above which speech is detected | `0.08` |
+| `VAD_NEGATIVE_SPEECH_THRESHOLD` | Probability threshold below which silence is detected | `0.03` |
+| `VAD_MIN_SPEECH_FRAMES` | Minimum consecutive frames required to confirm speech | `3` |
+| `VAD_PRE_SPEECH_PAD_FRAMES` | Frames included before detected speech | `3` |
+| `VAD_REDEMPTION_FRAMES` | Frames after speech ends before marking silence | `8` |
+| `VAD_FRAME_SAMPLES` | Number of audio samples per frame | `512` |
+| `VAD_MODEL` | Model version used by Silero VAD | `v5` |
 
 ## Performance & Scaling
 
