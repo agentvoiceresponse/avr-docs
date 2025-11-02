@@ -2,11 +2,42 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-09-16T16:04:45.064Z
+date: 2025-11-02T11:05:10.305Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 2 November 2025
+> {.is-info}
+{.is-info}
+
+:rocket: **Fresh changelog drop** for today — lots of exciting updates to make your AI calls even more natural :point_down:
+
+### :speaking_head: Barge-in / Interruption Control with VAD
+
+* We’ve now documented how to handle AI agent interruptions using the `INTERRUPT_LISTENING` variable.
+Details: https://wiki.agentvoiceresponse.com/en/understanding-avr-core#enabling-vad-in-avr-core
+* Added full documentation for **VAD variables** (thresholds, frames, Silero model, etc.).
+Details: https://wiki.agentvoiceresponse.com/en/overview-noise-and-vad
+* Improved **avr-core documentation** with a complete list of all environment variables.
+Details: https://wiki.agentvoiceresponse.com/en/understanding-avr-core#environment-variables-summary
+
+### :new: avr-sts-deepgram **v1.2.0**
+
+* By popular demand: **function calls/tools are now enabled by default** :tada:
+Available out of the box: `avr_transfer` and `avr_hangup`.
+More info: https://wiki.agentvoiceresponse.com/en/avr-function-calls
+* :wrench: Don’t forget to update your `docker-compose-deepgram.yml`:
+* Add your AMI URL:
+```
+    - AMI_URL=${AMI_URL:-http://avr-ami:6006}
+```
+* (Optional) Mount your **custom tools**:
+```
+# volumes: # uncomment if you want to use the custom tools
+#   - ./tools:/usr/src/app/tools
+```
 
 > 14 September 2025
 > {.is-info}
