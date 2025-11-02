@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-11-02T09:26:54.298Z
+date: 2025-11-02T09:41:34.290Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -221,6 +221,35 @@ allowing the system to **trigger faster responses** and enable natural **barge-i
 
 You can fine-tune the sensitivity, detection thresholds, and timing behavior of VAD using the dedicated `VAD_*` environment variables, detailed in the [**Environment Variables (Summary)**](#environment-variables-summary) section.
 
+Perfetto ✅
+Ecco una versione **professionale, chiara e coerente** con il tono tecnico della pagina *Understanding AVR Core*, pronta da inserire subito sotto la sezione *Voice Activity Detection (VAD)* o come sottosezione autonoma (“Enabling VAD in AVR Core”).
+
+
+### Enabling VAD in AVR Core
+
+The **Voice Activity Detection (VAD)** feature in AVR Core is enabled and controlled through the environment variable `INTERRUPT_LISTENING`.
+
+```env
+INTERRUPT_LISTENING=false
+````
+
+At first glance, this variable name can be misleading — it originates from early AVR Core versions where it was used to *temporarily stop* the ASR stream to prevent interruptions while the TTS response was being played.
+
+#### Behavior Summary
+
+| Setting                     | Description                                                                                                                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `INTERRUPT_LISTENING=true`  | Disables continuous ASR streaming — the ASR stops listening while the TTS response is playing. The user cannot interrupt the AI mid-sentence.                                                               |
+| `INTERRUPT_LISTENING=false` | Keeps the ASR stream active — **VAD is automatically enabled**, allowing callers to naturally interrupt or “barge in” during the AI’s speech. This is the recommended setting for conversational voicebots. |
+
+When `INTERRUPT_LISTENING=false`, AVR Core uses its **integrated VAD engine based on [Silero VAD](https://github.com/agentvoiceresponse/avr-vad)** to manage speech activity detection in real time.
+
+> ⚠️ **Important:**
+> VAD control applies **only** to the **ASR + LLM + TTS** architecture.
+> STS providers (e.g., OpenAI Realtime, Gemini, Ultravox) implement their own built-in VAD, so this setting is ignored when `STS_URL` is configured.
+
+
+This ensures the ASR remains active during TTS playback and leverages the integrated Silero VAD for natural, responsive conversations.
 
 ## Environment Variables (Summary)
 
@@ -237,6 +266,7 @@ You can fine-tune the sensitivity, detection thresholds, and timing behavior of 
 | `WEBHOOK_RETRY` | Retries for failed webhooks | `0` |
 | `AMBIENT_NOISE_FILE` | Ambient PCM file (8 kHz, mono, 16-bit) | `ambient_sounds/office_background.raw` |
 | `AMBIENT_NOISE_LEVEL` | Ambient volume (0.0–1.0) | `0.10` |
+| `INTERRUPT_LISTENING` | Controls ASR stream interruption and VAD activation. When `false`, ASR remains active and VAD is enabled (recommended). When `true`, ASR stops during TTS playback. | `false` |
 | `VAD_POSITIVE_SPEECH_THRESHOLD` | Probability threshold above which speech is detected | `0.08` |
 | `VAD_NEGATIVE_SPEECH_THRESHOLD` | Probability threshold below which silence is detected | `0.03` |
 | `VAD_MIN_SPEECH_FRAMES` | Minimum consecutive frames required to confirm speech | `3` |
