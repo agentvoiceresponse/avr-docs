@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-11-02T09:41:34.290Z
+date: 2025-11-06T18:18:37.526Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z
@@ -220,10 +220,6 @@ It continuously analyzes the incoming audio stream to detect when the caller is 
 allowing the system to **trigger faster responses** and enable natural **barge-in** — where the caller can interrupt the AI mid-sentence.
 
 You can fine-tune the sensitivity, detection thresholds, and timing behavior of VAD using the dedicated `VAD_*` environment variables, detailed in the [**Environment Variables (Summary)**](#environment-variables-summary) section.
-
-Perfetto ✅
-Ecco una versione **professionale, chiara e coerente** con il tono tecnico della pagina *Understanding AVR Core*, pronta da inserire subito sotto la sezione *Voice Activity Detection (VAD)* o come sottosezione autonoma (“Enabling VAD in AVR Core”).
-
 
 ### Enabling VAD in AVR Core
 
