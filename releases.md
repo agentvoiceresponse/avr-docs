@@ -2,11 +2,45 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-11-02T11:05:54.873Z
+date: 2025-11-22T08:13:43.775Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 22 November 2025
+> {.is-info}
+{.is-info}
+
+🔥 **New Feature Announcement: `OPENAI_VOICE` + a New Way to Configure Instructions!** 🔥
+
+Hey everyone!
+We just introduced a brand-new variable for the OpenAI Realtime integration:
+
+### 🎤 `OPENAI_VOICE`
+
+You can now choose from multiple OpenAI realtime voices (`alloy`, `ash`, `echo`, `marin`, `cedar`, and more) directly from your AVR environment settings. This makes it super easy to switch between voice personalities without touching any code.
+
+But here’s the exciting part…
+While testing this new variable, I discovered an even **more powerful way to configure persona instructions**, giving you full control over:
+
+* affect (energetic, calm, cheerful…)
+* tone (friendly, authoritative, empathetic…)
+* pacing
+* emotional depth
+* pauses
+* pronunciation clarity
+
+…and basically anything that defines **how your AI should sound**.
+
+I’ve added several **ready-to-use instruction templates** (sports commentator, support agent, navigation guide, etc.) here:
+
+👉 [https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr#configuring-openai-realtime-instructions](https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr#configuring-openai-realtime-instructions)
+
+This unlocks a *huge* amount of creative potential. Your AVR agents can now sound exactly the way you imagine them.
+
+Can’t wait to see the voice personas you build! 🎉
+Feel free to share your experiments or ask for help! 🙌
 
 > 2 November 2025
 > {.is-info}
