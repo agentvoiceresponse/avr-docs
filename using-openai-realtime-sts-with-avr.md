@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-11-22T08:03:49.430Z
+date: 2025-11-22T08:03:58.981Z
 tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -241,7 +241,7 @@ OPENAI_INSTRUCTIONS="A cheerful guide who speaks clearly, with warm and supporti
 Just update `OPENAI_MODEL`, `OPENAI_VOICE` and `OPENAI_INSTRUCTIONS` depending on your desired agent persona.
 
 
-## 5. Tips for Designing Effective Persona Instructions
+## 5. Tips for Designing Effective Vibe Instructions
 
 * Be **explicit**: mention affect, tone, pacing, pronunciation, pauses.
 * Keep instructions **consistent** with the voice’s role.
