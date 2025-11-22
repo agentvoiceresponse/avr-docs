@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-11-22T08:06:46.985Z
+date: 2025-11-22T08:07:50.725Z
 tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -106,15 +106,6 @@ OPENAI_FILE_INSTRUCTIONS=./instructions.txt
 ```
 
 The file should contain plain text instructions that will be used as the system prompt.
-
-Ecco la **mini-guida completa e professionale**, pronta da inserire nella wiki di AgentVoiceResponse, per spiegare come configurare le *OpenAI Realtime Instructions*, il modello e la voce.
-
-Può essere aggiunta:
-
-* **sotto l’integrazione OpenAI STS**, oppure
-* **come pagina separata** → “Configuring OpenAI Realtime Instructions”
-
----
 
 # Configuring OpenAI Realtime Instructions
 
