@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-11-22T08:03:34.496Z
+date: 2025-11-22T08:03:49.430Z
 tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -238,7 +238,7 @@ OPENAI_VOICE=alloy
 OPENAI_INSTRUCTIONS="A cheerful guide who speaks clearly, with warm and supportive tone..."
 ```
 
-Just update `OPENAI_VOICE` and `OPENAI_INSTRUCTIONS` depending on your desired agent persona.
+Just update `OPENAI_MODEL`, `OPENAI_VOICE` and `OPENAI_INSTRUCTIONS` depending on your desired agent persona.
 
 
 ## 5. Tips for Designing Effective Persona Instructions
