@@ -2,7 +2,7 @@
 title: Soniox ASR integration
 description: 
 published: true
-date: 2025-12-01T13:28:05.498Z
+date: 2025-12-01T13:36:58.540Z
 tags: asr
 editor: markdown
 dateCreated: 2025-12-01T13:28:05.498Z
@@ -20,7 +20,7 @@ Real-time ASR: [https://soniox.com/docs/stt-realtime](https://soniox.com/docs/st
 
 Soniox delivers several strong advantages, making it an excellent ASR choice for real-time voicebots:
 
-### 🔥 Key Advantages
+### Key Advantages
 
 * **State-of-the-art accuracy** (benchmarks consistently outperforming Google, AssemblyAI, Whisper, etc.)
 * **Ultra low latency** real-time transcription via WebSocket
@@ -28,7 +28,7 @@ Soniox delivers several strong advantages, making it an excellent ASR choice for
 * **Multi-language support** with fast detection and stable recognition
 * **Readable formatting**, punctuation insertion, diarization, and timestamping
 
-### 📌 Use Cases
+### Use Cases
 
 * Real-time conversational AI
 * Noisy call centers
