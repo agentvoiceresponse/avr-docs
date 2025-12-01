@@ -2,7 +2,7 @@
 title: Soniox ASR integration
 description: 
 published: true
-date: 2025-12-01T13:36:58.540Z
+date: 2025-12-01T13:37:32.116Z
 tags: asr
 editor: markdown
 dateCreated: 2025-12-01T13:28:05.498Z
