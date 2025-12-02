@@ -2,7 +2,7 @@
 title: Fixing “No Audio” Issues on Cloud Servers
 description: 
 published: true
-date: 2025-12-02T13:27:34.760Z
+date: 2025-12-02T13:30:21.320Z
 tags: 
 editor: markdown
 dateCreated: 2025-12-02T13:27:34.760Z
@@ -173,11 +173,11 @@ If audio still doesn’t work after applying these settings:
 * verify firewall / security group rules for UDP RTP ports
 * share your `pjsip.conf` and `ip addr` output (with sensitive data redacted) in the community for further help
 
-## 🔍 RTP Debugging (Advanced Troubleshooting)
+## RTP Debugging (Advanced Troubleshooting)
 
 If audio is still not working after configuring `pjsip.conf`, you should inspect the **RTP traffic** inside the Asterisk container. This is the most reliable way to confirm whether RTP packets are flowing correctly **in both directions** (to and from the server).
 
-### ✅ Step 1 — Enter the Asterisk container
+### Step 1 — Enter the Asterisk container
 
 ```bash
 docker exec -it avr-asterisk /bin/bash
@@ -185,7 +185,7 @@ docker exec -it avr-asterisk /bin/bash
 
 This opens a shell *inside* the running Asterisk container.
 
-### ✅ Step 2 — Open the Asterisk CLI
+### Step 2 — Open the Asterisk CLI
 
 Once inside the container, run:
 
@@ -195,7 +195,7 @@ asterisk -vvvvr
 
 You should now see the Asterisk CLI prompt.
 
-### ✅ Step 3 — Enable RTP debugging
+### Step 3 — Enable RTP debugging
 
 In the Asterisk CLI:
 
@@ -224,7 +224,7 @@ If you only see one direction, you likely have:
 * Wrong IP in `external_media_address`
 
 
-## 🧪 Test RTP Using the Echo Test (Extension 600)
+## Test RTP Using the Echo Test (Extension 600)
 
 AVR includes a built-in **echo test** available at extension **600**.
 This is extremely useful to verify RTP flow without involving external providers.
