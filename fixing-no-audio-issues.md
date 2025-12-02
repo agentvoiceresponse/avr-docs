@@ -2,7 +2,7 @@
 title: Fixing “No Audio” Issues on Cloud Servers
 description: 
 published: true
-date: 2025-12-02T13:30:21.320Z
+date: 2025-12-02T13:30:39.949Z
 tags: 
 editor: markdown
 dateCreated: 2025-12-02T13:27:34.760Z
@@ -237,7 +237,7 @@ This is extremely useful to verify RTP flow without involving external providers
 
 If the echo test **does not** return audio, the issue is **100% network/NAT/RTP related**, not ASR/AVR logic.
 
-## ✔️ When RTP Debugging Helps
+## When RTP Debugging Helps
 
 RTP debugging is essential when:
 
