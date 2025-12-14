@@ -2,7 +2,7 @@
 title: Hume Speech To Speech
 description: 
 published: true
-date: 2025-12-14T11:13:05.689Z
+date: 2025-12-14T11:13:52.804Z
 tags: 
 editor: markdown
 dateCreated: 2025-12-14T11:13:05.689Z
@@ -35,8 +35,6 @@ HumeAI is uniquely focused on **emotion-aware conversational AI**, making it an 
 - Healthcare and wellness assistants  
 - Coaching and conversational guidance  
 - Human-like virtual assistants  
-
----
 
 ## Repository
 
@@ -71,8 +69,6 @@ HUMEAI_INSTRUCTIONS="You are a helpful assistant"
 HUMEAI_CONFIG_ID=
 HUMEAI_VOICE_ID=
 ```
-
----
 
 ## Docker Compose Example
 
