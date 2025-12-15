@@ -2,7 +2,7 @@
 title: Coqui TTS
 description: 
 published: true
-date: 2025-09-13T14:55:00.894Z
+date: 2025-12-15T08:21:27.449Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T14:54:56.595Z
@@ -48,6 +48,7 @@ avr-tts-coquitts:
   restart: always
   environment:
     - PORT=6032
+    - COQUI_AI_TTS_URL=http://avr-coqui-ai-tts:5002/api/tts
   ports:
     - 6032:6032
   networks:
