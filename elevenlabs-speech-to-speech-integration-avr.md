@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-09-19T15:48:20.764Z
+date: 2025-12-15T08:58:53.959Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -33,8 +33,12 @@ ELEVENLABS_API_KEY	API Key (only required for private agents)	sk-xxxx
 
 Before using this integration, configure your ElevenLabs Agent with the following audio settings:
 
-- **User Input Audio Format** → PCM 8000 Hz
 -	**TTS Output Format** → PCM 8000 Hz
+
+![11labs-0.png](/images/elevenlabs/11labs-0.png)
+
+- **User Input Audio Format** → PCM 8000 Hz
+
 
 These settings are mandatory to ensure proper audio compatibility and real-time streaming performance with AVR.
 
