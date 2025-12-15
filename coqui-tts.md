@@ -2,16 +2,19 @@
 title: Coqui TTS
 description: 
 published: true
-date: 2025-12-15T08:21:27.449Z
+date: 2025-12-15T08:43:32.081Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T14:54:56.595Z
 ---
 
-# Coqui TTS Integration
 
 **Coqui TTS** is an open-source, high-quality **text-to-speech engine** built on deep learning.  
 It provides natural-sounding voices and supports multiple languages, making it a great option for **local deployments** where flexibility and privacy are priorities.  
+
+![coquitts.png](/images/coquitts/coquitts.png)
+
+# Coqui TTS Integration
 
 AVR integrates with CoquiTTS to enable real-time speech synthesis inside your telephony infrastructure.
 
