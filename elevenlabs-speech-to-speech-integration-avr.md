@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-12-15T08:58:53.959Z
+date: 2025-12-15T09:04:35.443Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -29,16 +29,26 @@ PORT	Port on which the ElevenLabs STS service runs	6035
 ELEVENLABS_AGENT_ID	Your ElevenLabs Agent ID (required)	your_agent_id
 ELEVENLABS_API_KEY	API Key (only required for private agents)	sk-xxxx
 
-## ⚠️⚠️⚠️ Audio Format Requirements 
+## ⚠️⚠️⚠️ Important Audio Configuration (Required)
 
-Before using this integration, configure your ElevenLabs Agent with the following audio settings:
+Before using this integration, configure your **ElevenLabs Agent** with the correct audio settings.
 
 -	**TTS Output Format** → PCM 8000 Hz
 
+After creating the agent, edit it and go to the **Agent** tab (see image). Click on Voices Settings.
+
 ![11labs-0.png](/images/elevenlabs/11labs-0.png)
+
+In the **Voice settings** panel on the right, set **TTS Output Format** to **PCM 8000 Hz**.  
+
+![11labs-1.png](/images/elevenlabs/11labs-1.png)
+
 
 - **User Input Audio Format** → PCM 8000 Hz
 
+Then switch to the **Advanced** tab and set **User Input Audio Format** to **PCM 8000 Hz**.
+
+![11labs-2.png](/images/elevenlabs/11labs-2.png)
 
 These settings are mandatory to ensure proper audio compatibility and real-time streaming performance with AVR.
 
