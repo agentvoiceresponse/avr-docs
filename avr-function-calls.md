@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-09-05T07:40:54.514Z
+date: 2025-12-16T12:40:07.631Z
 tags: avr, transfer, hangup, function calls, tools, avr_tools
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z
@@ -302,7 +302,7 @@ const axios = require("axios");
 
 module.exports = {
   name: "avr_transfer",
-  description: "Transfers a call to a specific extension.",
+  description: "Transfers the call to a designated internal extension when the user requests to speak with an internal operator or be redirected to another extension. Optional context and priority information may be included to support proper call handling and routing.",
   input_schema: {
     type: "object",
     properties: {
@@ -346,6 +346,42 @@ module.exports = {
 };
 
 ```
+
+### Call Hangup Tool
+
+```javascript
+// tools/avr_hangup.js
+
+require("dotenv").config();
+
+const axios = require("axios");
+
+module.exports = {
+  name: "avr_hangup",
+  description:
+    "Ends the call when the customer has no further information to request, after all relevant actions have been completed, or when the customer explicitly says goodbye, ensuring a clean and graceful termination of the interaction.",
+  input_schema: {
+    type: "object",
+    properties: {},
+    required: [],
+  },
+  handler: async (uuid, {}) => {
+    console.log("Hangup call");
+    const url = process.env.AMI_URL || "http://127.0.0.1:6006";
+    try {
+      const res = await axios.post(`${url}/hangup`, { uuid });
+      console.log("Hangup response:", res.data);
+      return res.data.message;
+    } catch (error) {
+      console.error("Error during hangup:", error.message);
+      return `Error during hangup: ${error.message}`;
+    }
+  },
+};
+
+
+```
+
 
 ## Best Practices
 
