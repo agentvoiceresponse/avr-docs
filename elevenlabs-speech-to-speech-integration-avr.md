@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-12-18T08:18:25.283Z
+date: 2025-12-18T08:32:16.697Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
