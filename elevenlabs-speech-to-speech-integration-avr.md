@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-12-18T08:07:42.281Z
+date: 2025-12-18T08:18:12.330Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -50,6 +50,72 @@ When `ELEVENLABS_AGENT_URL` is configured, AVR will dynamically resolve the agen
   ```
 
 This enables per-session routing, personalization, and advanced business logic.
+
+Perfetto 👍
+Qui trovi una sezione pronta da aggiungere alla documentazione (in Markdown), coerente con lo stile della wiki AVR, che mostra un esempio completo di web service Node.js per il caricamento dinamico degli agenti ElevenLabs.
+
+## Example: Dynamic Agent Loader Web Service (Node.js)
+
+When using `ELEVENLABS_AGENT_URL`, AVR expects an HTTP endpoint that returns the **ElevenLabs Agent ID** to use for the current session.
+
+This section shows a **minimal Node.js + Express** example that you can use as a starting point.
+
+### How It Works
+
+- AVR performs an HTTP **GET** request to the configured `ELEVENLABS_AGENT_URL`
+- The request includes the session identifier in the header:
+
+X-AVR-UUID: 
+
+- The web service must respond with a JSON object containing a `system` field set to the **ElevenLabs Agent ID**
+
+### Minimal Node.js Example
+
+```js
+const express = require('express');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/agent', (req, res) => {
+// You can access the AVR session UUID here if needed
+const avrUuid = req.headers['x-avr-uuid'];
+
+// Example: return a static agent ID
+res.json({
+    system: 'agent_'
+  });
+});
+
+app.listen(port, () => {
+	console.log(`Agent resolver listening on port ${port}`);
+});
+```
+
+### Configuration in AVR
+
+Point AVR to your service using the environment variable:
+
+```env
+ELEVENLABS_AGENT_URL=http://your-agent-service:3000/agent
+```
+
+When this variable is set, AVR will ignore `ELEVENLABS_AGENT_ID` and resolve the agent dynamically for each call.
+
+### Advanced Use Cases
+
+This approach enables powerful scenarios such as:
+
+- Selecting different agents based on:
+- Caller number
+- Time of day
+- Language
+- Campaign or queue
+- Multi-tenant setups
+- A/B testing voice agents
+- Personalized customer experiences
+
+You can implement any business logic you want before returning the agent ID.
 
 ## ⚠️ Important Audio Configuration (Required)
 
