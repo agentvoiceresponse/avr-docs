@@ -2,7 +2,7 @@
 title: ElevenLabs Speech To Speech Integration
 description: 
 published: true
-date: 2025-12-18T08:18:12.330Z
+date: 2025-12-18T08:18:25.283Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-05T16:53:25.321Z
@@ -50,9 +50,6 @@ When `ELEVENLABS_AGENT_URL` is configured, AVR will dynamically resolve the agen
   ```
 
 This enables per-session routing, personalization, and advanced business logic.
-
-Perfetto 👍
-Qui trovi una sezione pronta da aggiungere alla documentazione (in Markdown), coerente con lo stile della wiki AVR, che mostra un esempio completo di web service Node.js per il caricamento dinamico degli agenti ElevenLabs.
 
 ## Example: Dynamic Agent Loader Web Service (Node.js)
 
