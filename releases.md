@@ -2,11 +2,31 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-12-18T07:48:29.842Z
+date: 2025-12-18T07:49:24.914Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 14 December 2025
+> {.is-info}
+{.is-info}
+
+🔥 New Speech-to-Speech Integration Released: HumeAI + AVR! 🔥
+
+Hi @everyone , as promised, we’ve just released a brand-new Speech-to-Speech integration for Agent Voice Response, and it’s a very exciting one: HumeAI STS 🎉
+
+This integration enables real-time voice-to-voice conversations with a strong focus on emotional intelligence and natural interaction, without passing through the classic ASR → LLM → TTS pipeline.
+
+Why HumeAI?
+    •    🧠 Emotion-aware conversational responses
+    •    ⚡ Low-latency, real-time Speech-to-Speech
+    •    🗣️ Native voice generation (no external TTS)
+    •    🔌 WebSocket streaming, ideal for live conversations
+    •    🎭 Config-driven personas (voice, behavior, instructions)
+
+If you’d like to try it out, you can find the full documentation and setup guide here:
+👉 https://wiki.agentvoiceresponse.com/en/using-humeai-sts-with-avr
 
 > 30 November 2025
 > {.is-info}
