@@ -2,11 +2,26 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-11-22T08:13:43.775Z
+date: 2025-12-18T07:48:29.842Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 30 November 2025
+> {.is-info}
+{.is-info}
+
+🚀 New Release: Soniox Speech-to-Text Integration Now Available!
+
+Hi @everyone !
+We’re excited to announce that the Soniox Speech-to-Text integration for AgentVoiceResponse is now officially released! 🎉
+
+https://github.com/agentvoiceresponse/avr-asr-soniox
+
+This integration allows AVR to use Soniox’s high-quality ASR engine within the Asterisk-based AI contact-center pipeline (ASR → LLM → TTS). If you want to set it up or learn how it works under the hood, we’ve published full documentation here:
+
+👉 https://wiki.agentvoiceresponse.com/en/avr-soniox-speech-to-text
 
 > 22 November 2025
 > {.is-info}
