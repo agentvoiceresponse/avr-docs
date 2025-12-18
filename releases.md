@@ -2,11 +2,48 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-12-18T07:54:45.621Z
+date: 2025-12-18T08:10:36.284Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 21 December 2025
+> {.is-info}
+{.is-info}
+
+🎉 Big Update: ElevenLabs STS Just Got Even More Powerful! 🎉
+
+We’re excited to announce two major new features for the ElevenLabs Speech-to-Speech integration in Agent Voice Response 👇
+
+🧠 1️⃣ Tool (Function Call) Support
+
+ElevenLabs STS now fully supports AVR tools 🎯
+
+You can use built-in tools like:
+	•	avr_transfer → transfer the call to another extension
+	•	avr_hangup → gracefully end the call
+
+…and of course, you can define your own custom tools to connect your voice agents to business logic, CRMs, workflows, and more.
+
+⚠️ Important: unlike OpenAI or Gemini, tools must also be declared in the ElevenLabs web UI under the Tools tab.
+
+🔀 2️⃣ Dynamic Agent Loading (ELEVENLABS_AGENT_URL)
+
+We’ve added a brand-new variable that lets you select the ElevenLabs agent dynamically per call:
+
+👉 ELEVENLABS_AGENT_URL
+
+AVR will call your endpoint (passing the session UUID) and load the agent returned by your service.
+This enables:
+	•	per-call agent routing
+	•	personalized agents
+	•	advanced business logic and multi-tenant setups
+
+📚 Full documentation and step-by-step setup here:
+👉 https://wiki.agentvoiceresponse.com/en/elevenlabs-speech-to-speech-integration-avr
+
+This update unlocks a huge amount of flexibility for real-time voice agents with ElevenLabs 🚀
 
 > 14 December 2025
 > {.is-info}
