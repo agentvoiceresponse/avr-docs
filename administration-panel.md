@@ -2,7 +2,7 @@
 title: AVR App – Administration Panel
 description: 
 published: true
-date: 2025-09-30T14:25:22.630Z
+date: 2025-12-20T08:53:14.044Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker, admin
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
@@ -35,4 +35,6 @@ The repository is organized into three main components:
 
 - **`frontend/`** → Next.js 14 web UI with Tailwind CSS, shadcn/ui, light/dark mode  
 
-- **`docker-compose.yml`** → Orchestrates backend and frontend services  
+- **`docker-compose.yml`** → Orchestrates backend and frontend services 
+
+WIP
