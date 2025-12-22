@@ -2,7 +2,7 @@
 title: AVR App – Administration Panel
 description: 
 published: true
-date: 2025-12-20T08:53:14.044Z
+date: 2025-12-22T22:15:23.690Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker, admin
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
@@ -20,7 +20,7 @@ It allows you to **design, train, and orchestrate AI voice agents** in a single 
 - **Guided Workflows** → Eliminate complex setup, so teams can go from idea to production in record time  
 - **Collaboration Ready** → Secure multi-tenant environment with role-based access controls  
 
-👉 Try the live demo here: [AVR App Demo](https://demo.agentvoiceresponse.com/login)  
+👉 Try the live demo here: [AVR App Demo](https://demo.app.agentvoiceresponse.com/login)  
 
 Login with account using role **viewer**,
 
