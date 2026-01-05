@@ -2,13 +2,15 @@
 title: Using Vosk ASR with AVR
 description: 
 published: true
-date: 2025-08-31T20:00:44.941Z
+date: 2026-01-05T13:40:32.534Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-31T20:00:40.321Z
 ---
 
 # Using Vosk ASR with AVR
+
+![avr-vosk.png](/images/vosk/avr-vosk.png)
 
 Vosk is an open-source speech recognition toolkit that runs locally without requiring internet connectivity. It supports more than 20 languages and dialects and is a great choice if you need offline, privacy-friendly transcription.
 
