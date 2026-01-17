@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2025-11-22T08:08:45.485Z
+date: 2026-01-17T11:37:40.463Z
 tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -25,6 +25,7 @@ For more details on function calls, see [AVR Function Calls](https://wiki.agentv
 | OPENAI_API_KEY        | Your OpenAI API key                                   | sk-xxxxxx                               |
 | OPENAI_MODEL          | OpenAI model ID to use                                | gpt-4o-realtime-preview                 |
 | OPENAI_VOICE          | Specifies the voice to use for speech synthesis                                | alloy                 |
+| OPENAI_LANGUAGE          | Specifies the language to use for speech recognition                                | auto-detected                 |
 | OPENAI_INSTRUCTIONS   | # Method 1: Direct variable                       | "You are a helpful assistant."          |
 | *OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | https://your-api.com/instructions          |
 | *OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | ./instructions.txt          |
