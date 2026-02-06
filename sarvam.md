@@ -2,7 +2,7 @@
 title: Sarvam ASR, LLM & TTS
 description: 
 published: true
-date: 2026-02-06T23:20:16.091Z
+date: 2026-02-06T23:21:06.383Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-06T23:20:16.091Z
@@ -214,25 +214,3 @@ Sarvam is recommended when:
 * **Indic languages** are required
 * **Low-latency telephony audio** is critical
 * You want a **single provider for ASR, LLM, and TTS**
-
----
-
-## Resources
-
-* GitHub: [https://github.com/agentvoiceresponse](https://github.com/agentvoiceresponse)
-* Docker Hub: [https://hub.docker.com/u/agentvoiceresponse](https://hub.docker.com/u/agentvoiceresponse)
-* Wiki: [https://wiki.agentvoiceresponse.com](https://wiki.agentvoiceresponse.com)
-* Discord: [https://discord.gg/DFTU69Hg74](https://discord.gg/DFTU69Hg74)
-
----
-
-### Prossimi passi (se vuoi)
-
-Posso:
-
-* fare un **diff 1:1 con la pagina Deepgram** per allineamento perfetto
-* aggiungere **note Asterisk / RTP**
-* creare la **versione `/it/sarvam`**
-* preparare **diagramma Mermaid** pronto per Wiki.js
-
-Dimmi tu 💡
