@@ -2,7 +2,7 @@
 title: Sarvam ASR, LLM & TTS
 description: 
 published: true
-date: 2026-02-06T23:21:06.383Z
+date: 2026-02-06T23:48:48.343Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-06T23:20:16.091Z
@@ -166,6 +166,8 @@ PORT=6052
 ---
 
 ## Full Docker Compose (ASR + LLM + TTS)
+
+Github: https://github.com/agentvoiceresponse/avr-infra/blob/main/docker-compose-sarvam.yml
 
 A complete Sarvam stack for Agent Voice Response:
 
