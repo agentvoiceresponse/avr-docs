@@ -2,7 +2,7 @@
 title: Speechmatics STS
 description: 
 published: true
-date: 2026-02-08T18:35:59.048Z
+date: 2026-02-08T18:38:56.695Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-08T18:34:28.507Z
@@ -74,7 +74,7 @@ avr-core:
   restart: always
   environment:
     - PORT=5001
-    - STS_URL=ws://avr-sts-speechmatics:6033
+    - STS_URL=ws://avr-sts-speechmatics:6040
   ports:
     - 5001:5001
   networks:
