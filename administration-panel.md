@@ -2,7 +2,7 @@
 title: AVR App – Administration Panel
 description: 
 published: true
-date: 2025-12-27T19:28:15.083Z
+date: 2026-02-08T18:42:56.143Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker, admin
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
@@ -110,7 +110,7 @@ Default credentials:
 
 ## Demo
 
-https://demo.agentvoiceresponse.com/login
+https://demo.app.agentvoiceresponse.com/login
 
 Viewer account:
 
