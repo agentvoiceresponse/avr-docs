@@ -2,7 +2,7 @@
 title: Speechmatics STS
 description: 
 published: true
-date: 2026-02-08T18:34:28.507Z
+date: 2026-02-08T18:35:07.942Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-08T18:34:28.507Z
@@ -57,13 +57,10 @@ avr-sts-speechmatics:
   restart: always
   environment:
     - SPEECHMATICS_API_KEY=${SPEECHMATICS_API_KEY}
-    - AGENT_PROMPT=${AGENT_PROMPT}
-    - PORT=6033
+    - PORT=6040
   networks:
     - avr
-
-
-⸻
+```
 
 Integration with AVR Core
 
