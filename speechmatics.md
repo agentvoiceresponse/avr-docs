@@ -2,7 +2,7 @@
 title: Speechmatics STS
 description: 
 published: true
-date: 2026-02-08T18:35:07.942Z
+date: 2026-02-08T18:35:59.048Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-08T18:34:28.507Z
@@ -62,10 +62,11 @@ avr-sts-speechmatics:
     - avr
 ```
 
-Integration with AVR Core
+## Integration with AVR Core
 
 Point avr-core to the Speechmatics STS service:
 
+```yaml
 avr-core:
   image: agentvoiceresponse/avr-core
   platform: linux/x86_64
@@ -78,60 +79,13 @@ avr-core:
     - 5001:5001
   networks:
     - avr
+```
 
 ℹ️ When using STS providers, AVR Core bypasses ASR + LLM + TTS and delegates speech handling entirely to the STS engine.
 
-⸻
 
-Audio Format
-
-Speechmatics STS operates using the following format:
-	•	Input: Linear PCM, 16-bit, 8kHz, mono
-	•	Output: Linear PCM, 16-bit, 8kHz, mono
-
-This format is fully compatible with Asterisk AudioSocket and AVR Core.
-
-⸻
-
-API Endpoint
-
-POST /speech-to-speech-stream
-
-Request
-	•	Content-Type: audio/x-raw
-	•	Audio: 16-bit PCM, 8kHz
-
-Response
-	•	Content-Type: text/event-stream
-	•	Streamed PCM audio in real time
-
-⸻
-
-Performance Notes
+## Performance Notes
 	•	Ideal for real-time conversational agents
 	•	Requires stable internet connectivity (cloud-based API)
 	•	Simplifies architecture by removing intermediate speech components
 
-⸻
-
-Support & Community
-	•	GitHub: https://github.com/agentvoiceresponse
-	•	Discord: https://discord.gg/DFTU69Hg74
-	•	Docker Hub: https://hub.docker.com/u/agentvoiceresponse
-	•	Wiki: https://wiki.agentvoiceresponse.com/en/home
-
-⸻
-
-Support AVR
-
-Agent Voice Response is free and open-source.
-Support is optional and helps sustain development and community growth.
-
-https://ko-fi.com/agentvoiceresponse
-
----
-
-Se vuoi, nel prossimo step posso:
-- allinearla **perfettamente alla sidebar della wiki**
-- preparare **la versione con immagini**
-- oppure scrivere **il messaggio di annuncio per Discord / LinkedIn**
