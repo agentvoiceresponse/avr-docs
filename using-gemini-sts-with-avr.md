@@ -2,7 +2,7 @@
 title: Using Gemini STS with AVR
 description: 
 published: true
-date: 2025-12-17T08:02:58.174Z
+date: 2026-02-08T12:29:28.028Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-02T13:38:04.526Z
@@ -61,6 +61,27 @@ You will use this key as `GEMINI_API_KEY` in your Docker environment.
 | `GEMINI_URL_INSTRUCTIONS` | URL to fetch dynamic instructions | `https://your-api.com/instructions` |
 | `GEMINI_FILE_INSTRUCTIONS` | Path to local instruction file | `./instructions.txt` |
 
+### Gemini thinking settings
+
+We’ve added support for the following Gemini settings:
+
+- `GEMINI_THINKING_LEVEL=MINIMAL`
+- `GEMINI_THINKING_BUDGET=0`
+
+More details here 👉 https://ai.google.dev/gemini-api/docs/thinking?hl=en
+
+Supported values for `GEMINI_THINKING_LEVEL`:
+
+- `THINKING_LEVEL_UNSPECIFIED`
+- `LOW`
+- `MEDIUM`
+- `HIGH`
+- `MINIMAL`
+
+`GEMINI_THINKING_BUDGET`:
+
+- `0` → turn off thinking
+- `-1` → enable dynamic thinking
 
 
 ## Docker Setup
