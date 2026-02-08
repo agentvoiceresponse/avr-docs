@@ -2,7 +2,7 @@
 title: Speechmatics STS
 description: 
 published: true
-date: 2026-02-08T18:38:56.695Z
+date: 2026-02-08T18:41:18.873Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-08T18:34:28.507Z
@@ -85,7 +85,7 @@ avr-core:
 
 
 ## Performance Notes
-	•	Ideal for real-time conversational agents
-	•	Requires stable internet connectivity (cloud-based API)
-	•	Simplifies architecture by removing intermediate speech components
+- Ideal for real-time conversational agents
+- Requires stable internet connectivity (cloud-based API)
+- Simplifies architecture by removing intermediate speech components
 
