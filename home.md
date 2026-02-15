@@ -2,7 +2,7 @@
 title: Overview
 description: 
 published: true
-date: 2025-09-29T15:27:16.656Z
+date: 2026-02-15T11:46:37.004Z
 tags: 
 editor: markdown
 dateCreated: 2025-05-01T18:04:55.946Z
@@ -17,8 +17,8 @@ Agent Voice Response (commonly abbreviated AVR) is a conversational AI platform 
 AVR offers a Docker-based deployment enabling organizations to integrate automatic speech recognition (ASR), large language models (LLM), text-to-speech (TTS), and direct speech-to-speech (STS) in voice calling systems. It supports a **flexible, provider-agnostic architecture**, allowing integration with both cloud services and local/open-source providers.  
 
 **Examples of supported providers include:**  
-- **Cloud services:** Google, Deepgram, OpenAI, Anthropic  
-- **Local / open-source options:** Vosk ASR, Kokoro TTS, CoquiTTS, Ollama LLM  
+- **Cloud services:** Google, Deepgram, OpenAI, Anthropic and more.
+- **Local / open-source options:** Vosk ASR, Kokoro TTS, CoquiTTS, Ollama LLM and more
 
 A key part of AVR’s design is its **intelligent audio handling**:  
 - **Voice Activity Detection (VAD):** Ensures responsive and natural turn-taking during calls, allowing users to interrupt the agent smoothly  
