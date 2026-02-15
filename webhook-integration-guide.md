@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2026-02-15T20:25:27.031Z
+date: 2026-02-15T20:26:20.509Z
 tags: webhook
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -21,8 +21,6 @@ Webhooks can be used for:
 
 This guide explains all supported webhook events, their payloads, and best practices for implementing webhook receivers.
 
----
-
 ## Overview
 
 Webhooks are HTTP `POST` requests sent by AVR Core to a configured endpoint (`WEBHOOK_URL`) whenever a specific event occurs during a call session.
@@ -35,7 +33,6 @@ Each webhook:
 
 Some webhooks are **informational**, while others (notably `call_initiated`) can be used to **influence call routing behavior**.
 
----
 
 ## Call Lifecycle and Webhooks
 
@@ -59,7 +56,6 @@ See also:
 👉 **AVR Core HTTP Web Service**
 [https://wiki.agentvoiceresponse.com/en/avr-core-http-web-service](https://wiki.agentvoiceresponse.com/en/avr-core-http-web-service)
 
----
 
 ## Call Lifecycle & Webhooks
 
@@ -115,7 +111,6 @@ sequenceDiagram
 
   * final lifecycle event
 
----
 
 ## Supported Webhook Events
 
@@ -143,7 +138,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ### `call_started`
 
@@ -163,7 +157,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ### `call_ended`
 
@@ -183,7 +176,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ### `interruption`
 
@@ -203,7 +195,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ### `transcription`
 
@@ -226,7 +217,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ### `dtmf_digit` (Asterisk 22+)
 
@@ -248,7 +238,6 @@ This is the **only webhook event** that supports routing decisions via HTTP resp
 }
 ```
 
----
 
 ## Common Webhook Payload Format
 
@@ -263,7 +252,6 @@ All webhook events share the same envelope structure:
 }
 ```
 
----
 
 ## Configuration
 
@@ -286,7 +274,6 @@ WEBHOOK_TIMEOUT=5000
 WEBHOOK_RETRY=3
 ```
 
----
 
 ## Security
 
@@ -302,7 +289,6 @@ Webhook endpoints should:
 * be reachable only from trusted networks
 * be idempotent
 
----
 
 ## Minimal Express Webhook Example
 
