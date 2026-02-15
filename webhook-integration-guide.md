@@ -2,23 +2,10 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2026-02-15T17:54:56.073Z
+date: 2026-02-15T20:25:27.031Z
 tags: webhook
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
----
-
-Perfetto 👍
-Qui sotto trovi **l’intera pagina “Webhook Integration Guide” finale**, **completa**, **coerente** e **pronta da copiare/incollare** in Wiki.js.
-
-È già:
-
-* in **inglese**
-* allineata allo stile delle altre pagine *Developer Guide*
-* integrata con **`call_initiated`**
-* collegata alla pagina **AVR Core HTTP Web Service**
-* comprensiva di **Mermaid diagram** + **Minimal Express Example**
-
 ---
 
 # Webhook Integration Guide
