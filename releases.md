@@ -2,11 +2,62 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2025-12-18T08:10:36.284Z
+date: 2026-02-15T18:09:42.317Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+
+> 21 December 2025
+> {.is-info}
+{.is-info}
+
+:rocket: **Big news for AVR Core – HTTP Call Initialization & Dynamic STS Routing is here!**
+
+Hi @everyone  :wave:
+I’m very excited to announce a **major new feature in `avr-core: 1.12`** that opens up *many new integration and routing possibilities*.
+
+### What’s new?
+
+AVR Core now includes an **optional HTTP Web Service** that allows you to:
+
+**Initialize calls via HTTP** (before audio starts)
+**Attach and manage call variables / metadata** in a clean and structured way
+**Propagate metadata** to STS providers (as query params)
+**Implement custom STS agent routing** via webhooks
+* Dynamically choose *which* STS agent or backend should handle a call
+
+This is a **big architectural step forward** for AVR Core, because it introduces a proper **pre-call decision layer**.
+
+### Why this matters
+
+With this new flow you can now:
+
+* Use **one single AVR Core** with **multiple STS agents**
+* Route calls based on:
+  * caller (`from`)
+  * service / extension (`to`)
+  * language, VIP users, business logic, etc.
+* Implement **custom routing strategies** outside AVR Core
+* Correlate everything with Asterisk using `uuid`, `uniqueid`, `channel`
+* Build deeper integrations with CRMs, analytics, orchestration services
+
+In short: **much more control, much more flexibility**.
+
+### What has been updated
+
+* avr-infra: Updated with new Asterisk dialplan examples using HTTP call initialization
+  https://github.com/agentvoiceresponse/avr-infra
+
+* avr-webhook: Updated to support the new `call_initiated` event
+  https://github.com/agentvoiceresponse/avr-webhook
+
+* New page: **AVR Core HTTP Web Service**
+  https://wiki.agentvoiceresponse.com/en/avr-core-http-web-service
+
+* Updated **Webhook Integration Guide** with a clear **Call Lifecycle & Webhooks** diagram
+   https://wiki.agentvoiceresponse.com/en/webhook-integration-guide
 
 > 21 December 2025
 > {.is-info}
