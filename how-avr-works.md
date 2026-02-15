@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2026-02-15T11:29:57.491Z
+date: 2026-02-15T11:30:11.395Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -207,7 +207,7 @@ docker-compose -f docker-compose-openai.yml up -d
 Or with local providers:
 
 ```console
-docker-compose -f docker-compose-vosk.yml up -d
+docker-compose -f docker-compose-local.yml up -d
 ```
 
 Edit `.env` with your provider credentials.
