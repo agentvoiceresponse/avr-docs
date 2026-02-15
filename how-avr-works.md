@@ -2,7 +2,7 @@
 title: How AVR Works
 description: Understanding the core concepts and architecture of AVR
 published: true
-date: 2025-09-29T12:48:05.806Z
+date: 2026-02-15T11:29:57.491Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-06T17:06:33.271Z
@@ -10,22 +10,25 @@ dateCreated: 2025-08-06T17:06:33.271Z
 
 # How AVR Works
 
-The AVR Infrastructure project provides a complete, modular deployment environment for the Agent Voice Response system. It allows you to launch the AVR Core, ASR (Automatic Speech Recognition), LLM (Large Language Model), and TTS (Text To Speech) services or STS (Speech To Speech) service, all integrated with an Asterisk PBX using the AudioSocket protocol.
+The AVR Infrastructure project provides a complete, modular deployment environment for the **Agent Voice Response (AVR)** system.
 
-This setup supports a wide range of providers—including cloud services like OpenAI, Deepgram, Google, ElevenLabs, Anthropic **and local/open-source providers like Vosk, Kokoro, CoquiTTS, Ollama**—and can be customized with Docker Compose.
+It allows you to deploy **AVR Core**, **ASR (Automatic Speech Recognition)**, **LLM (Large Language Model)**, **TTS (Text-to-Speech)**, or a unified **STS (Speech-to-Speech)** service, all integrated with **Asterisk PBX** using the **AudioSocket protocol**.
+
+AVR supports a wide range of providers, including cloud services such as **OpenAI, Deepgram, Google, ElevenLabs, Anthropic**, as well as **local and open-source providers** like **Vosk, Kokoro, CoquiTTS, and Ollama**.
+The entire stack can be customized and deployed using **Docker Compose**.
 
 ## Prerequisites
 
-Before starting, ensure the following tools and credentials are ready:
+Before starting, ensure the following tools and credentials are available:
 
-- Docker and Docker Compose installed  
-- Valid API keys for services you plan to use (e.g., OpenAI, Google, Deepgram)  
-- (Optional) SIP client installed (e.g., Telphone, MicroSIP, GNOME Calls) for voice testing  
-- (Optional) Local ASR/TTS/LLM services configured if using Vosk, Kokoro, CoquiTTS, or Ollama  
+* Docker and Docker Compose
+* API keys for cloud providers you plan to use
+* (Optional) SIP client for testing (e.g. Telephone, MicroSIP, GNOME Calls)
+* (Optional) Local ASR / TTS / LLM services if using open-source providers
 
-## Architecture Summary
+## High-Level Architecture
 
-AVR follows a modular design:
+AVR follows a **modular and provider-agnostic architecture**.
 
 <br>
 <div align="center">
@@ -33,124 +36,194 @@ AVR follows a modular design:
 </div>
 <br>
 
-### 1) Audio Ingestion (Asterisk → AVR Core)
-1. The call hits your dialplan (e.g., `exten => 5001,...`), which:
-   - **Answers** the call.
-   - **Generates a UUID** (e.g., with `uuidgen`).
-   - **Opens an AudioSocket** to AVR Core:  
-     `AudioSocket(${UUID}, IP_AVR_CORE:PORT_AVR_CORE)`
-2. Asterisk streams the caller’s **audio frames** to AVR Core in real time (typically narrowband telephony audio; exact codec depends on your PBX config).
+At runtime, AVR Core acts as the **orchestrator** between Asterisk and the configured AI services.
 
-**What AVR Core does:**
-- Accepts the TCP AudioSocket connection.
-- Normalizes audio if needed (codec/rate).
-- **Segments audio into chunks** (streaming) and forwards them to the configured **ASR** over HTTP.
+## Call Lifecycle Overview
 
-### 2) Transcription (AVR Core → ASR)
-1. AVR Core **streams audio chunks** to the ASR at `ASR_URL`.
-2. The ASR produces **partial results** (interim text) and **final results** (stabilized text).
+At a high level, a call handled by AVR follows this lifecycle:
+
+1. Call metadata is initialized (HTTP)
+2. Audio streaming starts (AudioSocket)
+3. Speech is processed (ASR → LLM → TTS or STS)
+4. Audio is streamed back to the caller
+5. Call terminates and resources are released
+
+The sections below describe each step in detail.
+
+## 0) Call Initialization (Asterisk → AVR Core HTTP)
+
+Before audio streaming begins, the call can be **explicitly initialized via HTTP**.
+
+This step is optional but strongly recommended, as it enables:
+
+* call metadata propagation
+* webhook-based routing
+* dynamic STS selection
+
+### Flow
+
+* The Asterisk dialplan:
+
+  * generates a **UUID**
+  * sends a `POST /call` request to AVR Core
+  * includes call metadata (caller, extension, uniqueid, channel, etc.)
+
+* AVR Core:
+
+  * stores the metadata
+  * emits the **`call_initiated`** webhook
+  * optionally allows a webhook to override the **STS URL**
+
+See also:
+
+* **AVR Core HTTP Web Service**
+* **Webhook Integration Guide**
+
+## Call Lifecycle (HTTP, AudioSocket, Webhooks)
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant Asterisk
+    participant AVR_HTTP as AVR Core (HTTP)
+    participant Webhook
+    participant AVR_AS as AVR Core (AudioSocket)
+    participant AI as ASR / LLM / TTS or STS
+
+    Asterisk->>AVR_HTTP: POST /call (uuid + metadata)
+    AVR_HTTP->>Webhook: call_initiated
+    Webhook-->>AVR_HTTP: 200 OK (+ sts_url?)
+
+    Asterisk->>AVR_AS: AudioSocket connect (uuid)
+    AVR_AS->>Webhook: call_started
+
+    AVR_AS->>AI: Audio stream / prompts
+    AI-->>AVR_AS: Transcripts / audio
+
+    AVR_AS->>Webhook: transcription
+    AVR_AS->>Webhook: interruption
+    AVR_AS->>Webhook: dtmf_digit
+    AVR_AS->>Webhook: call_ended
+```
+
+## 1) Audio Ingestion (Asterisk → AVR Core AudioSocket)
+
+Once the call is initialized, Asterisk opens a **TCP AudioSocket** connection to AVR Core.
+
+From the dialplan:
+
+* the same `UUID` used in `POST /call` is passed to AudioSocket
+* Asterisk streams real-time audio frames to AVR Core
+
+AVR Core responsibilities:
+
+* accept the AudioSocket connection
+* normalize audio format if needed
+* segment audio into streaming chunks
+
+## 2) Transcription (AVR Core → ASR)
+
+When using the classic pipeline:
+
+1. AVR Core streams audio chunks to the ASR service (`ASR_URL`)
+2. The ASR returns:
+
+   * partial transcripts (interim)
+   * final transcripts (utterance completed)
 3. AVR Core:
-   - Buffers partials for responsiveness.
-   - Emits a **final transcript segment** when the ASR marks it as finalized (e.g., end of user utterance).
 
-> The **final transcript** is the trigger to move to the LLM step.
+   * buffers partials
+   * emits a final transcript when stabilized
 
-### 3) Reasoning/Response (AVR Core → LLM)
-1. AVR Core forwards the **final transcript** (plus any conversation context) to the **LLM** at `LLM_URL`.  
-   - Provider-agnostic (OpenAI, Anthropic, OpenRouter, etc.).  
-   - **Example note**: “The response from **Anthropic** is then sent to a TTS engine…”
-2. The LLM streams back the **assistant response** (text). AVR Core:
-   - Streams partial tokens (if supported) or
-   - Waits for the complete text, depending on the integration and configuration.
+The **final transcript** triggers the reasoning step.
 
-### 4) Voice Rendering (AVR Core → TTS)
-1. AVR Core sends the LLM response text to **TTS** at `TTS_URL` (streaming).
-2. TTS returns **audio frames** (the spoken reply).
-3. AVR Core **pipes the audio back** over the existing AudioSocket to Asterisk, so the **caller hears the response** with minimal latency.
+## 3) Reasoning and Response (AVR Core → LLM)
 
-## Alternative Low-Latency Path (STS)
+1. AVR Core sends the final transcript and conversation context to the LLM (`LLM_URL`)
+2. The LLM generates the assistant response:
 
-If you configure `STS_URL`, AVR Core will **bypass ASR/LLM/TTS** and use a **single Speech-to-Speech** service:
+   * streaming tokens, or
+   * a complete text response
 
-- **Speech In** → **STS** → **Speech Out**
-- This can reduce latency and improve conversational “flow” by avoiding multiple hops.
+AVR Core handles provider-specific streaming and normalization.
+
+## 4) Voice Rendering (AVR Core → TTS)
+
+1. The LLM response text is sent to the TTS service (`TTS_URL`)
+2. TTS produces audio frames
+3. AVR Core streams the audio back to Asterisk over the existing AudioSocket
+
+The caller hears the response with **minimal latency**.
+
+## Alternative Path: Speech-to-Speech (STS)
+
+If `STS_URL` is configured, AVR Core bypasses ASR, LLM, and TTS entirely.
+
+Caller speech is sent directly to the STS provider, which returns synthesized speech.
+
+This approach:
+
+* reduces latency
+* simplifies the pipeline
+* is ideal for real-time conversational agents
 
 <br>
 <div align="center">
-  <img src="/images/architecture/sts.png" alt="Architecture" width="800"/>
+  <img src="/images/architecture/sts.png" alt="STS Architecture" width="800"/>
 </div>
 <br>
 
+STS routing can be **static** or **dynamic** via the `call_initiated` webhook.
+
 ## What the Caller Experiences
 
-1.	Speaks → ASR transcribes (or STS ingests speech directly).
-2.	The LLM decides how to respond (policy, tools, memory).
-3.	TTS/STS renders a natural voice response.
-4.	AVR Core streams audio back instantly; the conversation feels interactive and real-time.
+From the caller’s perspective:
+
+1. They speak naturally
+2. AVR processes speech in real time
+3. Responses are generated and spoken back
+4. Interruptions and DTMF are handled seamlessly
+5. The interaction feels conversational and responsive
 
 ## Your First Agent in Under 5 Minutes
 
-Use one of the preconfigured `docker-compose-*.yml` files to deploy AVR with your preferred providers.
+Use one of the preconfigured Docker Compose files to launch AVR with your preferred providers.
 
-### Step-by-step:
-
-1. Clone the repository:
+### Steps
 
 ```console
 git clone https://github.com/agentvoiceresponse/avr-infra
 cd avr-infra
-```
-
-
-2. Copy .env.example to .env:
-
-```console
 cp .env.example .env
 ```
 
-3. Select a compose file:
-
-For example, to run Deepgram + OpenAI:
+Run a stack, for example:
 
 ```console
 docker-compose -f docker-compose-openai.yml up -d
 ```
 
-Or, for local/open-source providers like Vosk:
+Or with local providers:
 
 ```console
 docker-compose -f docker-compose-vosk.yml up -d
 ```
 
-4. Edit .env with your API keys or local service URLs. Example:
+Edit `.env` with your provider credentials.
 
-```env
-# Cloud providers
-DEEPGRAM_API_KEY=your_key
-OPENAI_API_KEY=your_key
-OPENAI_MODEL=gpt-3.5-turbo
+## Configuration Summary (AVR Core)
 
-# Local providers
+### Classic Pipeline
 
-```
+* `ASR_URL`
+* `LLM_URL`
+* `TTS_URL`
 
-#### Advanced: STS-Only Providers
+### STS Pipeline
 
-Some providers (like OpenAI Realtime or Ultravox) offer Speech-to-Speech (STS) processing that bundles ASR, LLM, and TTS.
+* `STS_URL` (ASR / LLM / TTS disabled)
 
-In this case, only set:
-
-```env
-STS_URL=http://avr-sts-provider:port
-```
-
-See `docker-compose-deepgram.yml` and `docker-compose-ultravox.yml` for examples.
-
-## Configuration Summary (Core)
-- ASR pipeline: **ASR_URL, LLM_URL, TTS_URL**
-- STS pipeline (direct): STS_URL (and comment out ASR/LLM/TTS variables)
-
-- Example URLs:
 ```yaml
 ASR_URL=http://avr-asr-deepgram:6010/speech-to-text-stream
 LLM_URL=http://avr-llm-anthropic:6000/prompt-stream
@@ -158,5 +231,4 @@ TTS_URL=http://avr-tts-google:6003/text-to-speech-stream
 STS_URL=http://avr-sts-openai:6033/speech-to-speech-stream
 ```
 
-> Hostnames/ports depend on your Docker Compose and service names.
-> 
+Hostnames and ports depend on your Docker Compose configuration.
