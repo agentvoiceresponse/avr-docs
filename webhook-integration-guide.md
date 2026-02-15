@@ -2,7 +2,7 @@
 title: Webhook Integration Guide
 description: 
 published: true
-date: 2026-02-15T11:17:22.130Z
+date: 2026-02-15T17:54:56.073Z
 tags: webhook
 editor: markdown
 dateCreated: 2025-09-13T10:28:58.099Z
@@ -74,7 +74,7 @@ See also:
 
 ---
 
-## Call Lifecycle & Webhooks (Mermaid Diagram)
+## Call Lifecycle & Webhooks
 
 The following diagram illustrates how HTTP, AudioSocket, STS, and Webhooks interact during a call lifecycle.
 
