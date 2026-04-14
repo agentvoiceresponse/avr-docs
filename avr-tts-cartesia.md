@@ -80,31 +80,46 @@ Here is a complete example of how to use avr-tts-cartesia in a docker-compose se
 services:
   avr-core:
     image: agentvoiceresponse/avr-core
-    ports:
-      - "8080:8080"
+    platform: linux/x86_64
+    container_name: avr-core
+    restart: always
     environment:
-      - LLM_PROVIDER=openai
-      - LLM_API_KEY=${OPENAI_API_KEY}
-      - ASR_PROVIDER=deepgram
-      - ASR_API_KEY=${DEEPGRAM_API_KEY}
-      - TTS_URL=http://avr-tts-cartesia:6009/text-to-speech-stream
-    depends_on:
-      - avr-tts-cartesia
+      - PORT=5001
+      - ASR_URL=http://avr-asr-deepgram:6010/speech-to-text-stream
+      - LLM_URL=http://avr-llm-openai:6002/prompt-stream
+      - TTS_URL=http://host.docker.internal:6009/text-to-speech-stream
+      - INTERRUPT_LISTENING=true
+      - SYSTEM_MESSAGE="Hello, how can I help you today?"
+    ports:
+      - "5001:5001"
+    networks:
+      - avr
 
   avr-tts-cartesia:
     image: agentvoiceresponse/avr-tts-cartesia
-    ports:
-      - "6009:6009"
+    platform: linux/x86_64
+    container_name: avr-tts-cartesia
+    restart: always
     environment:
       - CARTESIA_API_KEY=${CARTESIA_API_KEY}
       - CARTESIA_VOICE_ID=694f9389-aac1-45b6-b726-9d9369183238
       - CARTESIA_LANGUAGE=en
+      - PORT=6009
+    ports:
+      - "6009:6009"
+    networks:
+      - avr
+
+networks:
+  avr:
+    driver: bridge
 ```
 
 This configuration:
-- Starts avr-tts-cartesia on port 6009
-- Configures avr-core to use the Cartesia TTS endpoint via `TTS_URL`
-- The TTS URL uses the Docker service name so avr-core can reach it internally
+- avr-core runs on port 5001 (default)
+- Uses ASR_URL and LLM_URL to connect to other AVR services
+- Uses `host.docker.internal` for TTS_URL so avr-core can reach the TTS service running on the host
+- Both services are on the same Docker network for internal communication
 
 ## Architecture
 - See diagram: avr-tts-cartesia-diagram.drawio (or inline ASCII diagram if needed)
