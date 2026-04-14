@@ -21,7 +21,8 @@ npm install
 2. Create a .env file in the root with Cartesia credentials:
 ```env
 CARTESIA_API_KEY=your_cartesia_api_key
-CARTESIA_VOICE_ID=optional_voice_id
+CARTESIA_VOICE_ID=694f9389-aac1-45b6-b726-9d9369183238
+CARTESIA_LANGUAGE=en
 PORT=6009
 ```
 
@@ -40,9 +41,13 @@ POST /text-to-speech-stream
 
 - Request body:
 ```json
-{ "text": "Hello, how can I assist you today?" }
+{ "text": "Hello, how can I assist you today?", "voiceId": "optional_voice_id", "language": "en" }
 ```
 - Response: Audio stream in audio/l16 (LINEAR16 PCM), mono, 8kHz.
+
+### Optional Parameters
+- `voiceId`: Cartesia voice ID (defaults to the `CARTESIA_VOICE_ID` env var)
+- `language`: Language code (defaults to `en` or `CARTESIA_LANGUAGE` env var)
 
 Example request:
 ```bash
@@ -72,7 +77,8 @@ docker run -p 6009:6009 -e CARTESIA_API_KEY=your_api_key agentvoiceresponse/avr-
 ## Environment Variables (Complete Snippet)
 ```env
 CARTESIA_API_KEY=your_cartesia_api_key
-CARTESIA_VOICE_ID=optional_voice_id
+CARTESIA_VOICE_ID=694f9389-aac1-45b6-b726-9d9369183238
+CARTESIA_LANGUAGE=en
 PORT=6009
 ```
 
