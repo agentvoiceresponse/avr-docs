@@ -2,7 +2,7 @@
 title: Using AVR with N8N
 description: 
 published: true
-date: 2025-08-26T13:01:47.378Z
+date: 2026-04-24T07:12:16.467Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T11:02:33.190Z
@@ -16,6 +16,18 @@ dateCreated: 2025-08-26T11:02:33.190Z
 
 Integrating AVR with [n8n](https://n8n.io) allows you to build **AI-powered voicebots** with visual workflows and direct integration with AVR.  
 This integration is powered by the [avr-llm-n8n](https://github.com/agentvoiceresponse/avr-llm-n8n) connector.
+
+---
+
+## 🚀 What's New (v1.1.0)
+
+Starting from version **1.1.0**, the integration has been updated to support **streaming mode** using the n8n AI Agent capabilities.
+
+- Native streaming responses (low latency, real-time)
+- Support for both Chat Trigger and Webhook nodes
+- Improved conversational experience
+
+Docs: https://docs.n8n.io/workflows/streaming/
 
 ---
 
