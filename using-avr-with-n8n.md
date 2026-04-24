@@ -2,7 +2,7 @@
 title: Using AVR with N8N
 description: 
 published: true
-date: 2026-04-24T07:12:28.512Z
+date: 2026-04-24T07:16:22.050Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-26T11:02:33.190Z
@@ -82,7 +82,7 @@ avr-n8n:
 ![user.png](/images/n8n/user.png)
 {.is-info}
 
-## Step-by-step Setup AI Voicebot
+## Step-by-step Setup AI Voicebot (Trigger: "When chat message received")
 
 ![workflow.png](/images/n8n/workflow.png)
 
