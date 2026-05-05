@@ -65,6 +65,20 @@ npm start
 
 The process listens on `PORT` from `.env` (default **6009**).
 
+### AVR Core integration example
+
+Point AVR Core to the Cartesia TTS adapter URL:
+
+```env
+TTS_URL=http://avr-tts-cartesia:6009/text-to-speech-stream
+```
+
+In local setups (without Docker networking), use:
+
+```env
+TTS_URL=http://localhost:6009/text-to-speech-stream
+```
+
 ### API: `POST /text-to-speech-stream`
 
 Accepts JSON with the text to synthesize. The response is streamed as `audio/l16`: **mono, 8 kHz, 16-bit linear PCM**.
@@ -110,6 +124,13 @@ curl -X POST http://localhost:6009/text-to-speech-stream \
 
 - **400 Bad Request** — Missing or invalid `text` in the JSON body.
 - **500 Internal Server Error** — Cartesia API or upstream errors.
+
+### Troubleshooting
+
+- Verify `CARTESIA_API_KEY` is present and valid when you see upstream failures.
+- Confirm the service returns `audio/l16` and not encoded formats if playback is silent.
+- Ensure AVR and this adapter can reach each other on the configured host/port.
+- Use a test `curl` request first, then validate audio playback from AVR end-to-end.
 
 ---
 
