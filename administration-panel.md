@@ -1,8 +1,8 @@
 ---
 title: AVR App – Administration Panel
-description: 
+description: Architecture, setup, runtime behavior, and operations guide for the AVR administration panel.
 published: true
-date: 2026-02-08T18:42:56.143Z
+date: 2026-05-10T18:55:00.000Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker, admin
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
@@ -25,14 +25,12 @@ It allows you to design, configure, deploy, and manage AI voice agents connected
 
 ## Architecture Overview
 
-The AVR App stack includes:
+The AVR App repository contains two independent npm projects:
 
-- **Traefik** – Reverse proxy and router
-- **avr-app-backend** – NestJS API (JWT, SQLite, Docker management, ARI)
-- **avr-app-frontend** – Next.js 14 UI (Tailwind, shadcn/ui)
-- **Asterisk PBX** – SIP, WebRTC, AudioSocket
+- **`backend/`**: NestJS 11 API (JWT auth, TypeORM + SQLite, Docker orchestration, ARI integration)
+- **`frontend/`**: Next.js 16 + React 19 admin UI (Tailwind, shadcn/ui)
 
-All services are orchestrated via Docker Compose.
+There is no root npm workspace. Run commands from each project directory.
 
 ---
 
@@ -40,33 +38,52 @@ All services are orchestrated via Docker Compose.
 
 - Docker & Docker Compose
 - Git
+- Node.js 20+
 
 ---
 
 ## Installation & Startup
 
-Clone the repository:
+Clone the application repository:
 
 ```bash
-git clone https://github.com/agentvoiceresponse/avr-infra.git
-cd avr-infra
+git clone https://github.com/agentvoiceresponse/avr-app.git
+cd avr-app
 ```
 
-Start the stack:
+Install dependencies:
 
 ```bash
-docker compose -f docker-compose-app.yml up -d
+cd backend && npm install
+cd ../frontend && npm install
 ```
+
+Run in development:
+
+```bash
+# terminal 1
+cd backend
+npm run start:dev
+
+# terminal 2
+cd frontend
+npm run start:dev
+```
+
+Default local ports:
+
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:3001`
 
 ---
 
-## Access via Traefik
+## Optional Telephony Stack
 
-| Service | URL |
-|------|-----|
-| AVR App | http://avr.localhost |
-| Backend API | http://api.localhost |
-| Traefik Dashboard | http://localhost:8080 |
+This repo includes `docker-compose-asterisk.yml` to run local Asterisk-related services.
+
+```bash
+docker compose -f docker-compose-asterisk.yml up -d
+```
 
 ---
 
@@ -74,16 +91,30 @@ docker compose -f docker-compose-app.yml up -d
 
 Open:
 
-http://avr.localhost
+`http://localhost:3000/login`
 
 Default credentials:
 
 - Username: **admin**
-- Password: **admin**
+- Password: from `ADMIN_PASSWORD` (fallback default is `agentvoiceresponse`)
+
+Admin user is seeded at backend startup using `ADMIN_USERNAME` and `ADMIN_PASSWORD`.
 
 ---
 
-## Post-Installation Workflow
+## Environment and Runtime Notes
+
+- `FRONTEND_URL` controls CORS in backend (`main.ts`); wrong origin causes login/API failures.
+- Frontend runtime env is read via `next-runtime-env` (`env('NEXT_PUBLIC_*')`), not `process.env`.
+- Restart frontend dev server after editing `.env` values.
+- `NEXT_PUBLIC_API_URL` must point to backend (default `http://localhost:3001`).
+- Backend uses TypeORM with `synchronize: true`; schema changes can drop/reshape columns.
+- Local SQLite path is `../data/data.db` (relative to backend).
+- Backend needs Docker Engine running to spawn agent containers via Docker socket.
+
+---
+
+## Post-Setup Workflow
 
 1. Create a Provider
 2. Create an Agent
@@ -108,22 +139,11 @@ Default credentials:
 
 ---
 
-## Demo
-
-https://demo.app.agentvoiceresponse.com/login
-
-Viewer account:
-
-- Username: discord
-- Password: 05Tx14WbQN5oKQdx
-
----
-
 ## Repository Structure
 
 - backend/
 - frontend/
-- docker-compose-app.yml
+- docker-compose-asterisk.yml
 - asterisk/
 - data/
 
@@ -131,4 +151,6 @@ Viewer account:
 
 ## Notes
 
-The AVR App provides a production-like environment locally and is the foundation for scalable conversational AI voice systems.
+- `GET /health` and `POST /auth/login` are public; other backend routes require JWT.
+- Roles: `admin`, `manager`, `viewer`.
+- Asterisk config files (`extensions.conf`, `pjsip.conf`, `manager.conf`) are rewritten by backend telephony operations.
