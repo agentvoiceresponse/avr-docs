@@ -139,6 +139,17 @@ Admin user is seeded at backend startup using `ADMIN_USERNAME` and `ADMIN_PASSWO
 
 ---
 
+## Demo
+
+[https://demo.app.agentvoiceresponse.com/login](https://demo.app.agentvoiceresponse.com/login)
+
+Viewer account:
+
+- Username: discord
+- Password: 05Tx14WbQN5oKQdx
+
+---
+
 ## Repository Structure
 
 - backend/
