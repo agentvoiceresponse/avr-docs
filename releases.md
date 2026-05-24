@@ -2,11 +2,39 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T20:30:00.000Z
+date: 2026-05-24T21:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **ASR provider runtime contracts — `avr-app: 1.5.6`**
+
+Hi @everyone :wave:
+
+**`avr-app: 1.5.6`** adds backend validation for three ASR connector images so operators cannot save providers missing required API keys before agents start.
+
+### What's new?
+
+* **Deepgram ASR** — `DEEPGRAM_API_KEY` required for `agentvoiceresponse/avr-asr-deepgram`
+* **Sarvam ASR** — `SARVAM_API_KEY` required for `agentvoiceresponse/avr-asr-sarvam`
+* **Soniox ASR** — `SONIOX_API_KEY` required for `agentvoiceresponse/avr-asr-soniox`
+* **Compatibility matrix** — ASR rows documented in the Phase A connector matrix
+
+### Why this matters
+
+* **Fewer silent misconfigs** — missing ASR keys are rejected at provider create/update, not only at agent startup
+* **Connector parity** — backend contracts match `avr-asr-*` connector runtime requirements
+* **Operator clarity** — required env keys are listed in the published compatibility matrix
+
+### What has been updated
+
+* **avr-app** `1.5.6` — ASR provider runtime contracts (Deepgram, Sarvam, Soniox)
+  https://github.com/agentvoiceresponse/avr-app
 
 > 24 May 2026
 > {.is-info}
