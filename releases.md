@@ -2,11 +2,46 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T19:15:00.000Z
+date: 2026-05-24T20:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **All seven STS providers in the admin panel — `avr-app: 1.5.5`**
+
+Hi @everyone :wave:
+
+**`avr-app: 1.5.5`** completes the AVR-281 STS integration: Speechmatics and HumeAI are first-class in the administration panel, backend contracts align with connector runtime requirements, and a published env parity matrix documents all seven STS images.
+
+### What's new?
+
+* **Speechmatics STS** — create providers from template (`SPEECHMATICS_API_KEY`, EU/US region)
+* **HumeAI STS** — template with config-id mode (voice/instructions/welcome omitted when `HUMEAI_CONFIG_ID` is set)
+* **Contract alignment** — backend validates `SPEECHMATICS_API_KEY`, `HUMEAI_API_KEY`, and Deepgram `AGENT_PROMPT` before agent startup
+* **OpenAI default** — admin template default model `gpt-realtime-2` matches GA Realtime connector
+
+### Why this matters
+
+* **Operators configure STS in one place** — Provider `config.env` in the panel, not `backend/.env`
+* **Fewer silent misconfigs** — required env keys enforced at create time for all catalogued STS images
+* **Documented parity** — `backend/docs/AVR-281-sts-env-parity.md` cross-walks connectors, contracts, and templates
+
+### What has been updated
+
+* **avr-app** `1.5.5` — STS provider catalog (Speechmatics + HumeAI templates, contracts, parity matrix)
+  https://github.com/agentvoiceresponse/avr-app
+
+* **Updated guide:** AVR App – Administration Panel (STS providers subsection)
+  https://wiki.agentvoiceresponse.com/en/administration-panel
+
+* **Updated guides:** Speechmatics STS, HumeAI STS
+  https://wiki.agentvoiceresponse.com/en/speechmatics
+  https://wiki.agentvoiceresponse.com/en/using-humeai-sts-with-avr
 
 > 24 May 2026
 > {.is-info}

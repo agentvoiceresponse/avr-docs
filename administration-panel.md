@@ -93,6 +93,26 @@ Default credentials:
 
 ---
 
+## STS providers
+
+Speech-to-Speech (STS) agents use a **Provider** record in the admin panel. Credentials and tuning live in **Provider → config.env** (saved per provider in the database). Do **not** put connector secrets in `backend/.env` — that file is only for platform services (API URL, Docker socket, Asterisk paths, admin seed).
+
+**Workflow:** Create Provider (pick STS template) → Create Agent (STS mode, select provider) → assign a Number → run the agent.
+
+| Docker image | Description | Wiki |
+|---|---|---|
+| `agentvoiceresponse/avr-sts-openai` | OpenAI GA Realtime speech-to-speech | [OpenAI Realtime STS](https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr) |
+| `agentvoiceresponse/avr-sts-elevenlabs` | ElevenLabs conversational agent STS | [ElevenLabs STS](https://wiki.agentvoiceresponse.com/en/elevenlabs-speech-to-speech-integration-avr) |
+| `agentvoiceresponse/avr-sts-gemini` | Google Gemini Live STS | [Gemini STS](https://wiki.agentvoiceresponse.com/en/using-gemini-sts-with-avr) |
+| `agentvoiceresponse/avr-sts-ultravox` | Ultravox.ai agent or generic-call STS | [STS integration](https://wiki.agentvoiceresponse.com/en/avr-sts-integration-implementation) |
+| `agentvoiceresponse/avr-sts-deepgram` | Deepgram Voice Agent (ASR + LLM + TTS) | [Deepgram](https://wiki.agentvoiceresponse.com/en/deepgram) |
+| `agentvoiceresponse/avr-sts-speechmatics` | Speechmatics Flow realtime STS | [Speechmatics](https://wiki.agentvoiceresponse.com/en/speechmatics) |
+| `agentvoiceresponse/avr-sts-humeai` | HumeAI EVI emotional voice STS | [HumeAI STS](https://wiki.agentvoiceresponse.com/en/using-humeai-sts-with-avr) |
+
+For env key parity across connectors, backend contracts, and admin templates, see `backend/docs/AVR-281-sts-env-parity.md` in the [avr-app](https://github.com/agentvoiceresponse/avr-app) repository.
+
+---
+
 ## Testing
 
 ### SIP Softphone
