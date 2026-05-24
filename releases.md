@@ -36,6 +36,14 @@ Hi @everyone :wave:
 * **avr-app** `1.5.6` — ASR provider runtime contracts (Deepgram, Sarvam, Soniox)
   https://github.com/agentvoiceresponse/avr-app
 
+* **Updated guide:** AVR App – Administration Panel (ASR providers subsection)
+  https://wiki.agentvoiceresponse.com/en/administration-panel
+
+* **Updated guides:** Deepgram, Sarvam, Soniox ASR
+  https://wiki.agentvoiceresponse.com/en/deepgram
+  https://wiki.agentvoiceresponse.com/en/sarvam
+  https://wiki.agentvoiceresponse.com/en/avr-soniox-speech-to-text
+
 > 24 May 2026
 > {.is-info}
 {.is-info}

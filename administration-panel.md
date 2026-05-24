@@ -93,6 +93,22 @@ Default credentials:
 
 ---
 
+## ASR providers
+
+Pipeline agents (ASR + LLM + TTS) use a **Provider** record per speech-to-text connector. Credentials and tuning live in **Provider → config.env** (saved per provider in the database). Do **not** put connector secrets in `backend/.env` — that file is only for platform services (API URL, Docker socket, Asterisk paths, admin seed).
+
+**Workflow:** Create Provider (pick ASR template) → Create Agent (pipeline mode: select ASR, LLM, and TTS providers) → assign a Number → run the agent.
+
+| Docker image | Description | Wiki |
+|---|---|---|
+| `agentvoiceresponse/avr-asr-deepgram` | Deepgram streaming speech-to-text | [Deepgram](https://wiki.agentvoiceresponse.com/en/deepgram) |
+| `agentvoiceresponse/avr-asr-sarvam` | Sarvam streaming STT (Indic languages) | [Sarvam](https://wiki.agentvoiceresponse.com/en/sarvam) |
+| `agentvoiceresponse/avr-asr-soniox` | Soniox realtime speech recognition | [Soniox ASR](https://wiki.agentvoiceresponse.com/en/avr-soniox-speech-to-text) |
+
+For env key parity across connectors, backend contracts, and admin templates, see `backend/docs/AVR-290-asr-env-parity.md` in the [avr-app](https://github.com/agentvoiceresponse/avr-app) repository.
+
+---
+
 ## STS providers
 
 Speech-to-Speech (STS) agents use a **Provider** record in the admin panel. Credentials and tuning live in **Provider → config.env** (saved per provider in the database). Do **not** put connector secrets in `backend/.env` — that file is only for platform services (API URL, Docker socket, Asterisk paths, admin seed).
