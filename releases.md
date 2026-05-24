@@ -2,11 +2,40 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T15:17:03.917Z
+date: 2026-05-24T18:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **Phase A GA-1 — VoiceOps cockpit and agent lifecycle governance — `avr-app: 1.5.3`**
+
+Hi @everyone :wave:
+
+We're shipping **`avr-app: 1.5.3`**, the Phase A GA-1 stabilization release for the admin panel — extended agent lifecycle controls, VoiceOps cockpit UX, and provisioning consistency across providers, trunks, phones, and numbers.
+
+### What's new?
+
+* **Extended agent lifecycle** — `starting`, `stopping`, and `error` states with guarded transitions and cleanup on startup failure
+* **VoiceOps cockpit** — operational banner, overview scorecard, and improved protected-page UX with EN/IT i18n
+* **Provisioning consistency** — shared sync primitives and contract helpers for provider/trunk/phone/number Asterisk alignment
+* **Quality gates restored** — backend lint+unit tests and frontend lint+build CI on PRs and `main`
+* **Concurrent run/stop safety** — optimistic status updates prevent double-start or double-stop races on agent actions
+
+### Why this matters
+
+* **Operators get visibility** into agent state and provisioning health without SSH or log diving
+* **Fewer ghost containers** from lifecycle races during parallel admin actions
+* **Release lane governance** — test coverage and CI gates match the Phase A stabilization bar before GA-2
+
+### What has been updated
+
+* **avr-app** `1.5.3` — Phase A GA-1 admin panel stabilization
+  https://github.com/agentvoiceresponse/avr-app
 
 > 24 May 2026
 > {.is-info}
