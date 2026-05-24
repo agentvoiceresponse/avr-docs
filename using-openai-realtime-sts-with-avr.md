@@ -30,7 +30,7 @@ For more details on function calls, see [AVR Function Calls](https://wiki.agentv
 | *OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | https://your-api.com/instructions          |
 | *OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | ./instructions.txt          |
 | OPENAI_TEMPERATURE    | Sampling temperature for `gpt-realtime` / `gpt-realtime-mini` only (0.6–1.2) | 0.8                          |
-| OPENAI_MAX_TOKENS     | Max output tokens per response (`max_response_output_tokens`) | inf                            |
+| OPENAI_MAX_TOKENS     | Max output tokens per response (`response.create` → `max_output_tokens`) | inf                 |
 | OPENAI_REASONING_EFFORT | Reasoning effort for `gpt-realtime-2` (`minimal`–`xhigh`) | low                              |
 | OPENAI_TRANSCRIPTION_MODEL | Model for input audio transcription              | whisper-1                               |
 | OPENAI_TURN_DETECTION   | Voice activity detection (`server_vad` or `semantic_vad`) | server_vad                         |
