@@ -2,11 +2,36 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T18:30:00.000Z
+date: 2026-05-24T19:15:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:bug: **Telephony config upgrade fix — `avr-app: 1.5.4`**
+
+Hi @everyone :wave:
+
+Patch release **`avr-app: 1.5.4`** fixes duplicate Asterisk dialplan/PJSIP blocks that could appear after upgrading from pre-managed-marker layouts.
+
+### What's new?
+
+* **Legacy marker purge** — on trunk, phone, and number upsert/remove, the backend strips old `; BEGIN {id}` / `; END {id}` blocks outside `AVR-MANAGED` before writing the managed section
+* **Clearer scope** — runtime telephony writes are limited to `extensions.conf` and `pjsip.conf`; `manager.conf` stays seed/static AMI only
+
+### Why this matters
+
+* **No duplicate routes or endpoints** after upgrading existing deployments
+* **Deterministic managed config** — drift guard from 1.5.3 plus this migration fix keeps operator edits inside `AVR-MANAGED` only
+
+### What has been updated
+
+* **avr-app** `1.5.4` — telephony legacy block purge on provision/remove
+  https://github.com/agentvoiceresponse/avr-app
 
 > 24 May 2026
 > {.is-info}
