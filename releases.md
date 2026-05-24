@@ -2,11 +2,37 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T21:00:00.000Z
+date: 2026-05-24T22:45:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **Pipeline core URL fix — `avr-app: 1.5.7`**
+
+Hi @everyone :wave:
+
+**`avr-app: 1.5.7`** fixes pipeline agent startup: `ASR_URL`, `LLM_URL`, and `TTS_URL` passed to avr-core now include the streaming endpoint paths the core expects, not bare `http://container:port` roots.
+
+### What's new?
+
+* **`buildCoreUrl`** — ASR → `/speech-to-text-stream`, LLM → `/prompt-stream`, TTS → `/text-to-speech-stream`
+* **STS unchanged** — `STS_URL` remains `ws://` without a path suffix
+* **Reserved keys** — provider `config.env` cannot override `*_URL` wiring (unchanged policy)
+
+### Why this matters
+
+* **Pipeline agents connect** — ASR/LLM/TTS providers deployed after `1.5.6` reach the correct avr-core streaming routes
+* **No operator action** — upgrade the backend image; existing provider configs are unchanged
+
+### What has been updated
+
+* **avr-app** `1.5.7` — pipeline core URL path suffixes ([AVR-291](https://github.com/agentvoiceresponse/avr-app/issues/291))
+  https://github.com/agentvoiceresponse/avr-app
 
 > 24 May 2026
 > {.is-info}
