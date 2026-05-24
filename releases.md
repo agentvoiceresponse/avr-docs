@@ -43,6 +43,8 @@ Hi @everyone :wave:
   https://wiki.agentvoiceresponse.com/en/speechmatics
   https://wiki.agentvoiceresponse.com/en/using-humeai-sts-with-avr
 
+> **Breaking change:** Existing Deepgram STS providers created before `avr-app` `1.5.5` must add `AGENT_PROMPT` to provider config before starting an agent; the administration panel and backend now enforce this at `runAgent` time (new providers get a template default).
+
 > 24 May 2026
 > {.is-info}
 {.is-info}
