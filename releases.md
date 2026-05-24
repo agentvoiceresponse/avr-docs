@@ -2,11 +2,49 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-08T15:17:03.917Z
+date: 2026-05-24T15:17:03.917Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 24 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **OpenAI STS upgraded to GA Realtime — `gpt-realtime-2` is here!**
+
+Hi @everyone :wave:
+
+We're excited to announce **`avr-sts-openai: 1.11.0`**, a major upgrade to OpenAI's **GA Realtime API** with the latest speech-to-speech model.
+
+### What's new?
+
+The OpenAI STS connector now targets the production GA Realtime interface:
+
+* Default model **`gpt-realtime-2`** (configurable via `OPENAI_MODEL`)
+* GA session schema with nested `audio` input/output configuration
+* GA event handling (`response.output_audio.delta`, transcripts, tool calls)
+* Configurable **turn detection** — `server_vad` by default (`OPENAI_TURN_DETECTION`)
+* Optional **reasoning effort** for `gpt-realtime-2` (`OPENAI_REASONING_EFFORT`)
+* Deprecated beta models (e.g. `gpt-4o-realtime-preview`) are **rejected** with a clear error
+
+### Why this matters
+
+* **Better voice quality and instruction following** with OpenAI's latest realtime model
+* **Production-ready GA API** — no beta header required
+* **Safer telephony UX** — `server_vad` default preserves familiar turn-taking behavior
+* **Clear migration path** — breaking changes documented; override model for `gpt-realtime` or `gpt-realtime-mini`
+
+### What has been updated
+
+* **avr-sts-openai** `1.11.0` — GA Realtime migration
+  https://github.com/agentvoiceresponse/avr-sts-openai
+
+* **Updated guide:** OpenAI Realtime Speech-to-Speech (STS)
+  https://wiki.agentvoiceresponse.com/en/using-openai-realtime-sts-with-avr
+
+> **Breaking change:** If you still use `OPENAI_MODEL=gpt-4o-realtime-preview`, update to `gpt-realtime-2` (or `gpt-realtime` / `gpt-realtime-mini`) before upgrading the connector image.
 
 > 15 February 2026
 > {.is-info}
