@@ -2,7 +2,7 @@
 title: AVR Ollama Integration
 description: 
 published: true
-date: 2025-09-16T13:47:38.692Z
+date: 2026-05-08T15:14:24.909Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-16T13:47:38.692Z

@@ -2,7 +2,7 @@
 title: Using AVR with a Custom MCP Server
 description: 
 published: true
-date: 2025-09-25T10:03:52.429Z
+date: 2026-05-08T15:17:42.118Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-25T10:03:52.429Z

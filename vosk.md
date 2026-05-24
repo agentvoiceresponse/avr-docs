@@ -2,7 +2,7 @@
 title: Using Vosk ASR with AVR
 description: 
 published: true
-date: 2026-01-05T13:40:32.534Z
+date: 2026-05-08T15:18:06.392Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-31T20:00:40.321Z

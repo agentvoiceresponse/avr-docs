@@ -2,7 +2,7 @@
 title: Using Ambient Background Noise in AVR
 description: AVR Core now supports the ability to add ambient background sounds to calls.   This feature allows you to simulate real-world environments (e.g., office, café, nature) or introduce controlled background noise during testing.
 published: true
-date: 2025-08-25T17:25:31.161Z
+date: 2026-05-08T15:17:32.474Z
 tags: avr, background, noice, ambient
 editor: markdown
 dateCreated: 2025-08-25T17:25:26.461Z

@@ -1,8 +1,8 @@
 ---
 title: AVR App – Administration Panel
-description: Architecture, setup, runtime behavior, and operations guide for the AVR administration panel.
+description: 
 published: true
-date: 2026-05-10T18:55:00.000Z
+date: 2026-05-08T15:14:05.325Z
 tags: asr, tts, avr, llm, sts, app, cloud, docker, admin
 editor: markdown
 dateCreated: 2025-09-30T14:23:03.468Z
@@ -25,12 +25,14 @@ It allows you to design, configure, deploy, and manage AI voice agents connected
 
 ## Architecture Overview
 
-The AVR App repository contains two independent npm projects:
+The AVR App stack includes:
 
-- **`backend/`**: NestJS 11 API (JWT auth, TypeORM + SQLite, Docker orchestration, ARI integration)
-- **`frontend/`**: Next.js 16 + React 19 admin UI (Tailwind, shadcn/ui)
+- **Traefik** – Reverse proxy and router
+- **avr-app-backend** – NestJS API (JWT, SQLite, Docker management, ARI)
+- **avr-app-frontend** – Next.js 14 UI (Tailwind, shadcn/ui)
+- **Asterisk PBX** – SIP, WebRTC, AudioSocket
 
-There is no root npm workspace. Run commands from each project directory.
+All services are orchestrated via Docker Compose.
 
 ---
 
@@ -38,52 +40,33 @@ There is no root npm workspace. Run commands from each project directory.
 
 - Docker & Docker Compose
 - Git
-- Node.js 20+
 
 ---
 
 ## Installation & Startup
 
-Clone the application repository:
+Clone the repository:
 
 ```bash
-git clone https://github.com/agentvoiceresponse/avr-app.git
-cd avr-app
+git clone https://github.com/agentvoiceresponse/avr-infra.git
+cd avr-infra
 ```
 
-Install dependencies:
+Start the stack:
 
 ```bash
-cd backend && npm install
-cd ../frontend && npm install
+docker compose -f docker-compose-app.yml up -d
 ```
-
-Run in development:
-
-```bash
-# terminal 1
-cd backend
-npm run start:dev
-
-# terminal 2
-cd frontend
-npm run start:dev
-```
-
-Default local ports:
-
-- Frontend: `http://localhost:3000`
-- Backend API: `http://localhost:3001`
 
 ---
 
-## Optional Telephony Stack
+## Access via Traefik
 
-This repo includes `docker-compose-asterisk.yml` to run local Asterisk-related services.
-
-```bash
-docker compose -f docker-compose-asterisk.yml up -d
-```
+| Service | URL |
+|------|-----|
+| AVR App | http://avr.localhost |
+| Backend API | http://api.localhost |
+| Traefik Dashboard | http://localhost:8080 |
 
 ---
 
@@ -91,30 +74,16 @@ docker compose -f docker-compose-asterisk.yml up -d
 
 Open:
 
-`http://localhost:3000/login`
+http://avr.localhost
 
 Default credentials:
 
 - Username: **admin**
-- Password: from `ADMIN_PASSWORD` (fallback default is `agentvoiceresponse`)
-
-Admin user is seeded at backend startup using `ADMIN_USERNAME` and `ADMIN_PASSWORD`.
+- Password: **admin**
 
 ---
 
-## Environment and Runtime Notes
-
-- `FRONTEND_URL` controls CORS in backend (`main.ts`); wrong origin causes login/API failures.
-- Frontend runtime env is read via `next-runtime-env` (`env('NEXT_PUBLIC_*')`), not `process.env`.
-- Restart frontend dev server after editing `.env` values.
-- `NEXT_PUBLIC_API_URL` must point to backend (default `http://localhost:3001`).
-- Backend uses TypeORM with `synchronize: true`; schema changes can drop/reshape columns.
-- Local SQLite path is `../data/data.db` (relative to backend).
-- Backend needs Docker Engine running to spawn agent containers via Docker socket.
-
----
-
-## Post-Setup Workflow
+## Post-Installation Workflow
 
 1. Create a Provider
 2. Create an Agent
@@ -141,7 +110,7 @@ Admin user is seeded at backend startup using `ADMIN_USERNAME` and `ADMIN_PASSWO
 
 ## Demo
 
-[https://demo.app.agentvoiceresponse.com/login](https://demo.app.agentvoiceresponse.com/login)
+https://demo.app.agentvoiceresponse.com/login
 
 Viewer account:
 
@@ -154,7 +123,7 @@ Viewer account:
 
 - backend/
 - frontend/
-- docker-compose-asterisk.yml
+- docker-compose-app.yml
 - asterisk/
 - data/
 
@@ -162,6 +131,4 @@ Viewer account:
 
 ## Notes
 
-- `GET /health` and `POST /auth/login` are public; other backend routes require JWT.
-- Roles: `admin`, `manager`, `viewer`.
-- Asterisk config files (`extensions.conf`, `pjsip.conf`, `manager.conf`) are rewritten by backend telephony operations.
+The AVR App provides a production-like environment locally and is the foundation for scalable conversational AI voice systems.

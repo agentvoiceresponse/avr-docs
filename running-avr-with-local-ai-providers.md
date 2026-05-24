@@ -2,7 +2,7 @@
 title: Run Conversational AI Locally with Asterisk PBX, AVR, Vosk, Ollama, and Kokoro
 description: 
 published: true
-date: 2025-09-08T10:47:41.666Z
+date: 2026-05-08T15:17:09.056Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-08T09:25:20.165Z

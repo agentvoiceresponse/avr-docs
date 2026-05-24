@@ -1,11 +1,11 @@
 ---
 title: Soniox TTS
-description:
+description: 
 published: true
-date: 2026-05-07T19:30:00.000Z
-tags:
+date: 2026-05-08T15:15:03.794Z
+tags: 
 editor: markdown
-dateCreated: 2026-05-07T19:30:00.000Z
+dateCreated: 2026-05-08T15:14:53.080Z
 ---
 
 # Soniox TTS Integration

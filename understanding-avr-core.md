@@ -2,7 +2,7 @@
 title: Understanding AVR Core
 description: 
 published: true
-date: 2025-11-06T18:18:37.526Z
+date: 2026-05-08T15:17:27.960Z
 tags: asr, tts, asterisk, avr-core, architecture, integration, voip, llm, sts
 editor: markdown
 dateCreated: 2025-09-30T11:07:10.215Z

@@ -2,7 +2,7 @@
 title: AVR Function Calls
 description: 
 published: true
-date: 2025-12-16T12:40:25.919Z
+date: 2026-05-08T15:14:20.345Z
 tags: avr, transfer, hangup, function calls, tools, avr_tools
 editor: markdown
 dateCreated: 2025-09-04T14:35:17.641Z

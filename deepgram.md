@@ -2,7 +2,7 @@
 title: Deepgram
 description: Deepgram is an AI-powered speech platform providing both Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities.
 published: true
-date: 2025-09-30T11:30:56.744Z
+date: 2026-05-08T15:15:29.054Z
 tags: asr, tts, sts, deepgram
 editor: markdown
 dateCreated: 2025-08-11T10:20:30.335Z

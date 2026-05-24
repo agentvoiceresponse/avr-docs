@@ -2,7 +2,7 @@
 title: AVR Core HTTP Web Service
 description: 
 published: true
-date: 2026-02-15T11:03:25.464Z
+date: 2026-05-08T15:14:15.396Z
 tags: 
 editor: markdown
 dateCreated: 2026-02-15T11:03:25.464Z

@@ -2,12 +2,11 @@
 title: Coqui TTS
 description: 
 published: true
-date: 2025-12-15T08:43:32.081Z
+date: 2026-05-08T15:15:18.487Z
 tags: 
 editor: markdown
 dateCreated: 2025-09-13T14:54:56.595Z
 ---
-
 
 **Coqui TTS** is an open-source, high-quality **text-to-speech engine** built on deep learning.  
 It provides natural-sounding voices and supports multiple languages, making it a great option for **local deployments** where flexibility and privacy are priorities.  

@@ -2,7 +2,7 @@
 title: Google ASR and TTS
 description: Google Cloud Speech-to-Text (ASR) and Text-to-Speech (TTS) Configuration
 published: true
-date: 2025-08-26T13:04:28.173Z
+date: 2026-05-08T15:16:22.819Z
 tags: asr, tts, google
 editor: markdown
 dateCreated: 2025-08-11T10:53:39.880Z

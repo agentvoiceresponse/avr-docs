@@ -1,11 +1,11 @@
 ---
 title: Cartesia TTS
-description:
+description: 
 published: true
-date: 2026-05-05T12:00:00.000Z
-tags:
+date: 2026-05-08T15:14:52.680Z
+tags: 
 editor: markdown
-dateCreated: 2026-05-05T12:00:00.000Z
+dateCreated: 2026-04-12T20:18:27.284Z
 ---
 
 # Cartesia TTS Integration

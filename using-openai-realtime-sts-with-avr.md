@@ -2,7 +2,7 @@
 title: OpenAI Realtime Speech-to-Speech
 description: 
 published: true
-date: 2026-01-17T11:55:24.800Z
+date: 2026-05-08T15:18:01.793Z
 tags: sts, openai
 editor: markdown
 dateCreated: 2025-09-04T15:05:27.174Z
@@ -23,18 +23,14 @@ For more details on function calls, see [AVR Function Calls](https://wiki.agentv
 |-----------------------|-------------------------------------------------------|-----------------------------------------|
 | PORT                  | Port on which the STS service runs                    | 6030                                    |
 | OPENAI_API_KEY        | Your OpenAI API key                                   | sk-xxxxxx                               |
-| OPENAI_MODEL          | OpenAI model ID to use                                | gpt-realtime-2                          |
+| OPENAI_MODEL          | OpenAI model ID to use                                | gpt-4o-realtime-preview                 |
 | OPENAI_VOICE          | Specifies the voice to use for speech synthesis                                | alloy                 |
 | OPENAI_LANGUAGE          | Specifies the language to use for speech recognition                                | auto-detected                 |
 | OPENAI_INSTRUCTIONS   | # Method 1: Direct variable                       | "You are a helpful assistant."          |
 | *OPENAI_URL_INSTRUCTIONS   | # Method 2: Web service                       | https://your-api.com/instructions          |
 | *OPENAI_FILE_INSTRUCTIONS   | # Method 3: Local file                       | ./instructions.txt          |
-| OPENAI_TEMPERATURE    | Sampling temperature for `gpt-realtime` / `gpt-realtime-mini` only (0.6–1.2) | 0.8                          |
-| OPENAI_MAX_TOKENS     | Max output tokens per response (`response.create` → `max_output_tokens`) | inf                 |
-| OPENAI_REASONING_EFFORT | Reasoning effort for `gpt-realtime-2` (`minimal`–`xhigh`) | low                              |
-| OPENAI_TRANSCRIPTION_MODEL | Model for input audio transcription              | whisper-1                               |
-| OPENAI_TURN_DETECTION   | Voice activity detection (`server_vad` or `semantic_vad`) | server_vad                         |
-| OPENAI_TURN_DETECTION_EAGERNESS | Eagerness for `semantic_vad` only (`low`, `medium`, `high`, `auto`) | (optional)              |
+| OPENAI_TEMPERATURE    | Controls randomness in responses (0.0–1.0, default 0.8) | 0.8                                     |
+| OPENAI_MAX_TOKENS     | Maximum response length (default: unlimited)          | 100                                     |
 
 ---
 
@@ -49,7 +45,7 @@ avr-sts-openai:
   environment:
     - PORT=6030
     - OPENAI_API_KEY=$OPENAI_API_KEY
-    - OPENAI_MODEL=gpt-realtime-2
+    - OPENAI_MODEL=gpt-4o-realtime-preview
     - OPENAI_INSTRUCTIONS="You are a helpful assistant."
     - OPENAI_TEMPERATURE=0.8
     - OPENAI_MAX_TOKENS=100
@@ -131,12 +127,10 @@ Below is a step-by-step guide on how to configure:
 Set your realtime model using:
 
 ```env
-OPENAI_MODEL=gpt-realtime-2
+OPENAI_MODEL=gpt-realtime
 ```
 
-This is the recommended default for streaming speech-to-speech interactions. Use `gpt-realtime` for the previous GA model, or `gpt-realtime-mini` for a lower-cost option.
-
-> **Breaking change:** `gpt-4o-realtime-preview` is no longer supported. The connector uses the GA Realtime API. Turn detection defaults to `server_vad` via `OPENAI_TURN_DETECTION` (set `semantic_vad` to opt in).
+This is the recommended default for streaming speech-to-speech interactions.
 
 ---
 
@@ -232,7 +226,7 @@ OPENAI_INSTRUCTIONS="Affect/personality: A cheerful guide \n\nTone: Friendly, cl
 ## 4. Full Example Configuration
 
 ```env
-OPENAI_MODEL=gpt-realtime-2
+OPENAI_MODEL=gpt-realtime
 OPENAI_VOICE=alloy
 OPENAI_INSTRUCTIONS="A cheerful guide who speaks clearly, with warm and supportive tone..."
 ```

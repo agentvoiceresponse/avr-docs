@@ -2,6 +2,16 @@
 title: Overview: Noise and VAD
 description: 
 published: true
+date: 2026-05-08T15:16:53.709Z
+tags: 
+editor: markdown
+dateCreated: 2025-08-26T09:52:43.102Z
+---
+
+---
+title: Overview: Noise and VAD
+description: 
+published: true
 date: 2025-11-02T10:41:56.997Z
 tags: 
 editor: markdown
