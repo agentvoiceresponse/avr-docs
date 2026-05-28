@@ -2,11 +2,41 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-24T22:45:00.000Z
+date: 2026-05-28T19:50:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 28 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **Vertex AI support for Gemini STS — `avr-sts-gemini: 1.5.0`**
+
+Hi @everyone :wave:
+
+**`avr-sts-gemini: 1.5.0`** adds Google Cloud Console / Vertex AI authentication alongside the existing Google AI Studio API key flow.
+
+### What's new?
+
+* **Dual auth** — Google AI Studio (`GEMINI_API_KEY` / `GOOGLE_API_KEY`) or Vertex AI (`GOOGLE_GENAI_USE_VERTEXAI`, `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION`, ADC)
+* **AVR aliases** — `GEMINI_USE_VERTEXAI`, `GEMINI_VERTEX_PROJECT`, `GEMINI_VERTEX_LOCATION`
+* **Clearer errors** — WebSocket init failures surface config messages (missing project, location, or API key)
+* **Optional** — `GEMINI_API_VERSION` for both modes
+
+### Why this matters
+
+* **GCP-native deployments** — run Gemini Live STS with service-account / ADC auth instead of an AI Studio API key
+* **Same connector** — no separate image; toggle auth mode via environment variables
+
+### What has been updated
+
+* **avr-sts-gemini** `1.5.0` — Vertex AI + Google AI Studio dual auth ([AVR-300](https://github.com/agentvoiceresponse/avr-sts-gemini/issues/300))
+  https://github.com/agentvoiceresponse/avr-sts-gemini
+
+* **Updated guide:** Using Gemini STS with AVR (Vertex AI configuration)
+  https://wiki.agentvoiceresponse.com/en/using-gemini-sts-with-avr
 
 > 24 May 2026
 > {.is-info}
