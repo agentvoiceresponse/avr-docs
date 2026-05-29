@@ -2,7 +2,7 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-29T20:00:00.000Z
+date: 2026-05-29T21:45:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
@@ -35,6 +35,9 @@ Hi @everyone :wave:
 
 * **avr-sts-xai** `1.0.0` — initial release ([AVR-301](https://github.com/agentvoiceresponse/avr-sts-xai/issues/301))
   https://github.com/agentvoiceresponse/avr-sts-xai
+
+* **Updated guide:** Using xAI Grok Voice Agent STS with AVR
+  https://wiki.agentvoiceresponse.com/en/avr-sts-xai
 
 * **xAI Voice Agent API reference**
   https://docs.x.ai/developers/model-capabilities/audio/voice-agent
