@@ -2,11 +2,42 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-28T19:50:00.000Z
+date: 2026-05-29T20:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 29 May 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **New STS provider — `avr-sts-xai: 1.0.0`**
+
+Hi @everyone :wave:
+
+**`avr-sts-xai: 1.0.0`** adds xAI Grok Voice Agent as an AVR Speech-to-Speech provider — real-time voice conversations over the OpenAI Realtime–compatible xAI WebSocket API.
+
+### What's new?
+
+* **Grok Voice Agent STS** — bridge AVR telephony audio to `wss://api.x.ai/v1/realtime`
+* **Voices** — `eve`, `ara`, `rex`, `sal`, `leo` (default `eve`); model `grok-voice-latest`
+* **AVR tools** — `avr_transfer`, `avr_hangup` plus custom tools in `tools/`
+* **Optional xAI tools** — `web_search`, `x_search`, `file_search` via `XAI_BUILTIN_TOOLS`
+* **Default port** — `6041` (`STS_URL=ws://avr-sts-xai:6041`)
+
+### Why this matters
+
+* **More STS choice** — deploy Grok-powered voice agents alongside OpenAI, Gemini, and other AVR STS connectors
+* **Familiar integration** — same AVR WebSocket protocol (`init`, `audio`, transcripts, interruption)
+
+### What has been updated
+
+* **avr-sts-xai** `1.0.0` — initial release ([AVR-301](https://github.com/agentvoiceresponse/avr-sts-xai/issues/301))
+  https://github.com/agentvoiceresponse/avr-sts-xai
+
+* **xAI Voice Agent API reference**
+  https://docs.x.ai/developers/model-capabilities/audio/voice-agent
 
 > 28 May 2026
 > {.is-info}
