@@ -2,11 +2,39 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-06-12T19:30:00.000Z
+date: 2026-06-12T20:45:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 12 June 2026
+> {.is-info}
+{.is-info}
+
+:rocket: **Welcome message for xAI STS — `avr-sts-xai: 1.1.0`**
+
+Hi @everyone :wave:
+
+**`avr-sts-xai: 1.1.0`** adds an optional verbatim greeting at the start of each voice session using xAI's `force_message` API.
+
+### What's new?
+
+* **Welcome message** — set `XAI_WELCOME_MESSAGE` to play a fixed greeting when the session opens
+* **Non-interruptible delivery** — greeting is sent as xAI `force_message` before the caller speaks
+
+### Why this matters
+
+* **Consistent call opening** — brand greetings and IVR-style intros without custom dialplan audio
+* **Zero code changes** — configure via environment variable on existing `avr-sts-xai` deployments
+
+### What has been updated
+
+* **avr-sts-xai** `1.1.0` — welcome message via `XAI_WELCOME_MESSAGE` ([AVR-315](https://github.com/agentvoiceresponse/avr-sts-xai/issues/315))
+  https://github.com/agentvoiceresponse/avr-sts-xai
+
+* **Updated guide:** Using xAI Grok Voice Agent STS with AVR
+  https://wiki.agentvoiceresponse.com/en/avr-sts-xai
 
 > 12 June 2026
 > {.is-info}
