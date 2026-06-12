@@ -2,11 +2,38 @@
 title: Release Notes
 description: List of new features, bug fixes and improvement
 published: true
-date: 2026-05-29T21:45:00.000Z
+date: 2026-06-12T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2025-08-08T16:52:47.453Z
 ---
+
+> 12 June 2026
+> {.is-info}
+{.is-info}
+
+:books: **New guide — Recording calls with AVR**
+
+Hi @everyone :wave:
+
+Published a wiki guide for **call recording** on AVR deployments. AVR Core and STS connectors do not provide native recording today; the recommended production approach is **Asterisk `MixMonitor`** in the dialplan before `Dial(AudioSocket/...)`.
+
+### What's new?
+
+* **Step-by-step dialplan examples** — `MixMonitor` before AudioSocket `Dial`
+* **Docker volume setup** — persist recordings from `avr-asterisk` on the host
+* **AVR App integration** — align filenames with the Recordings UI (`ASTERISK_MONITOR_PATH`)
+* **External PBX notes** — same pattern for FreePBX, VitalPBX, and external Asterisk
+
+### Why this matters
+
+* **Clear operator guidance** — no undocumented flags or env vars to hunt for
+* **Production-ready pattern** — compliance-grade recording stays at the PBX layer where it belongs
+
+### What has been updated
+
+* **New guide:** Recording Calls with AVR
+  https://wiki.agentvoiceresponse.com/en/recording-calls-with-avr
 
 > 29 May 2026
 > {.is-info}
